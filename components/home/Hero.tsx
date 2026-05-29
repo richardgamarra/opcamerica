@@ -97,7 +97,7 @@ export function Hero({ lang, t }: HeroProps) {
           <em className="text-opc-orange not-italic">{t.line3}</em>
         </h1>
 
-        <div className="inline-flex items-center gap-2 mb-5 md:mb-6 font-sans text-[9px] md:text-[10px] tracking-[2px] md:tracking-[2.5px] text-white/38 uppercase border border-white/10 px-3 md:px-4 py-1.5 rounded">
+        <div className="inline-flex items-center gap-2 mb-5 md:mb-6 font-sans text-[9px] md:text-[10px] tracking-[2px] md:tracking-[2.5px] text-white/50 uppercase border border-white/20 px-3 md:px-4 py-1.5 rounded">
           <span className="w-1.5 h-1.5 bg-opc-orange rounded-full" />
           {t.badge}
         </div>
@@ -118,7 +118,7 @@ export function Hero({ lang, t }: HeroProps) {
           </Link>
           <Link
             href={`/${lang}/#community`}
-            className="border border-white/20 text-white/72 px-5 md:px-7 py-4 rounded-lg font-sans text-sm md:text-base text-center hover:border-white/40 transition-colors"
+            className="border border-white/30 text-white/75 px-5 md:px-7 py-4 rounded-lg font-sans text-sm md:text-base text-center hover:border-white/60 hover:text-white transition-colors"
           >
             {t.ctaSecondary}
           </Link>
