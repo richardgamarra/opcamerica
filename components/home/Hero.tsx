@@ -86,12 +86,12 @@ export function Hero({ lang, t }: HeroProps) {
 
       {/* Hero content */}
       <div className="relative z-30 px-5 md:px-12 pt-28 md:pt-32 pb-8 max-w-2xl flex-1 flex flex-col justify-center">
-        <p className="font-sans text-[10px] md:text-[11px] tracking-[2px] md:tracking-[3px] text-white/40 uppercase mb-6 md:mb-7 flex items-center gap-3">
+        <p className="font-sans text-[10px] md:text-[11px] tracking-[2px] md:tracking-[3px] !text-white/40 uppercase mb-6 md:mb-7 flex items-center gap-3">
           <span className="w-6 md:w-8 h-px bg-opc-orange flex-shrink-0" />
           {t.eyebrow}
         </p>
 
-        <h1 className="font-serif text-5xl md:text-[68px] font-black leading-none tracking-[-1px] md:tracking-[-1.5px] mb-5">
+        <h1 className="font-serif text-5xl md:text-[68px] font-black leading-none tracking-[-1px] md:tracking-[-1.5px] mb-5 text-white">
           {t.line1}<br />
           {t.line2}<br />
           <em className="text-opc-orange not-italic">{t.line3}</em>

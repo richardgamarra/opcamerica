@@ -23,10 +23,7 @@ html:not(.dark) body {
   to   { transform: translateX(-50%); }
 }
 
-/* Hero bottom fade matches page background per theme */
-.dark .dark-fade {
+/* Hero bottom fade always dark — hero image is always dark */
+.dark-fade {
   background: linear-gradient(to top, #080d14 0%, transparent 100%);
-}
-html:not(.dark) .dark-fade {
-  background: linear-gradient(to top, #f5f4f0 0%, transparent 100%);
 }
