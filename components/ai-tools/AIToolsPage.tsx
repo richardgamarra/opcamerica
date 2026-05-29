@@ -22,21 +22,21 @@ export function AIToolsPage({ lang, t }: Props) {
   const isEs = lang === "es";
 
   return (
-    <div className="min-h-screen bg-opc-dark">
+    <div className="min-h-screen bg-opc-light dark:bg-opc-dark">
 
       {/* Hero */}
-      <section className="pt-28 pb-12 px-5 md:px-6 border-b border-white/5">
+      <section className="pt-28 pb-12 px-5 md:px-6 border-b border-gray-200 dark:border-white/5">
         <div className="max-w-6xl mx-auto">
           <p className="font-sans text-[11px] font-bold text-opc-orange uppercase tracking-widest mb-3">
             {isEs ? "Herramientas IA" : "AI Tools"}
           </p>
-          <h1 className="font-serif text-4xl md:text-5xl lg:text-6xl font-black text-white tracking-tight leading-tight max-w-3xl">
+          <h1 className="font-serif text-4xl md:text-5xl lg:text-6xl font-black text-opc-dark dark:text-white tracking-tight leading-tight max-w-3xl">
             {t.heading}
           </h1>
-          <p className="font-sans text-base md:text-lg text-white/50 mt-4 max-w-2xl">
+          <p className="font-sans text-base md:text-lg text-gray-500 dark:text-white/50 mt-4 max-w-2xl">
             {t.sub}
           </p>
-          <div className="flex flex-wrap gap-4 mt-6 text-sm text-white/40 font-sans">
+          <div className="flex flex-wrap gap-4 mt-6 text-sm text-gray-400 dark:text-white/40 font-sans">
             <span>✦ {AI_TOOLS.length} {isEs ? "herramientas curadas" : "curated tools"}</span>
             <span>✦ 13 {isEs ? "categorías" : "categories"}</span>
             <span>✦ {isEs ? "Actualizado 2026" : "Updated 2026"}</span>
@@ -57,18 +57,18 @@ export function AIToolsPage({ lang, t }: Props) {
                 <p className="font-sans text-[11px] font-bold text-opc-orange uppercase tracking-widest mb-1">
                   {isEs ? "Recomendado" : "Recommended"}
                 </p>
-                <h2 className="font-sans font-black text-white text-xl md:text-2xl leading-snug">
+                <h2 className="font-sans font-black text-opc-dark dark:text-white text-xl md:text-2xl leading-snug">
                   {CORE_STACK.title}
                 </h2>
-                <p className="font-sans text-sm text-white/50 mt-1">{CORE_STACK.subtitle}</p>
-                <p className="font-sans text-sm text-white/40 mt-2 max-w-xl">{CORE_STACK.description}</p>
+                <p className="font-sans text-sm text-gray-500 dark:text-white/50 mt-1">{CORE_STACK.subtitle}</p>
+                <p className="font-sans text-sm text-gray-400 dark:text-white/40 mt-2 max-w-xl">{CORE_STACK.description}</p>
                 <div className="flex flex-wrap gap-2 mt-3">
                   {CORE_STACK.tools.slice(0, 8).map(tool => (
-                    <span key={tool.name} className="font-sans text-[11px] text-white/40 bg-white/5 border border-white/8 px-2.5 py-1 rounded-full">
+                    <span key={tool.name} className="font-sans text-[11px] text-gray-500 dark:text-white/40 bg-black/5 dark:bg-white/5 border border-gray-200 dark:border-white/8 px-2.5 py-1 rounded-full">
                       {tool.logoEmoji} {tool.name}
                     </span>
                   ))}
-                  <span className="font-sans text-[11px] text-white/30 bg-white/5 border border-white/8 px-2.5 py-1 rounded-full">
+                  <span className="font-sans text-[11px] text-gray-400 dark:text-white/30 bg-black/5 dark:bg-white/5 border border-gray-200 dark:border-white/8 px-2.5 py-1 rounded-full">
                     +{CORE_STACK.tools.length - 8} {isEs ? "más" : "more"}
                   </span>
                 </div>
@@ -76,8 +76,8 @@ export function AIToolsPage({ lang, t }: Props) {
             </div>
             <div className="flex flex-col items-start md:items-end gap-3 shrink-0">
               <div className="md:text-right">
-                <p className="font-sans text-3xl font-black text-white">${CORE_STACK.price}</p>
-                <p className="font-sans text-xs text-white/40">{isEs ? "guía única" : "one-time guide"}</p>
+                <p className="font-sans text-3xl font-black text-opc-dark dark:text-white">${CORE_STACK.price}</p>
+                <p className="font-sans text-xs text-gray-400 dark:text-white/40">{isEs ? "guía única" : "one-time guide"}</p>
                 <p className="font-sans text-xs text-opc-orange mt-1">
                   {isEs ? "Valor: ~$271/mo en herramientas" : "Value: ~$271/mo in tools"}
                 </p>
@@ -88,7 +88,7 @@ export function AIToolsPage({ lang, t }: Props) {
               >
                 {isEs ? "Obtener el Core Stack →" : "Get the Core Stack →"}
               </Link>
-              <p className="font-sans text-[11px] text-white/25">
+              <p className="font-sans text-[11px] text-gray-300 dark:text-white/25">
                 {isEs ? "Acceso inmediato · Pago único" : "Instant access · One-time payment"}
               </p>
             </div>
@@ -105,7 +105,7 @@ export function AIToolsPage({ lang, t }: Props) {
                 className={`font-sans text-xs font-semibold px-4 py-2 rounded-full border transition-colors whitespace-nowrap ${
                   activeCategory === cat
                     ? "bg-opc-orange text-white border-opc-orange"
-                    : "bg-white/5 text-white/50 border-white/10 hover:border-white/30 hover:text-white/80"
+                    : "bg-white dark:bg-white/5 text-gray-500 dark:text-white/50 border-gray-200 dark:border-white/10 hover:border-gray-400 dark:hover:border-white/30 hover:text-opc-dark dark:hover:text-white/80"
                 }`}
               >
                 {cat}
@@ -114,7 +114,7 @@ export function AIToolsPage({ lang, t }: Props) {
           </div>
         </div>
 
-        <p className="font-sans text-xs text-white/25 mb-6">
+        <p className="font-sans text-xs text-gray-400 dark:text-white/25 mb-6">
           {filtered.length} {isEs ? "herramientas" : "tools"}
           {activeCategory !== "All" ? ` ${isEs ? "en" : "in"} ${activeCategory}` : ""}
         </p>
@@ -127,7 +127,7 @@ export function AIToolsPage({ lang, t }: Props) {
               href={tool.url}
               target="_blank"
               rel="noopener noreferrer"
-              className="bg-white/5 border border-white/8 rounded-xl p-5 flex flex-col hover:border-white/20 hover:bg-white/8 transition-all group"
+              className="bg-white border border-gray-200 dark:bg-white/5 dark:border-white/8 rounded-xl p-5 flex flex-col hover:border-gray-300 dark:hover:border-white/20 hover:shadow-sm dark:hover:bg-white/8 transition-all group"
             >
               <div className="flex items-start justify-between mb-3">
                 <span className="text-2xl">{tool.logoEmoji}</span>
@@ -138,19 +138,19 @@ export function AIToolsPage({ lang, t }: Props) {
                     </span>
                   )}
                   {tool.inCoreStack && (
-                    <span className="bg-white/8 text-white/40 text-[9px] font-sans font-bold px-2 py-0.5 rounded-full uppercase tracking-wide">
+                    <span className="bg-gray-100 dark:bg-white/8 text-gray-400 dark:text-white/40 text-[9px] font-sans font-bold px-2 py-0.5 rounded-full uppercase tracking-wide">
                       Core Stack
                     </span>
                   )}
                 </div>
               </div>
-              <h3 className="font-sans font-bold text-white mb-0.5 group-hover:text-opc-orange transition-colors">
+              <h3 className="font-sans font-bold text-opc-dark dark:text-white mb-0.5 group-hover:text-opc-orange transition-colors">
                 {tool.name}
               </h3>
-              <p className="font-sans text-[11px] text-white/35 mb-2">
+              <p className="font-sans text-[11px] text-gray-400 dark:text-white/35 mb-2">
                 {tool.category} · {tool.price}
               </p>
-              <p className="font-sans text-sm text-white/55 leading-relaxed flex-1">
+              <p className="font-sans text-sm text-gray-500 dark:text-white/55 leading-relaxed flex-1">
                 {tool.description}
               </p>
               <p className="font-sans text-xs text-opc-orange mt-3 opacity-0 group-hover:opacity-100 transition-opacity">

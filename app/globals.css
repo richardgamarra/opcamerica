@@ -6,7 +6,19 @@ html {
   scroll-behavior: smooth;
 }
 
+/* Dark mode (default) */
 body {
   background-color: #080d14;
   color: #ffffff;
+}
+
+/* Light mode */
+html:not(.dark) body {
+  background-color: #f5f4f0;
+  color: #0a0a0a;
+}
+
+@keyframes ticker {
+  from { transform: translateX(0); }
+  to   { transform: translateX(-50%); }
 }

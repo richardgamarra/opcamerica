@@ -17,10 +17,10 @@ export function EmailCapture({ t }: Props) {
   }
 
   return (
-    <section className="bg-opc-dark py-16 md:py-24 px-5 md:px-6 border-t border-white/5">
+    <section className="bg-opc-light dark:bg-opc-dark py-16 md:py-24 px-5 md:px-6 border-t border-gray-200 dark:border-white/5">
       <div className="max-w-xl mx-auto text-center">
-        <h2 className="font-serif text-3xl md:text-4xl font-black text-white mb-3 tracking-tight">{t.heading}</h2>
-        <p className="font-sans text-sm md:text-base text-white/40 italic mb-8 md:mb-10">{t.subEs}</p>
+        <h2 className="font-serif text-3xl md:text-4xl font-black text-opc-dark dark:text-white mb-3 tracking-tight">{t.heading}</h2>
+        <p className="font-sans text-sm md:text-base text-gray-400 dark:text-white/40 italic mb-8 md:mb-10">{t.subEs}</p>
 
         {submitted ? (
           <p className="font-sans text-opc-orange text-lg font-bold">Welcome to OPCAmerica! 🎉</p>
@@ -32,7 +32,7 @@ export function EmailCapture({ t }: Props) {
               onChange={(e) => setEmail(e.target.value)}
               placeholder={t.placeholder}
               required
-              className="flex-1 bg-white/5 border border-white/15 rounded-lg px-4 py-3 font-sans text-white placeholder-white/30 focus:outline-none focus:border-opc-orange/50"
+              className="flex-1 bg-white border border-gray-200 dark:bg-white/5 dark:border-white/15 rounded-lg px-4 py-3 font-sans text-opc-dark dark:text-white placeholder-gray-400 dark:placeholder-white/30 focus:outline-none focus:border-opc-orange/50"
             />
             <button
               type="submit"
@@ -43,9 +43,9 @@ export function EmailCapture({ t }: Props) {
           </form>
         )}
 
-        <div className="flex flex-col sm:flex-row justify-center gap-4 md:gap-8 font-sans text-xs text-white/30">
-          <a href={`mailto:${t.support}`} className="hover:text-white/60">{t.support}</a>
-          <a href={`mailto:${t.consulting}`} className="hover:text-white/60">{t.consulting}</a>
+        <div className="flex flex-col sm:flex-row justify-center gap-4 md:gap-8 font-sans text-xs text-gray-400 dark:text-white/30">
+          <a href={`mailto:${t.support}`} className="hover:text-opc-orange transition-colors">{t.support}</a>
+          <a href={`mailto:${t.consulting}`} className="hover:text-opc-orange transition-colors">{t.consulting}</a>
         </div>
       </div>
     </section>
