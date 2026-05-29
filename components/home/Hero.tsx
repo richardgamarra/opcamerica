@@ -82,8 +82,7 @@ export function Hero({ lang, t }: HeroProps) {
       }} />
 
       {/* Bottom fade */}
-      <div className="absolute bottom-0 left-0 right-0 h-48 z-10"
-           style={{ background: "linear-gradient(to top, #080d14 0%, transparent 100%)" }} />
+      <div className="absolute bottom-0 left-0 right-0 h-48 z-10 dark-fade" />
 
       {/* Hero content */}
       <div className="relative z-30 px-5 md:px-12 pt-28 md:pt-32 pb-8 max-w-2xl flex-1 flex flex-col justify-center">

@@ -41,7 +41,8 @@ export function Nav({ lang, t }: NavProps) {
       style={{
         background: isDark
           ? "linear-gradient(to bottom, rgba(5,10,20,0.9) 0%, transparent 100%)"
-          : "linear-gradient(to bottom, rgba(245,244,240,0.95) 0%, rgba(245,244,240,0) 100%)",
+          : "rgba(245,244,240,0.97)",
+        borderBottom: isDark ? "none" : "1px solid rgba(8,13,20,0.08)",
       }}
     >
       <div className="flex justify-between items-center">
