@@ -5,6 +5,7 @@ export const en = {
     aiTools: "AI Tools",
     community: "Community",
     consulting: "Consulting",
+    marketplace: "Marketplace",
     signIn: "Sign in →",
     joinFree: "Join Free",
     langToggle: "EN | ES",

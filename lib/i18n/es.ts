@@ -7,6 +7,7 @@ export const es: Translations = {
     aiTools: "Herramientas IA",
     community: "Comunidad",
     consulting: "Consultoría",
+    marketplace: "Marketplace",
     signIn: "Iniciar sesión →",
     joinFree: "Únete Gratis",
     langToggle: "ES | EN",

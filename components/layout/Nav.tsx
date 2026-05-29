@@ -30,6 +30,7 @@ export function Nav({ lang, t }: NavProps) {
     { key: "aiTools" as const, href: `/${lang}/ai-tools` },
     { key: "community" as const, href: `/${lang}/#community` },
     { key: "consulting" as const, href: `/${lang}/#consulting` },
+    { key: "marketplace" as const, href: `/${lang}/marketplace` },
   ];
 
   const isDark = theme === "dark";
