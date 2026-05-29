@@ -32,7 +32,7 @@ export function Nav({ lang, t }: NavProps) {
 
   return (
     <nav
-      className="absolute top-0 left-0 right-0 z-10 px-5 md:px-12 py-5"
+      className="absolute top-0 left-0 right-0 z-50 px-5 md:px-12 py-5"
       style={{ background: "linear-gradient(to bottom, rgba(5,10,20,0.9) 0%, transparent 100%)" }}
     >
       <div className="flex justify-between items-center">

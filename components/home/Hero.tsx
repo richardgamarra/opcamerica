@@ -4,13 +4,27 @@ import type { Translations } from "@/lib/i18n";
 
 type Lang = "en" | "es";
 
-const CITY_PINS = [
-  { label: "Toronto",     top: "18%", right: "25%", accent: true  },
-  { label: "New York",    top: "25%", right: "21%", accent: false },
-  { label: "Mexico City", top: "44%", right: "32%", accent: true  },
-  { label: "Bogotá",      top: "55%", right: "26%", accent: false },
-  { label: "São Paulo",   top: "69%", right: "13%", accent: true  },
-  { label: "Santiago",    top: "79%", right: "27%", accent: false },
+const COUNTRIES = [
+  { flag: "🇺🇸", name: "USA" },
+  { flag: "🇨🇦", name: "Canada" },
+  { flag: "🇲🇽", name: "Mexico" },
+  { flag: "🇧🇷", name: "Brazil" },
+  { flag: "🇨🇴", name: "Colombia" },
+  { flag: "🇨🇱", name: "Chile" },
+  { flag: "🇦🇷", name: "Argentina" },
+  { flag: "🇵🇪", name: "Peru" },
+  { flag: "🇪🇨", name: "Ecuador" },
+  { flag: "🇻🇪", name: "Venezuela" },
+  { flag: "🇧🇴", name: "Bolivia" },
+  { flag: "🇵🇾", name: "Paraguay" },
+  { flag: "🇺🇾", name: "Uruguay" },
+  { flag: "🇵🇦", name: "Panama" },
+  { flag: "🇨🇷", name: "Costa Rica" },
+  { flag: "🇬🇹", name: "Guatemala" },
+  { flag: "🇩🇴", name: "Dominican Rep." },
+  { flag: "🇨🇺", name: "Cuba" },
+  { flag: "🇭🇳", name: "Honduras" },
+  { flag: "🇸🇻", name: "El Salvador" },
 ];
 
 const AVATARS = [
@@ -28,11 +42,14 @@ interface HeroProps {
 }
 
 export function Hero({ lang, t }: HeroProps) {
+  // Duplicate for seamless loop
+  const ticker = [...COUNTRIES, ...COUNTRIES];
+
   return (
-    <section className="relative min-h-screen overflow-hidden flex items-center bg-opc-dark">
+    <section className="relative min-h-screen overflow-hidden flex flex-col justify-between bg-opc-dark">
       {/* Earth image — right side, desktop only */}
       <div className="absolute inset-0 hidden md:block">
-        <div className="absolute right-0 top-0 w-[65%] h-full" style={{ transform: "translateY(-5%)", height: "110%" }}>
+        <div className="absolute right-0 top-0 w-[65%]" style={{ height: "110%", transform: "translateY(-5%)" }}>
           <Image
             src="/images/earth3.png"
             alt="Americas from space"
@@ -64,28 +81,12 @@ export function Hero({ lang, t }: HeroProps) {
         background: "linear-gradient(to right, transparent 35%, rgba(4,10,25,0.45) 100%)"
       }} />
 
-      {/* Bottom fade — all screen sizes */}
+      {/* Bottom fade */}
       <div className="absolute bottom-0 left-0 right-0 h-48 z-10"
            style={{ background: "linear-gradient(to top, #080d14 0%, transparent 100%)" }} />
 
-      {/* City pins — desktop only */}
-      <div className="absolute inset-0 z-20 pointer-events-none hidden md:block">
-        {CITY_PINS.map(({ label, top, right, accent }) => (
-          <div key={label} className="absolute flex items-center gap-2" style={{ top, right }}>
-            <div className={`w-2.5 h-2.5 rounded-full flex-shrink-0 ${
-              accent
-                ? "bg-opc-orange shadow-[0_0_0_3px_rgba(232,82,42,0.25),0_0_16px_rgba(232,82,42,0.6)]"
-                : "bg-white/75 shadow-[0_0_0_3px_rgba(255,255,255,0.15),0_0_10px_rgba(255,255,255,0.4)]"
-            }`} />
-            <span className="font-sans text-[10px] font-bold text-white/80 bg-opc-dark/60 backdrop-blur-sm px-2.5 py-1 rounded-xl border border-white/10 whitespace-nowrap tracking-wide">
-              {label}
-            </span>
-          </div>
-        ))}
-      </div>
-
       {/* Hero content */}
-      <div className="relative z-30 px-5 md:px-12 pt-28 md:pt-32 pb-16 md:pb-20 max-w-2xl">
+      <div className="relative z-30 px-5 md:px-12 pt-28 md:pt-32 pb-8 max-w-2xl flex-1 flex flex-col justify-center">
         <p className="font-sans text-[10px] md:text-[11px] tracking-[2px] md:tracking-[3px] text-white/40 uppercase mb-6 md:mb-7 flex items-center gap-3">
           <span className="w-6 md:w-8 h-px bg-opc-orange flex-shrink-0" />
           {t.eyebrow}
@@ -139,6 +140,30 @@ export function Hero({ lang, t }: HeroProps) {
           </div>
         </div>
       </div>
+
+      {/* Countries ticker — bottom of hero, above bottom fade */}
+      <div className="relative z-30 pb-10 md:pb-14 overflow-hidden">
+        <div className="flex items-center gap-0" style={{
+          animation: "ticker 40s linear infinite",
+          width: "max-content",
+        }}>
+          {ticker.map(({ flag, name }, i) => (
+            <div key={i} className="flex items-center gap-2 px-5 md:px-7 border-r border-white/8 last:border-r-0">
+              <span className="text-base md:text-lg">{flag}</span>
+              <span className="font-sans text-xs md:text-sm font-medium text-white/45 whitespace-nowrap tracking-wide">
+                {name}
+              </span>
+            </div>
+          ))}
+        </div>
+      </div>
+
+      <style>{`
+        @keyframes ticker {
+          0%   { transform: translateX(0); }
+          100% { transform: translateX(-50%); }
+        }
+      `}</style>
     </section>
   );
 }
