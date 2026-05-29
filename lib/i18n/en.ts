@@ -56,8 +56,8 @@ export const en = {
     readTime: "min read",
   },
   aiTools: {
-    heading: "55+ AI Tools, Curated for OPC Founders",
-    sub: "Exclusive member deals on the tools that power your business.",
+    heading: "The One Person Company Entrepreneur AI Toolkit",
+    sub: "55+ curated tools with exclusive member deals — everything you need to run and scale your OPC.",
     deal: "Member Deal →",
     viewAll: "View All 55 Tools →",
   },
