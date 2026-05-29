@@ -1,40 +1,44 @@
 "use server";
 
 import { revalidatePath } from "next/cache";
+import pool from "@/lib/db";
+import { hashPassword } from "@/lib/auth";
 
-export type User = {
+export type AdminUser = {
   id: string;
   name: string;
   email: string;
   country: string;
   plan: "free" | "elite";
   status: "active" | "disabled";
-  joined: string;
+  created_at: string;
 };
 
-// In-memory store (replace with DB later)
-const USERS: User[] = [
-  { id: "1", name: "Rick Gama", email: "rg48351work@gmail.com", country: "MX", plan: "free", status: "active", joined: "2026-05-29" },
-];
-
-export async function getUsers(): Promise<User[]> {
-  return USERS;
+export async function getUsers(): Promise<AdminUser[]> {
+  const result = await pool.query(
+    "SELECT id, name, email, country, plan, status, created_at FROM users ORDER BY created_at DESC"
+  );
+  return result.rows;
 }
 
 export async function toggleUserStatus(id: string) {
-  const user = USERS.find((u) => u.id === id);
-  if (user) user.status = user.status === "active" ? "disabled" : "active";
+  await pool.query(
+    "UPDATE users SET status = CASE WHEN status = 'active' THEN 'disabled' ELSE 'active' END WHERE id = $1",
+    [id]
+  );
   revalidatePath("/admin/users");
 }
 
 export async function toggleUserPlan(id: string) {
-  const user = USERS.find((u) => u.id === id);
-  if (user) user.plan = user.plan === "free" ? "elite" : "free";
+  await pool.query(
+    "UPDATE users SET plan = CASE WHEN plan = 'free' THEN 'elite' ELSE 'free' END WHERE id = $1",
+    [id]
+  );
   revalidatePath("/admin/users");
 }
 
-export async function resetPassword(id: string, newPassword: string) {
-  // No-op until real auth — placeholder for Clerk/DB integration
-  console.log(`Reset password for user ${id}: ${newPassword}`);
+export async function resetUserPassword(id: string, newPassword: string) {
+  const hash = await hashPassword(newPassword);
+  await pool.query("UPDATE users SET password_hash = $1 WHERE id = $2", [hash, id]);
   revalidatePath("/admin/users");
 }

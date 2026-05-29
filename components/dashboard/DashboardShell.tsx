@@ -3,9 +3,11 @@
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import type { Lang } from "@/lib/i18n";
+import type { SessionUser } from "@/lib/auth";
 
 interface Props {
   lang: Lang;
+  user: SessionUser;
   children: React.ReactNode;
 }
 
@@ -22,9 +24,16 @@ const NAV_ITEMS = [
   { key: "settings",  label: "Settings",            labelEs: "Configuración",        icon: CogIcon,    href: "settings" },
 ];
 
-export function DashboardShell({ lang, children }: Props) {
+export function DashboardShell({ lang, user, children }: Props) {
   const pathname = usePathname();
   const isEs = lang === "es";
+
+  const initials = user.name
+    .split(" ")
+    .map((n) => n[0])
+    .join("")
+    .slice(0, 2)
+    .toUpperCase();
 
   function isActive(href: string) {
     return pathname.includes(`/dashboard/${href}`);
@@ -52,11 +61,13 @@ export function DashboardShell({ lang, children }: Props) {
         <div className="px-4 py-4 border-b border-gray-100">
           <div className="flex items-center gap-3">
             <div className="w-9 h-9 rounded-full bg-emerald-600 flex items-center justify-center text-white text-xs font-black flex-shrink-0">
-              RG
+              {initials}
             </div>
             <div className="min-w-0">
-              <p className="text-sm font-semibold text-gray-800 truncate">Rick Gama</p>
-              <p className="text-xs text-gray-400">Free Plan</p>
+              <p className="text-sm font-semibold text-gray-800 truncate">{user.name}</p>
+              <p className={`text-xs ${user.plan === "elite" ? "text-amber-500 font-semibold" : "text-gray-400"}`}>
+                {user.plan === "elite" ? "OPC Elite" : "Free Plan"}
+              </p>
             </div>
           </div>
         </div>
@@ -91,10 +102,13 @@ export function DashboardShell({ lang, children }: Props) {
             <CrownIcon />
             {isEs ? "Mejorar Plan" : "Upgrade"}
           </Link>
-          <button className="flex items-center gap-2 px-3 py-2 rounded-lg text-xs text-gray-400 hover:text-gray-600 hover:bg-gray-50 transition-colors w-full">
+          <Link
+            href={`/${lang}/auth/signout`}
+            className="flex items-center gap-2 px-3 py-2 rounded-lg text-xs text-gray-400 hover:text-gray-600 hover:bg-gray-50 transition-colors w-full"
+          >
             <SignOutIcon />
-            {isEs ? "Cerrar sesión" : "Sign out"}
-          </button>
+            {isEs ? "Cerrar sesion" : "Sign out"}
+          </Link>
         </div>
       </aside>
 

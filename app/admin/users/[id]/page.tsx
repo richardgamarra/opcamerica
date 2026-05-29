@@ -1,10 +1,21 @@
-import { getUsers, toggleUserStatus, toggleUserPlan } from "../actions";
+import { getUsers, toggleUserStatus, toggleUserPlan, resetUserPassword } from "../actions";
 import { notFound } from "next/navigation";
 
 export default async function EditUserPage({ params }: { params: { id: string } }) {
   const users = await getUsers();
   const user = users.find((u) => u.id === params.id);
   if (!user) notFound();
+
+  const joined = new Date(user.created_at).toLocaleDateString("en-US", {
+    year: "numeric", month: "short", day: "numeric",
+  });
+  // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
+
+  async function handleResetPassword(formData: FormData) {
+    "use server";
+    const pw = formData.get("newPassword") as string;
+    if (pw && pw.length >= 8) await resetUserPassword(user!.id, pw);
+  }
 
   return (
     <div className="max-w-lg">
@@ -18,12 +29,12 @@ export default async function EditUserPage({ params }: { params: { id: string } 
         {/* Info */}
         <div className="flex items-center gap-4 pb-5 border-b border-gray-800">
           <div className="w-12 h-12 rounded-full bg-opc-orange/15 flex items-center justify-center text-opc-orange font-black text-lg">
-            {user.name.split(" ").map((n) => n[0]).join("").slice(0, 2)}
+            {user.name.split(" ").map((n) => n[0]).join("").slice(0, 2).toUpperCase()}
           </div>
           <div>
             <p className="font-semibold text-white">{user.name}</p>
             <p className="text-sm text-gray-500">{user.email}</p>
-            <p className="text-xs text-gray-600 mt-0.5">Joined {user.joined} · {user.country}</p>
+            <p className="text-xs text-gray-600 mt-0.5">Joined {joined} · {user.country || "—"}</p>
           </div>
         </div>
 
@@ -74,11 +85,13 @@ export default async function EditUserPage({ params }: { params: { id: string } 
         {/* Password reset */}
         <div className="pt-5 border-t border-gray-800">
           <p className="text-sm font-semibold text-white mb-3">Reset password</p>
-          <form className="flex gap-2">
+          <form action={handleResetPassword} className="flex gap-2">
             <input
               name="newPassword"
               type="text"
-              placeholder="New password"
+              placeholder="New password (min 8 chars)"
+              minLength={8}
+              required
               className="flex-1 bg-gray-800 border border-gray-700 rounded-lg px-3 py-2 text-sm text-white placeholder:text-gray-600 focus:outline-none focus:border-opc-orange transition-colors"
             />
             <button
@@ -88,7 +101,6 @@ export default async function EditUserPage({ params }: { params: { id: string } 
               Reset
             </button>
           </form>
-          <p className="text-xs text-gray-600 mt-2">Password reset will be fully active once auth is enabled.</p>
         </div>
       </div>
     </div>

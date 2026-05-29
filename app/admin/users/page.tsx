@@ -80,7 +80,7 @@ export default async function AdminUsersPage() {
                     </button>
                   </form>
                 </td>
-                <td className="px-4 py-3 text-gray-500 text-xs">{user.joined}</td>
+                <td className="px-4 py-3 text-gray-500 text-xs">{new Date(user.created_at).toLocaleDateString("en-US", { year: "numeric", month: "short", day: "numeric" })}</td>
                 <td className="px-4 py-3">
                   <a
                     href={`/admin/users/${user.id}`}
