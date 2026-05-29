@@ -6,11 +6,12 @@ const VALID_LANGS = ["en", "es"];
 export function middleware(request: NextRequest) {
   const { pathname } = request.nextUrl;
 
-  // Skip non-page paths
+  // Skip non-page paths and admin area
   if (
     pathname.startsWith("/_next") ||
     pathname.startsWith("/api") ||
     pathname.startsWith("/images") ||
+    pathname.startsWith("/admin") ||
     pathname.includes(".")
   ) {
     return NextResponse.next();

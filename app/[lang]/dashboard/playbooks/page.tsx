@@ -8,7 +8,6 @@ const PLAYBOOKS = [
     titleEs: "Lanza tu OPC en 30 dias",
     steps: 12,
     time: "30 min",
-    free: true,
   },
   {
     icon: "🤖",
@@ -16,7 +15,6 @@ const PLAYBOOKS = [
     titleEs: "Motor de contenido con IA",
     steps: 8,
     time: "20 min",
-    free: true,
   },
   {
     icon: "💰",
@@ -24,7 +22,6 @@ const PLAYBOOKS = [
     titleEs: "Como poner precios a tus servicios",
     steps: 6,
     time: "15 min",
-    free: true,
   },
   {
     icon: "📧",
@@ -32,7 +29,6 @@ const PLAYBOOKS = [
     titleEs: "Cold email que convierte",
     steps: 10,
     time: "25 min",
-    free: false,
   },
   {
     icon: "🌎",
@@ -40,7 +36,6 @@ const PLAYBOOKS = [
     titleEs: "Expandete al mercado de EE.UU.",
     steps: 15,
     time: "45 min",
-    free: false,
   },
 ];
 
@@ -63,42 +58,19 @@ export default async function PlaybooksPage({ params }: { params: Promise<{ lang
 
       <div className="space-y-3">
         {PLAYBOOKS.map((pb) => (
-          <div key={pb.title} className={`bg-white border rounded-xl p-4 flex items-center gap-4 hover:shadow-sm transition-all ${pb.free ? "border-gray-100 hover:border-gray-200" : "border-gray-100 opacity-75"}`}>
+          <div key={pb.title} className="bg-white border border-gray-100 rounded-xl p-4 flex items-center gap-4 hover:border-gray-200 hover:shadow-sm transition-all cursor-pointer">
             <span className="text-2xl flex-shrink-0">{pb.icon}</span>
             <div className="flex-1 min-w-0">
-              <div className="flex items-center gap-2 flex-wrap">
-                <p className="text-sm font-semibold text-gray-800">{isEs ? pb.titleEs : pb.title}</p>
-                {!pb.free && (
-                  <span className="text-[10px] font-bold px-2 py-0.5 rounded bg-amber-100 text-amber-700">Elite</span>
-                )}
-              </div>
+              <p className="text-sm font-semibold text-gray-800">{isEs ? pb.titleEs : pb.title}</p>
               <p className="text-xs text-gray-400 mt-0.5">
                 {pb.steps} {isEs ? "pasos" : "steps"} · {pb.time} {isEs ? "de lectura" : "read"}
               </p>
             </div>
-            <button className={`flex-shrink-0 font-semibold text-xs px-3 py-2 rounded-lg transition-colors ${
-              pb.free
-                ? "bg-opc-orange/8 hover:bg-opc-orange/15 text-opc-orange"
-                : "bg-gray-50 text-gray-400 cursor-not-allowed border border-gray-100"
-            }`}>
-              {pb.free ? (isEs ? "Abrir" : "Open") : "🔒"}
-            </button>
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#d1d5db" strokeWidth="2" className="flex-shrink-0">
+              <polyline points="9 18 15 12 9 6"/>
+            </svg>
           </div>
         ))}
-      </div>
-
-      <div className="mt-6 bg-amber-50 border border-amber-100 rounded-xl p-4 flex items-center justify-between gap-4">
-        <div>
-          <p className="text-sm font-semibold text-amber-800">
-            {isEs ? "Desbloquea todos los playbooks con Elite" : "Unlock all playbooks with Elite"}
-          </p>
-          <p className="text-xs text-amber-600 mt-0.5">
-            {isEs ? "Mas de 20 guias exclusivas para founders OPC." : "20+ exclusive guides for OPC founders."}
-          </p>
-        </div>
-        <button className="flex-shrink-0 bg-amber-500 hover:bg-amber-600 text-white font-bold text-sm px-4 py-2 rounded-lg transition-colors whitespace-nowrap">
-          {isEs ? "Ver Elite" : "Go Elite"}
-        </button>
       </div>
     </div>
   );

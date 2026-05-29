@@ -9,7 +9,6 @@ const PERKS = [
     offerEs: "$50 en creditos de API",
     category: "AI",
     claimed: 12,
-    free: true,
   },
   {
     brand: "Notion",
@@ -18,7 +17,6 @@ const PERKS = [
     offerEs: "6 meses Pro gratis",
     category: "Productivity",
     claimed: 34,
-    free: true,
   },
   {
     brand: "Vercel",
@@ -27,7 +25,6 @@ const PERKS = [
     offerEs: "$200 en hosting",
     category: "Dev Tools",
     claimed: 8,
-    free: false,
   },
   {
     brand: "ConvertKit",
@@ -36,7 +33,6 @@ const PERKS = [
     offerEs: "3 meses gratis",
     category: "Email",
     claimed: 19,
-    free: false,
   },
   {
     brand: "Figma",
@@ -45,7 +41,6 @@ const PERKS = [
     offerEs: "1 ano Professional",
     category: "Design",
     claimed: 5,
-    free: false,
   },
 ];
 
@@ -74,9 +69,9 @@ export default async function PerksPage({ params }: { params: Promise<{ lang: st
           : "Free tools and exclusive discounts for your OPC founder stack."}
       </p>
 
-      <div className="space-y-3 mb-6">
+      <div className="space-y-3">
         {PERKS.map((perk) => (
-          <div key={perk.brand} className={`bg-white border rounded-xl p-4 flex items-center gap-4 transition-all ${perk.free ? "border-gray-100 hover:border-gray-200 hover:shadow-sm" : "border-gray-100"}`}>
+          <div key={perk.brand} className="bg-white border border-gray-100 rounded-xl p-4 flex items-center gap-4 hover:border-gray-200 hover:shadow-sm transition-all">
             <div className="w-10 h-10 rounded-xl bg-gray-50 border border-gray-100 flex items-center justify-center text-xl flex-shrink-0">
               {perk.logo}
             </div>
@@ -86,36 +81,15 @@ export default async function PerksPage({ params }: { params: Promise<{ lang: st
                 <span className={`text-[10px] font-bold px-2 py-0.5 rounded ${CAT_COLOR[perk.category] ?? "bg-gray-100 text-gray-600"}`}>
                   {perk.category}
                 </span>
-                {!perk.free && (
-                  <span className="text-[10px] font-bold px-2 py-0.5 rounded bg-amber-100 text-amber-700">Elite</span>
-                )}
               </div>
               <p className="text-xs text-gray-500">{isEs ? perk.offerEs : perk.offer}</p>
               <p className="text-[10px] text-gray-300 mt-0.5">{perk.claimed} {isEs ? "reclamados" : "claimed"}</p>
             </div>
-            <button className={`flex-shrink-0 font-semibold text-xs px-3 py-2 rounded-lg transition-colors whitespace-nowrap ${
-              perk.free
-                ? "bg-opc-orange/8 hover:bg-opc-orange/15 text-opc-orange"
-                : "bg-gray-50 text-gray-400 cursor-not-allowed border border-gray-100"
-            }`}>
-              {perk.free ? (isEs ? "Reclamar" : "Claim") : "🔒"}
+            <button className="flex-shrink-0 bg-opc-orange/8 hover:bg-opc-orange/15 text-opc-orange font-semibold text-xs px-3 py-2 rounded-lg transition-colors whitespace-nowrap">
+              {isEs ? "Reclamar" : "Claim"}
             </button>
           </div>
         ))}
-      </div>
-
-      <div className="bg-amber-50 border border-amber-100 rounded-xl p-4 flex items-center justify-between gap-4">
-        <div>
-          <p className="text-sm font-semibold text-amber-800">
-            {isEs ? "30+ deals exclusivos con Elite" : "30+ exclusive deals with Elite"}
-          </p>
-          <p className="text-xs text-amber-600 mt-0.5">
-            {isEs ? "Mas de $5,000 en valor total para tu stack." : "Over $5,000 in total value for your stack."}
-          </p>
-        </div>
-        <button className="flex-shrink-0 bg-amber-500 hover:bg-amber-600 text-white font-bold text-sm px-4 py-2 rounded-lg transition-colors whitespace-nowrap">
-          {isEs ? "Ver Elite" : "Go Elite"}
-        </button>
       </div>
     </div>
   );
