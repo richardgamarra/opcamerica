@@ -58,7 +58,7 @@ export const es: Translations = {
     readTime: "min de lectura",
   },
   aiTools: {
-    heading: "El AI Toolkit del Emprendedor One Person Company",
+    heading: "El AI Toolkit del One Person Company",
     sub: "55+ herramientas curadas con deals exclusivos para miembros — todo lo que necesitas para operar y escalar tu OPC.",
     deal: "Deal para Miembros →",
     viewAll: "Ver las 55 Herramientas →",

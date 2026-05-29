@@ -56,7 +56,7 @@ export const en = {
     readTime: "min read",
   },
   aiTools: {
-    heading: "The One Person Company Entrepreneur AI Toolkit",
+    heading: "The One Person Company AI Toolkit",
     sub: "55+ curated tools with exclusive member deals — everything you need to run and scale your OPC.",
     deal: "Member Deal →",
     viewAll: "View All 55 Tools →",
