@@ -62,16 +62,6 @@ export function AIToolsPage({ lang, t }: Props) {
                 </h2>
                 <p className="font-sans text-sm text-gray-500 dark:text-white/50 mt-1">{CORE_STACK.subtitle}</p>
                 <p className="font-sans text-sm text-gray-400 dark:text-white/40 mt-2 max-w-xl">{CORE_STACK.description}</p>
-                <div className="flex flex-wrap gap-2 mt-3">
-                  {CORE_STACK.tools.slice(0, 8).map(tool => (
-                    <span key={tool.name} className="font-sans text-[11px] text-gray-500 dark:text-white/40 bg-black/5 dark:bg-white/5 border border-gray-200 dark:border-white/8 px-2.5 py-1 rounded-full">
-                      {tool.logoEmoji} {tool.name}
-                    </span>
-                  ))}
-                  <span className="font-sans text-[11px] text-gray-400 dark:text-white/30 bg-black/5 dark:bg-white/5 border border-gray-200 dark:border-white/8 px-2.5 py-1 rounded-full">
-                    +{CORE_STACK.tools.length - 8} {isEs ? "más" : "more"}
-                  </span>
-                </div>
               </div>
             </div>
             <div className="flex flex-col items-start md:items-end gap-3 shrink-0">
@@ -79,7 +69,7 @@ export function AIToolsPage({ lang, t }: Props) {
                 <p className="font-sans text-3xl font-black text-opc-dark dark:text-white">${CORE_STACK.price}</p>
                 <p className="font-sans text-xs text-gray-400 dark:text-white/40">{isEs ? "guía única" : "one-time guide"}</p>
                 <p className="font-sans text-xs text-opc-orange mt-1">
-                  {isEs ? "Valor: ~$271/mo en herramientas" : "Value: ~$271/mo in tools"}
+                  {isEs ? "Valor: $890.00 en herramientas" : "Value: $890.00 in tools"}
                 </p>
               </div>
               <Link
