@@ -34,11 +34,11 @@ export const ARTICLES: Article[] = [
     sectionsEn: [
       {
         type: "p",
-        content: "For most of the 20th century, success meant climbing inside a large organization — getting hired, getting promoted, trading your time for a salary, and hoping that one day the pension would make it all worth it. That model worked for a world where infrastructure, distribution, and capital were gatekept by corporations. But that world no longer exists.",
+        content: "For most of the 20th century, success meant climbing inside a large organization: getting hired, getting promoted, trading your time for a salary, and hoping that one day the pension would make it all worth it. That model worked for a world where infrastructure, distribution, and capital were gatekept by corporations. But that world no longer exists.",
       },
       {
         type: "p",
-        content: "We are living through the most significant shift in how humans create economic value since the Industrial Revolution. And at the center of it is a deceptively simple idea: one highly-skilled, strategically-focused person — armed with the right AI tools — can now build, launch, and scale a business that generates real income, serves real customers, and creates real impact.",
+        content: "We are living through the most significant shift in how humans create economic value since the Industrial Revolution. And at the center of it is a deceptively simple idea: one highly-skilled, strategically-focused person, armed with the right AI tools, can now build, launch, and scale a business that generates real income, serves real customers, and creates real impact.",
       },
       {
         type: "p",
@@ -50,7 +50,7 @@ export const ARTICLES: Article[] = [
       },
       {
         type: "p",
-        content: "A One Person Company (OPC) is a business built and operated primarily by a single founder — without a traditional team, without venture capital, and without the overhead of a conventional company. It is not a freelance practice. It is not a side hustle. It is a real business with products, customers, recurring revenue, and systems — run by one person who has strategically replaced the functions of a 10-person team with AI, automation, and focus.",
+        content: "A One Person Company (OPC) is a business built and operated primarily by a single founder, without a traditional team, without venture capital, and without the overhead of a conventional company. It is not a freelance practice. It is not a side hustle. It is a real business with products, customers, recurring revenue, and systems, run by one person who has strategically replaced the functions of a 10-person team with AI, automation, and focus.",
       },
       {
         type: "ul",
@@ -59,12 +59,12 @@ export const ARTICLES: Article[] = [
           "AI and automation replacing most traditional employee functions",
           "Digital products or services that scale without proportional labor",
           "Revenue that is not capped by hours worked",
-          "Location independence — the Americas is your office",
+          "Location independence. The Americas is your office.",
         ],
       },
       {
         type: "p",
-        content: "The OPC is not a new concept. Writers, consultants, and software developers have operated this way for decades. What is new is the scale at which it is now possible. In 2026, a solo founder can run a content business, SaaS product, consulting practice, community, or digital product empire — that previously required a team of 10 to 20 people — with AI doing the heavy lifting across writing, coding, design, customer support, marketing, and operations.",
+        content: "The OPC is not a new concept. Writers, consultants, and software developers have operated this way for decades. What is new is the scale at which it is now possible. In 2026, a solo founder can run a content business, SaaS product, consulting practice, community, or digital product empire that previously required a team of 10 to 20 people, with AI doing the heavy lifting across writing, coding, design, customer support, marketing, and operations.",
       },
       {
         type: "h2",
@@ -80,7 +80,7 @@ export const ARTICLES: Article[] = [
       },
       {
         type: "p",
-        content: "Before AI tools like Claude, GPT-4, and Cursor, building a software product meant hiring engineers. Creating content at scale meant hiring writers. Running SEO meant hiring an agency. Now, a solo founder can write code, produce long-form content, design a brand, and run a paid ad campaign — not because they became an expert in all of these fields, but because AI became a world-class collaborator in all of them simultaneously.",
+        content: "Before AI tools like Claude, GPT-4, and Cursor, building a software product meant hiring engineers. Creating content at scale meant hiring writers. Running SEO meant hiring an agency. Now, a solo founder can write code, produce long-form content, design a brand, and run a paid ad campaign. Not because they became an expert in all of these fields, but because AI became a world-class collaborator in all of them simultaneously.",
       },
       {
         type: "h3",
@@ -88,7 +88,7 @@ export const ARTICLES: Article[] = [
       },
       {
         type: "p",
-        content: "A founder in Monterrey, Mexico can reach a customer in Toronto, Canada with the same ease as one in New York. LinkedIn, YouTube, newsletters, and SEO are global distribution channels available to any individual willing to build an audience. The Americas — 880 million people — is now one continuous market for any OPC founder.",
+        content: "A founder in Monterrey, Mexico can reach a customer in Toronto, Canada with the same ease as one in New York. LinkedIn, YouTube, newsletters, and SEO are global distribution channels available to any individual willing to build an audience. The Americas, 880 million people, is now one continuous market for any OPC founder.",
       },
       {
         type: "h3",
@@ -96,7 +96,7 @@ export const ARTICLES: Article[] = [
       },
       {
         type: "p",
-        content: "The traditional deal — give your best years to a company, get a salary and security in return — has eroded. Layoffs hit even the most loyal employees. Salaries rarely keep pace with inflation. The 8-to-5 schedule was designed for factory work, not knowledge work. Meanwhile, a growing percentage of the workforce has discovered that their skills are worth multiples of their salary in the open market — if they can find the right vehicle to deploy them.",
+        content: "The traditional deal, give your best years to a company and get a salary and security in return, has eroded. Layoffs hit even the most loyal employees. Salaries rarely keep pace with inflation. The 8-to-5 schedule was designed for factory work, not knowledge work. Meanwhile, a growing percentage of the workforce has discovered that their skills are worth multiples of their salary in the open market, if they can find the right vehicle to deploy them.",
       },
       {
         type: "blockquote",
@@ -115,9 +115,9 @@ export const ARTICLES: Article[] = [
         content: [
           "The Content OPC: Newsletter + YouTube + digital products. One person builds an audience around a niche and monetizes through courses, sponsorships, and memberships. Revenue: $5K–$50K/mo.",
           "The SaaS OPC: A solo developer or no-code builder who ships a software tool solving a specific problem. No team, just recurring subscriptions. Revenue: $3K–$30K/mo.",
-          "The Consulting OPC: A highly specialized professional who sells expertise as a packaged service — not hourly billing, but outcome-based engagements. Revenue: $10K–$100K/mo.",
+          "The Consulting OPC: A highly specialized professional who sells expertise as a packaged service. Not hourly billing, but outcome-based engagements. Revenue: $10K–$100K/mo.",
           "The Marketplace OPC: A curator who aggregates tools, resources, or talent in a specific niche and monetizes through deals, affiliate revenue, and memberships.",
-          "The Agency-of-One OPC: Delivers agency-quality output (design, copy, ads, dev) with AI doing the production — and charges agency prices.",
+          "The Agency-of-One OPC: Delivers agency-quality output (design, copy, ads, dev) with AI doing the production, and charges agency prices.",
         ],
       },
       {
@@ -131,10 +131,10 @@ export const ARTICLES: Article[] = [
       {
         type: "ul",
         content: [
-          "Income ceiling: A salaried employee's income grows linearly with time and promotions. An OPC founder's income grows with the value they create and the systems they build — non-linearly.",
+          "Income ceiling: A salaried employee's income grows linearly with time and promotions. An OPC founder's income grows with the value they create and the systems they build, not linearly.",
           "Risk: Employment feels safer but carries the risk of a single point of failure (your employer). An OPC with multiple revenue streams is structurally more resilient.",
           "Time: The 8-to-5 trades your peak hours for a fixed rate. An OPC allows you to work during your highest-energy hours and reclaim the rest.",
-          "Geography: Most jobs tie you to a city. An OPC lets you operate from anywhere in the Americas — or the world.",
+          "Geography: Most jobs tie you to a city. An OPC lets you operate from anywhere in the Americas, or the world.",
           "Ownership: Employees own none of the value they create. OPC founders own 100% of it.",
         ],
       },
@@ -159,7 +159,7 @@ export const ARTICLES: Article[] = [
       {
         type: "callout",
         label: "The OPCAmerica Thesis",
-        content: "The Americas needs its own OPC infrastructure — resources, tools, community, and education — designed for founders from Canada to Argentina. Not a translation of US content. A platform built specifically for this continent, in both languages it speaks.",
+        content: "The Americas needs its own OPC infrastructure: resources, tools, community, and education designed for founders from Canada to Argentina. Not a translation of US content. A platform built specifically for this continent, in both languages it speaks.",
       },
       {
         type: "h2",
@@ -172,14 +172,14 @@ export const ARTICLES: Article[] = [
       {
         type: "ol",
         content: [
-          "A skill or knowledge domain you can monetize — something you know that others will pay to learn, use, or have done for them.",
-          "A distribution channel — a way to reach the people who need what you offer. LinkedIn, YouTube, SEO, and email are the four most powerful for OPC founders.",
-          "A minimum viable offer — the simplest version of your product or service that someone would actually pay for today.",
+          "A skill or knowledge domain you can monetize. Something you know that others will pay to learn, use, or have done for them.",
+          "A distribution channel. A way to reach the people who need what you offer. LinkedIn, YouTube, SEO, and email are the four most powerful for OPC founders.",
+          "A minimum viable offer. The simplest version of your product or service that someone would actually pay for today.",
         ],
       },
       {
         type: "p",
-        content: "The rest — the AI stack, the automation, the systems, the scale — comes after you have proven that people want what you are building. Start small. Start focused. Start now.",
+        content: "The rest, the AI stack, the automation, the systems, the scale, comes after you have proven that people want what you are building. Start small. Start focused. Start now.",
       },
       {
         type: "p",
@@ -189,11 +189,11 @@ export const ARTICLES: Article[] = [
     sectionsEs: [
       {
         type: "p",
-        content: "Durante la mayor parte del siglo XX, el éxito significaba ascender dentro de una gran organización — conseguir empleo, ascender, intercambiar tu tiempo por un salario, y esperar que algún día la pensión hiciera que todo valiera la pena. Ese modelo funcionó para un mundo donde la infraestructura, la distribución y el capital estaban en manos de las corporaciones. Pero ese mundo ya no existe.",
+        content: "Durante la mayor parte del siglo XX, el éxito significaba ascender dentro de una gran organización: conseguir empleo, ascender, intercambiar tu tiempo por un salario, y esperar que algún día la pensión hiciera que todo valiera la pena. Ese modelo funcionó para un mundo donde la infraestructura, la distribución y el capital estaban en manos de las corporaciones. Pero ese mundo ya no existe.",
       },
       {
         type: "p",
-        content: "Estamos viviendo el cambio más significativo en cómo los humanos crean valor económico desde la Revolución Industrial. Y en el centro de todo está una idea engañosamente simple: una persona altamente capacitada y estratégicamente enfocada — armada con las herramientas de IA correctas — ahora puede construir, lanzar y escalar un negocio que genere ingresos reales, sirva a clientes reales y cree un impacto real.",
+        content: "Estamos viviendo el cambio más significativo en cómo los humanos crean valor económico desde la Revolución Industrial. Y en el centro de todo está una idea engañosamente simple: una persona altamente capacitada y estratégicamente enfocada, armada con las herramientas de IA correctas, ahora puede construir, lanzar y escalar un negocio que genere ingresos reales, sirva a clientes reales y cree un impacto real.",
       },
       {
         type: "p",
@@ -205,7 +205,7 @@ export const ARTICLES: Article[] = [
       },
       {
         type: "p",
-        content: "Una One Person Company (OPC) es un negocio construido y operado principalmente por un solo fundador — sin un equipo tradicional, sin capital de riesgo y sin los gastos generales de una empresa convencional. No es una práctica freelance. No es un proyecto secundario. Es un negocio real con productos, clientes, ingresos recurrentes y sistemas — dirigido por una persona que ha reemplazado estratégicamente las funciones de un equipo de 10 personas con IA, automatización y enfoque.",
+        content: "Una One Person Company (OPC) es un negocio construido y operado principalmente por un solo fundador, sin un equipo tradicional, sin capital de riesgo y sin los gastos generales de una empresa convencional. No es una práctica freelance. No es un proyecto secundario. Es un negocio real con productos, clientes, ingresos recurrentes y sistemas, dirigido por una persona que ha reemplazado estratégicamente las funciones de un equipo de 10 personas con IA, automatización y enfoque.",
       },
       {
         type: "ul",
@@ -214,7 +214,7 @@ export const ARTICLES: Article[] = [
           "IA y automatización reemplazando la mayoría de las funciones de empleados tradicionales",
           "Productos o servicios digitales que escalan sin trabajo proporcional",
           "Ingresos que no están limitados por las horas trabajadas",
-          "Independencia de ubicación — las Américas son tu oficina",
+          "Independencia de ubicación. Las Américas son tu oficina.",
         ],
       },
       {
@@ -231,7 +231,7 @@ export const ARTICLES: Article[] = [
       },
       {
         type: "p",
-        content: "Antes de herramientas de IA como Claude, GPT-4 y Cursor, construir un producto de software significaba contratar ingenieros. Crear contenido a escala significaba contratar escritores. Antes de la IA, un fundador solo tenía que elegir en qué ser bueno. Ahora, la IA es un colaborador de clase mundial en codificación, diseño, redacción, soporte al cliente y operaciones — simultáneamente.",
+        content: "Antes de herramientas de IA como Claude, GPT-4 y Cursor, construir un producto de software significaba contratar ingenieros. Crear contenido a escala significaba contratar escritores. Antes de la IA, un fundador solo tenía que elegir en qué ser bueno. Ahora, la IA es un colaborador de clase mundial en codificación, diseño, redacción, soporte al cliente y operaciones, de manera simultánea.",
       },
       {
         type: "h3",
@@ -239,7 +239,7 @@ export const ARTICLES: Article[] = [
       },
       {
         type: "p",
-        content: "Un fundador en Monterrey, México puede llegar a un cliente en Toronto, Canadá con la misma facilidad que uno en Nueva York. LinkedIn, YouTube, newsletters y SEO son canales de distribución global disponibles para cualquier individuo dispuesto a construir una audiencia. Las Américas — 880 millones de personas — ahora son un mercado continuo para cualquier fundador OPC.",
+        content: "Un fundador en Monterrey, México puede llegar a un cliente en Toronto, Canadá con la misma facilidad que uno en Nueva York. LinkedIn, YouTube, newsletters y SEO son canales de distribución global disponibles para cualquier individuo dispuesto a construir una audiencia. Las Américas, 880 millones de personas, ahora son un mercado continuo para cualquier fundador OPC.",
       },
       {
         type: "h3",
@@ -247,7 +247,7 @@ export const ARTICLES: Article[] = [
       },
       {
         type: "p",
-        content: "El trato tradicional — dar tus mejores años a una empresa, recibir un salario y seguridad a cambio — se ha erosionado. Los despidos afectan incluso a los empleados más leales. Los salarios rara vez siguen el ritmo de la inflación. El horario de 8 a 5 fue diseñado para el trabajo en fábrica, no para el trabajo del conocimiento. Mientras tanto, un porcentaje creciente de la fuerza laboral ha descubierto que sus habilidades valen múltiplos de su salario en el mercado abierto.",
+        content: "El trato tradicional, dar tus mejores años a una empresa y recibir un salario y seguridad a cambio, se ha erosionado. Los despidos afectan incluso a los empleados más leales. Los salarios rara vez siguen el ritmo de la inflación. El horario de 8 a 5 fue diseñado para el trabajo en fábrica, no para el trabajo del conocimiento. Mientras tanto, un porcentaje creciente de la fuerza laboral ha descubierto que sus habilidades valen múltiplos de su salario en el mercado abierto.",
       },
       {
         type: "blockquote",
@@ -264,9 +264,9 @@ export const ARTICLES: Article[] = [
       {
         type: "ol",
         content: [
-          "Una habilidad o dominio de conocimiento que puedas monetizar — algo que sepas que otros pagarán por aprender, usar o que se haga por ellos.",
-          "Un canal de distribución — una forma de llegar a las personas que necesitan lo que ofreces. LinkedIn, YouTube, SEO y email son los cuatro más poderosos para los fundadores OPC.",
-          "Una oferta mínima viable — la versión más simple de tu producto o servicio por la que alguien pagaría hoy.",
+          "Una habilidad o dominio de conocimiento que puedas monetizar. Algo que sepas que otros pagarán por aprender, usar o que se haga por ellos.",
+          "Un canal de distribución. Una forma de llegar a las personas que necesitan lo que ofreces. LinkedIn, YouTube, SEO y email son los cuatro más poderosos para los fundadores OPC.",
+          "Una oferta mínima viable. La versión más simple de tu producto o servicio por la que alguien pagaría hoy.",
         ],
       },
       {
@@ -290,19 +290,19 @@ export const ARTICLES: Article[] = [
     sectionsEn: [
       {
         type: "p",
-        content: "In 2020, if you wanted to build a real business, you needed a team. A developer to build the product. A designer to make it look good. A writer to create the content. A marketer to drive traffic. An ops person to keep everything running. That was the minimum viable team — five to ten people — before you could even think about customers.",
+        content: "In 2020, if you wanted to build a real business, you needed a team. A developer to build the product. A designer to make it look good. A writer to create the content. A marketer to drive traffic. An ops person to keep everything running. That was the minimum viable team, five to ten people, before you could even think about customers.",
       },
       {
         type: "p",
-        content: "In 2026, one person with the right AI stack can do all of that — and in many cases, do it better than a mid-sized team with average talent. This is not hyperbole. It is what thousands of OPC founders across the Americas are proving right now, month after month.",
+        content: "In 2026, one person with the right AI stack can do all of that, and in many cases do it better than a mid-sized team with average talent. This is not hyperbole. It is what thousands of OPC founders across the Americas are proving right now, month after month.",
       },
       {
         type: "p",
-        content: "This guide covers the 10 AI tools that consistently deliver the highest leverage for solo founders — tools that have been stress-tested by builders shipping real products and generating real revenue.",
+        content: "This guide covers the 10 AI tools that consistently deliver the highest leverage for solo founders, tools that have been stress-tested by builders shipping real products and generating real revenue.",
       },
       {
         type: "h2",
-        content: "1. Claude (Anthropic) — Your Thinking Partner",
+        content: "1. Claude (Anthropic): Your Thinking Partner",
       },
       {
         type: "p",
@@ -310,7 +310,7 @@ export const ARTICLES: Article[] = [
       },
       {
         type: "p",
-        content: "What sets Claude apart is its context window — it can hold and reason about tens of thousands of words in a single conversation. Give it your entire business plan and ask it to find the weakest assumptions. Give it a transcript of a customer call and ask it to extract the key objections. It handles complexity the way a senior advisor would.",
+        content: "What sets Claude apart is its context window. It can hold and reason about tens of thousands of words in a single conversation. Give it your entire business plan and ask it to find the weakest assumptions. Give it a transcript of a customer call and ask it to extract the key objections. It handles complexity the way a senior advisor would.",
       },
       {
         type: "ul",
@@ -322,23 +322,23 @@ export const ARTICLES: Article[] = [
       },
       {
         type: "h2",
-        content: "2. Claude Code — Your Solo Engineering Team",
+        content: "2. Claude Code: Your Solo Engineering Team",
       },
       {
         type: "p",
-        content: "Claude Code is a terminal-based AI agent that operates directly in your codebase. It reads your files, understands your architecture, writes new code, runs tests, and fixes bugs — all from a single conversation. For non-technical OPC founders, it can turn a product idea into a working prototype. For technical founders, it compresses weeks of development into days.",
+        content: "Claude Code is a terminal-based AI agent that operates directly in your codebase. It reads your files, understands your architecture, writes new code, runs tests, and fixes bugs, all from a single conversation. For non-technical OPC founders, it can turn a product idea into a working prototype. For technical founders, it compresses weeks of development into days.",
       },
       {
         type: "p",
-        content: "The game-changing aspect of Claude Code is that it does not just write code — it thinks about architecture. Ask it to add a new feature and it will ask clarifying questions, identify the right files to modify, and make the changes with minimal side effects. It behaves like a senior engineer on your team, not a code autocomplete tool.",
+        content: "The game-changing aspect of Claude Code is that it does not just write code. It thinks about architecture. Ask it to add a new feature and it will ask clarifying questions, identify the right files to modify, and make the changes with minimal side effects. It behaves like a senior engineer on your team, not a code autocomplete tool.",
       },
       {
         type: "h2",
-        content: "3. Cursor — The AI-Native Code Editor",
+        content: "3. Cursor: The AI-Native Code Editor",
       },
       {
         type: "p",
-        content: "Cursor is the IDE that made non-technical founders dangerous. Built on VS Code with deep AI integration, it lets you describe changes in plain English and watch them happen across your codebase. Its killer feature is Composer — a multi-file edit mode where you can describe a complex change ('add user authentication with Google OAuth') and Cursor will touch every file it needs to touch.",
+        content: "Cursor is the IDE that made non-technical founders dangerous. Built on VS Code with deep AI integration, it lets you describe changes in plain English and watch them happen across your codebase. Its killer feature is Composer, a multi-file edit mode where you can describe a complex change ('add user authentication with Google OAuth') and Cursor will touch every file it needs to touch.",
       },
       {
         type: "p",
@@ -346,7 +346,7 @@ export const ARTICLES: Article[] = [
       },
       {
         type: "h2",
-        content: "4. Perplexity — Research Without the Noise",
+        content: "4. Perplexity: Research Without the Noise",
       },
       {
         type: "p",
@@ -358,55 +358,55 @@ export const ARTICLES: Article[] = [
       },
       {
         type: "h2",
-        content: "5. Midjourney — Your Visual Identity Engine",
+        content: "5. Midjourney: Your Visual Identity Engine",
       },
       {
         type: "p",
-        content: "Great visual identity used to cost $5,000–$20,000 from a branding agency. With Midjourney, a solo founder can generate professional-grade brand imagery, product mockups, social media visuals, and course thumbnails for $10–$30 a month. The quality ceiling of Midjourney v6 is genuinely stunning — the images it produces are indistinguishable from professional photography in many use cases.",
+        content: "Great visual identity used to cost $5,000–$20,000 from a branding agency. With Midjourney, a solo founder can generate professional-grade brand imagery, product mockups, social media visuals, and course thumbnails for $10–$30 a month. The quality ceiling of Midjourney v6 is genuinely stunning. The images it produces are indistinguishable from professional photography in many use cases.",
       },
       {
         type: "h2",
-        content: "6. HeyGen — Your Video Production Studio",
+        content: "6. HeyGen: Your Video Production Studio",
       },
       {
         type: "p",
-        content: "Video content drives 80% of internet traffic, and yet most OPC founders avoid it because production is expensive and time-consuming. HeyGen eliminates that excuse. It lets you create professional AI avatar videos in 40+ languages from a script — no camera, no studio, no editing skills required. For bilingual OPC founders serving the Americas, this is extraordinary: record once in English, translate and deliver in Spanish.",
+        content: "Video content drives 80% of internet traffic, and yet most OPC founders avoid it because production is expensive and time-consuming. HeyGen eliminates that excuse. It lets you create professional AI avatar videos in 40+ languages from a script, with no camera, no studio, no editing skills required. For bilingual OPC founders serving the Americas, this is extraordinary: record once in English, translate and deliver in Spanish.",
       },
       {
         type: "h2",
-        content: "7. ElevenLabs — Professional Voice, Instantly",
+        content: "7. ElevenLabs: Professional Voice, Instantly",
       },
       {
         type: "p",
-        content: "Audio is the most intimate content format — and ElevenLabs makes it accessible to any solo founder. Clone your own voice and narrate courses, podcasts, and sales videos in minutes. Or choose from hundreds of professional voices in multiple languages. For OPC founders building courses, podcasts, or bilingual content, ElevenLabs removes the audio production bottleneck entirely.",
+        content: "Audio is the most intimate content format. ElevenLabs makes it accessible to any solo founder. Clone your own voice and narrate courses, podcasts, and sales videos in minutes. Or choose from hundreds of professional voices in multiple languages. For OPC founders building courses, podcasts, or bilingual content, ElevenLabs removes the audio production bottleneck entirely.",
       },
       {
         type: "h2",
-        content: "8. Beehiiv — Your Email Business Engine",
+        content: "8. Beehiiv: Your Email Business Engine",
       },
       {
         type: "p",
-        content: "Email remains the highest-ROI marketing channel for OPC founders — consistently outperforming social media, SEO, and paid ads in direct revenue generation. Beehiiv is the platform built specifically for newsletter-as-a-business: 0% revenue share on paid subscriptions, built-in monetization through their ad network, and analytics that show you exactly which content converts to paying customers.",
+        content: "Email remains the highest-ROI marketing channel for OPC founders, consistently outperforming social media, SEO, and paid ads in direct revenue generation. Beehiiv is the platform built specifically for newsletter-as-a-business: 0% revenue share on paid subscriptions, built-in monetization through their ad network, and analytics that show you exactly which content converts to paying customers.",
       },
       {
         type: "p",
-        content: "The OPCAmerica recommendation: start your email list before you have a product. Your list is the most valuable asset in your OPC — more valuable than your website, your social following, or your product itself.",
+        content: "The OPCAmerica recommendation: start your email list before you have a product. Your list is the most valuable asset in your OPC, more valuable than your website, your social following, or your product itself.",
       },
       {
         type: "h2",
-        content: "9. Notion AI — Your Operating System",
+        content: "9. Notion AI: Your Operating System",
       },
       {
         type: "p",
-        content: "Every OPC needs a second brain — a central place where strategy, content, client work, and knowledge live. Notion with its AI layer is that place. Use it to manage your content calendar, track your metrics dashboard, write and store SOPs for your automated workflows, and maintain a knowledge base that grows with your business. The AI layer summarizes, drafts, and translates directly inside your workspace.",
+        content: "Every OPC needs a second brain, a central place where strategy, content, client work, and knowledge live. Notion with its AI layer is that place. Use it to manage your content calendar, track your metrics dashboard, write and store SOPs for your automated workflows, and maintain a knowledge base that grows with your business. The AI layer summarizes, drafts, and translates directly inside your workspace.",
       },
       {
         type: "h2",
-        content: "10. Stripe — Your Revenue Infrastructure",
+        content: "10. Stripe: Your Revenue Infrastructure",
       },
       {
         type: "p",
-        content: "Stripe is the default payment infrastructure for OPC founders building businesses in the Americas. It handles one-time payments, subscriptions, invoices, and increasingly complex billing scenarios. More importantly, Stripe's payout coverage across Latin America has improved dramatically — founders in Mexico, Colombia, Chile, and Argentina can now receive payouts directly, removing a major barrier to monetization.",
+        content: "Stripe is the default payment infrastructure for OPC founders building businesses in the Americas. It handles one-time payments, subscriptions, invoices, and increasingly complex billing scenarios. More importantly, Stripe's payout coverage across Latin America has improved dramatically. Founders in Mexico, Colombia, Chile, and Argentina can now receive payouts directly, removing a major barrier to monetization.",
       },
       {
         type: "callout",
@@ -419,7 +419,7 @@ export const ARTICLES: Article[] = [
       },
       {
         type: "p",
-        content: "The mistake most new OPC founders make is tool-hopping — trying a new AI tool every week without going deep on any of them. The founders generating $10K–$100K/mo from their OPCs are not using more tools. They are using fewer tools more deeply, with tighter workflows, and with clearer understanding of where each tool creates leverage in their specific business.",
+        content: "The mistake most new OPC founders make is tool-hopping, trying a new AI tool every week without going deep on any of them. The founders generating $10K–$100K/mo from their OPCs are not using more tools. They are using fewer tools more deeply, with tighter workflows, and with clearer understanding of where each tool creates leverage in their specific business.",
       },
       {
         type: "p",
@@ -429,15 +429,15 @@ export const ARTICLES: Article[] = [
     sectionsEs: [
       {
         type: "p",
-        content: "En 2020, si querías construir un negocio real, necesitabas un equipo. Un desarrollador para construir el producto. Un diseñador para que se vea bien. Un escritor para crear el contenido. Un marketer para generar tráfico. Una persona de operaciones para mantener todo funcionando. Ese era el equipo mínimo viable — cinco a diez personas — antes de poder siquiera pensar en los clientes.",
+        content: "En 2020, si querías construir un negocio real, necesitabas un equipo. Un desarrollador para construir el producto. Un diseñador para que se vea bien. Un escritor para crear el contenido. Un marketer para generar tráfico. Una persona de operaciones para mantener todo funcionando. Ese era el equipo mínimo viable, cinco a diez personas, antes de poder siquiera pensar en los clientes.",
       },
       {
         type: "p",
-        content: "En 2026, una persona con el stack de IA correcto puede hacer todo eso — y en muchos casos, hacerlo mejor que un equipo de tamaño mediano con talento promedio. Esto no es hipérbole. Es lo que miles de fundadores OPC en las Américas están demostrando ahora mismo, mes tras mes.",
+        content: "En 2026, una persona con el stack de IA correcto puede hacer todo eso, y en muchos casos hacerlo mejor que un equipo de tamaño mediano con talento promedio. Esto no es hipérbole. Es lo que miles de fundadores OPC en las Américas están demostrando ahora mismo, mes tras mes.",
       },
       {
         type: "h2",
-        content: "1. Claude (Anthropic) — Tu Socio de Pensamiento",
+        content: "1. Claude (Anthropic): Tu Socio de Pensamiento",
       },
       {
         type: "p",
@@ -445,7 +445,7 @@ export const ARTICLES: Article[] = [
       },
       {
         type: "h2",
-        content: "2. Cursor — El Editor de Código Nativo de IA",
+        content: "2. Cursor: El Editor de Código Nativo de IA",
       },
       {
         type: "p",
@@ -453,7 +453,7 @@ export const ARTICLES: Article[] = [
       },
       {
         type: "h2",
-        content: "3. Perplexity — Investigación Sin Ruido",
+        content: "3. Perplexity: Investigación Sin Ruido",
       },
       {
         type: "p",
@@ -461,7 +461,7 @@ export const ARTICLES: Article[] = [
       },
       {
         type: "h2",
-        content: "4. Midjourney — Tu Motor de Identidad Visual",
+        content: "4. Midjourney: Tu Motor de Identidad Visual",
       },
       {
         type: "p",
@@ -469,15 +469,15 @@ export const ARTICLES: Article[] = [
       },
       {
         type: "h2",
-        content: "5. HeyGen — Tu Estudio de Producción de Video",
+        content: "5. HeyGen: Tu Estudio de Producción de Video",
       },
       {
         type: "p",
-        content: "El contenido de video impulsa el 80% del tráfico de internet, y sin embargo la mayoría de los fundadores OPC lo evitan porque la producción es costosa. HeyGen elimina esa excusa. Te permite crear videos profesionales de avatar de IA en más de 40 idiomas a partir de un script — sin cámara, sin estudio, sin habilidades de edición.",
+        content: "El contenido de video impulsa el 80% del tráfico de internet, y sin embargo la mayoría de los fundadores OPC lo evitan porque la producción es costosa. HeyGen elimina esa excusa. Te permite crear videos profesionales de avatar de IA en más de 40 idiomas a partir de un script, sin cámara, sin estudio, sin habilidades de edición.",
       },
       {
         type: "h2",
-        content: "6. ElevenLabs — Voz Profesional, al Instante",
+        content: "6. ElevenLabs: Voz Profesional, al Instante",
       },
       {
         type: "p",
@@ -485,7 +485,7 @@ export const ARTICLES: Article[] = [
       },
       {
         type: "h2",
-        content: "7. Beehiiv — Tu Motor de Negocio por Email",
+        content: "7. Beehiiv: Tu Motor de Negocio por Email",
       },
       {
         type: "p",
@@ -493,15 +493,15 @@ export const ARTICLES: Article[] = [
       },
       {
         type: "h2",
-        content: "8. Notion AI — Tu Sistema Operativo",
+        content: "8. Notion AI: Tu Sistema Operativo",
       },
       {
         type: "p",
-        content: "Cada OPC necesita un segundo cerebro — un lugar central donde viven la estrategia, el contenido, el trabajo con clientes y el conocimiento. Notion con su capa de IA es ese lugar.",
+        content: "Cada OPC necesita un segundo cerebro, un lugar central donde viven la estrategia, el contenido, el trabajo con clientes y el conocimiento. Notion con su capa de IA es ese lugar.",
       },
       {
         type: "h2",
-        content: "9. Stripe — Tu Infraestructura de Ingresos",
+        content: "9. Stripe: Tu Infraestructura de Ingresos",
       },
       {
         type: "p",
@@ -509,7 +509,7 @@ export const ARTICLES: Article[] = [
       },
       {
         type: "h2",
-        content: "10. SealSEO — SEO de Alto Impacto a Bajo Costo",
+        content: "10. SealSEO: SEO de Alto Impacto a Bajo Costo",
       },
       {
         type: "p",
@@ -532,8 +532,8 @@ export const ARTICLES: Article[] = [
     readTime: 15,
     lang: "both",
     publishedAt: "2026-05-10",
-    excerptEn: "A step-by-step 30-day roadmap to go from idea to your first paying customer — without quitting your job, without funding, and without a team.",
-    excerptEs: "Una hoja de ruta paso a paso de 30 días para ir desde la idea hasta tu primer cliente de pago — sin renunciar a tu trabajo, sin financiamiento y sin un equipo.",
+    excerptEn: "A step-by-step 30-day roadmap to go from idea to your first paying customer, without quitting your job, without funding, and without a team.",
+    excerptEs: "Una hoja de ruta paso a paso de 30 días para ir desde la idea hasta tu primer cliente de pago, sin renunciar a tu trabajo, sin financiamiento y sin un equipo.",
     sectionsEn: [
       {
         type: "p",
@@ -541,7 +541,7 @@ export const ARTICLES: Article[] = [
       },
       {
         type: "p",
-        content: "The founders who actually build OPCs — the ones generating $5K, $10K, $50K per month — did not wait for perfect. They started messy. They launched something small. They got a first customer. And then they built from there.",
+        content: "The founders who actually build OPCs, the ones generating $5K, $10K, $50K per month, did not wait for perfect. They started messy. They launched something small. They got a first customer. And then they built from there.",
       },
       {
         type: "p",
@@ -558,7 +558,7 @@ export const ARTICLES: Article[] = [
       {
         type: "ul",
         content: [
-          "What skill or knowledge are you monetizing? Not what you want to do someday — what can you do right now that creates value for someone else?",
+          "What skill or knowledge are you monetizing? Not what you want to do someday. What can you do right now that creates value for someone else?",
           "Who is your first customer? Not a demographic. A specific type of person with a specific problem you can solve.",
           "What is the simplest possible offer? A consulting call, a written guide, a small software tool, a done-for-you service. What is the minimum version someone would pay for?",
           "What is your price? Pick a number. It will be wrong. Change it later. But pick one now.",
@@ -590,7 +590,7 @@ export const ARTICLES: Article[] = [
       },
       {
         type: "p",
-        content: "Create a Stripe account. Set up a payment link for your offer. This is non-negotiable — you cannot test demand without a way to collect money. Many first-time OPC founders skip this step and then wonder why they have no customers. A customer who says 'yes' without a payment link is just a warm lead.",
+        content: "Create a Stripe account. Set up a payment link for your offer. This is non-negotiable. You cannot test demand without a way to collect money. Many first-time OPC founders skip this step and then wonder why they have no customers. A customer who says 'yes' without a payment link is just a warm lead.",
       },
       {
         type: "h2",
@@ -610,7 +610,7 @@ export const ARTICLES: Article[] = [
       },
       {
         type: "p",
-        content: "From those 20 conversations, identify the 3 people whose problem your offer most directly solves. Make them a specific, personalized offer. Not a generic pitch — a direct: 'Based on what you told me about [specific problem], I think I can help you [specific outcome] in [timeframe]. Here's how it works and what it costs.' Send the Stripe payment link.",
+        content: "From those 20 conversations, identify the 3 people whose problem your offer most directly solves. Make them a specific, personalized offer. Not a generic pitch. Go direct: 'Based on what you told me about [specific problem], I think I can help you [specific outcome] in [timeframe]. Here's how it works and what it costs.' Send the Stripe payment link.",
       },
       {
         type: "h2",
@@ -618,7 +618,7 @@ export const ARTICLES: Article[] = [
       },
       {
         type: "p",
-        content: "Whether you got a customer in Week 2 or not, Week 3 is about delivery and refinement. If you have a customer, deliver your offer at the highest quality you can — this first customer is worth 10 future customers in testimonials, referrals, and confidence. If you do not have a customer yet, use Week 3 to refine your offer based on what you heard in your 20 conversations.",
+        content: "Whether you got a customer in Week 2 or not, Week 3 is about delivery and refinement. If you have a customer, deliver your offer at the highest quality you can. This first customer is worth 10 future customers in testimonials, referrals, and confidence. If you do not have a customer yet, use Week 3 to refine your offer based on what you heard in your 20 conversations.",
       },
       {
         type: "h3",
@@ -626,7 +626,7 @@ export const ARTICLES: Article[] = [
       },
       {
         type: "p",
-        content: "Start publishing. Pick one channel — LinkedIn or a newsletter are best for most OPC founders. Use Claude to help you write one piece of content per day based on what you are learning from your conversations. Do not wait until it is perfect. Publish imperfect content daily and improve with every piece. The algorithm rewards consistency over quality, at least at the beginning.",
+        content: "Start publishing. Pick one channel. LinkedIn or a newsletter are best for most OPC founders. Use Claude to help you write one piece of content per day based on what you are learning from your conversations. Do not wait until it is perfect. Publish imperfect content daily and improve with every piece. The algorithm rewards consistency over quality, at least at the beginning.",
       },
       {
         type: "h2",
@@ -634,7 +634,7 @@ export const ARTICLES: Article[] = [
       },
       {
         type: "p",
-        content: "By Day 30, you should have: one paying customer (or multiple), a clear understanding of what your market actually wants, a content channel with growing engagement, and a simple but functional offer page. This is not a finished business. It is a validated foundation — proof that someone will pay you for what you offer.",
+        content: "By Day 30, you should have: one paying customer (or multiple), a clear understanding of what your market actually wants, a content channel with growing engagement, and a simple but functional offer page. This is not a finished business. It is a validated foundation, proof that someone will pay you for what you offer.",
       },
       {
         type: "callout",
@@ -647,7 +647,7 @@ export const ARTICLES: Article[] = [
       },
       {
         type: "p",
-        content: "The OPC founders who make it past Day 30 have one thing in common: they did not stop. They took the signal from their first customer and used it to build the next version. They raised their prices. They refined their offer. They built more systematic delivery. They added a second revenue stream. Month by month, the business grew — not because they had a grand plan, but because they kept shipping and kept listening.",
+        content: "The OPC founders who make it past Day 30 have one thing in common: they did not stop. They took the signal from their first customer and used it to build the next version. They raised their prices. They refined their offer. They built more systematic delivery. They added a second revenue stream. Month by month, the business grew. Not because they had a grand plan, but because they kept shipping and kept listening.",
       },
       {
         type: "p",
@@ -657,7 +657,7 @@ export const ARTICLES: Article[] = [
     sectionsEs: [
       {
         type: "p",
-        content: "La mayoría de las personas pasan años pensando en comenzar su propio negocio. Esperan la idea perfecta, el momento perfecto, la cantidad perfecta de ahorros. Los fundadores que realmente construyen OPCs — los que generan $5K, $10K, $50K por mes — no esperaron la perfección. Empezaron de manera imperfecta. Lanzaron algo pequeño. Consiguieron un primer cliente.",
+        content: "La mayoría de las personas pasan años pensando en comenzar su propio negocio. Esperan la idea perfecta, el momento perfecto, la cantidad perfecta de ahorros. Los fundadores que realmente construyen OPCs, los que generan $5K, $10K, $50K por mes, no esperaron la perfección. Empezaron de manera imperfecta. Lanzaron algo pequeño. Consiguieron un primer cliente.",
       },
       {
         type: "p",
@@ -698,7 +698,7 @@ export const ARTICLES: Article[] = [
       },
       {
         type: "p",
-        content: "Comienza a publicar. Elige un canal — LinkedIn o un newsletter son los mejores para la mayoría de los fundadores OPC. Usa Claude para ayudarte a escribir una pieza de contenido por día basada en lo que estás aprendiendo de tus conversaciones.",
+        content: "Comienza a publicar. Elige un canal. LinkedIn o un newsletter son los mejores para la mayoría de los fundadores OPC. Usa Claude para ayudarte a escribir una pieza de contenido por día basada en lo que estás aprendiendo de tus conversaciones.",
       },
       {
         type: "h2",
@@ -730,11 +730,11 @@ export const ARTICLES: Article[] = [
     sectionsEn: [
       {
         type: "p",
-        content: "The number one mistake OPC founders make is not choosing the wrong niche, building the wrong product, or using the wrong distribution channel. It is charging too little. Across the Americas, solo founders consistently underprice their work by a factor of two to five — and the consequences compound over time: lower revenue, lower perceived value, more clients needed to hit income targets, and less time to do the work that actually moves the needle.",
+        content: "The number one mistake OPC founders make is not choosing the wrong niche, building the wrong product, or using the wrong distribution channel. It is charging too little. Across the Americas, solo founders consistently underprice their work by a factor of two to five. The consequences compound over time: lower revenue, lower perceived value, more clients needed to hit income targets, and less time to do the work that actually moves the needle.",
       },
       {
         type: "p",
-        content: "Pricing is not just a business decision. It is a signal — to your market, to your clients, and to yourself — about the kind of business you are building. Low prices signal high volume, low quality, and low leverage. High prices signal expertise, results, and confidence. The market responds accordingly.",
+        content: "Pricing is not just a business decision. It is a signal to your market, to your clients, and to yourself, about the kind of business you are building. Low prices signal high volume, low quality, and low leverage. High prices signal expertise, results, and confidence. The market responds accordingly.",
       },
       {
         type: "h2",
@@ -745,7 +745,7 @@ export const ARTICLES: Article[] = [
         content: [
           "Imposter syndrome: 'Who am I to charge that much?'",
           "Comparison to local salaries, especially in Latin American markets",
-          "Fear of rejection — lower prices feel safer because 'at least they'll say yes'",
+          "Fear of rejection. Lower prices feel safer because 'at least they'll say yes'",
           "Lack of understanding of the value they actually deliver",
           "Copying the pricing of competitors without understanding their positioning",
         ],
@@ -768,11 +768,11 @@ export const ARTICLES: Article[] = [
       },
       {
         type: "p",
-        content: "OPC founders serving clients in the USA and Canada should be pricing in USD at US market rates — regardless of where the founder lives. A consultant in Bogotá delivering the same outcome as one in New York creates the same value and should charge the same price. The cost of living advantage is profit margin, not a reason to discount.",
+        content: "OPC founders serving clients in the USA and Canada should be pricing in USD at US market rates, regardless of where the founder lives. A consultant in Bogotá delivering the same outcome as one in New York creates the same value and should charge the same price. The cost of living advantage is profit margin, not a reason to discount.",
       },
       {
         type: "p",
-        content: "For founders serving Latin American clients, the PPP adjustment is real and important. What a US client pays $1,000 for, a Mexican client might pay $500–$600 for — not because the work is worth less, but because the economic context is different. The OPCAmerica model applies a ~50% PPP adjustment for Latam markets as a starting point.",
+        content: "For founders serving Latin American clients, the PPP adjustment is real and important. What a US client pays $1,000 for, a Mexican client might pay $500–$600 for, not because the work is worth less, but because the economic context is different. The OPCAmerica model applies a ~50% PPP adjustment for Latam markets as a starting point.",
       },
       {
         type: "h2",
@@ -780,7 +780,7 @@ export const ARTICLES: Article[] = [
       },
       {
         type: "p",
-        content: "The highest-earning OPC founders do not rely on a single price point. They build a price ladder — a range of offers at different price points that serve different segments of their market while maximizing total revenue:",
+        content: "The highest-earning OPC founders do not rely on a single price point. They build a price ladder, a range of offers at different price points that serve different segments of their market while maximizing total revenue:",
       },
       {
         type: "ul",
@@ -819,7 +819,7 @@ export const ARTICLES: Article[] = [
       },
       {
         type: "p",
-        content: "Pricing confidence does not come before raising your prices. It comes after. Every time you quote a higher price and someone says yes, your confidence increases. Every time you deliver results that justify the higher price, your confidence increases. The only way to develop pricing confidence is to test higher prices — and learn from what happens.",
+        content: "Pricing confidence does not come before raising your prices. It comes after. Every time you quote a higher price and someone says yes, your confidence increases. Every time you deliver results that justify the higher price, your confidence increases. The only way to develop pricing confidence is to test higher prices and learn from what happens.",
       },
     ],
     sectionsEs: [
@@ -836,7 +836,7 @@ export const ARTICLES: Article[] = [
         content: [
           "Síndrome del impostor: '¿Quién soy yo para cobrar tanto?'",
           "Comparación con los salarios locales, especialmente en mercados latinoamericanos",
-          "Miedo al rechazo — los precios más bajos se sienten más seguros",
+          "Miedo al rechazo. Los precios más bajos se sienten más seguros",
           "Falta de comprensión del valor que realmente entregan",
         ],
       },
@@ -868,12 +868,12 @@ export const ARTICLES: Article[] = [
     readTime: 11,
     lang: "en",
     publishedAt: "2026-05-15",
-    excerptEn: "How to build a content engine that generates leads, builds authority, and grows your OPC on autopilot — using AI to produce a week's worth of content in one morning.",
-    excerptEs: "Cómo construir un motor de contenido que genere leads, construya autoridad y haga crecer tu OPC en piloto automático — usando IA para producir el contenido de una semana en una mañana.",
+    excerptEn: "How to build a content engine that generates leads, builds authority, and grows your OPC on autopilot, using AI to produce a week's worth of content in one morning.",
+    excerptEs: "Cómo construir un motor de contenido que genere leads, construya autoridad y haga crecer tu OPC en piloto automático, usando IA para producir el contenido de una semana en una mañana.",
     sectionsEn: [
       {
         type: "p",
-        content: "The OPC founders generating $20K, $50K, $100K per month without a team have one thing in common: they have built content engines that work while they sleep. Not because they post more than everyone else — but because they have built systems that turn one insight into 10 pieces of content, and one hour of thinking into a week of audience growth.",
+        content: "The OPC founders generating $20K, $50K, $100K per month without a team have one thing in common: they have built content engines that work while they sleep. Not because they post more than everyone else, but because they have built systems that turn one insight into 10 pieces of content, and one hour of thinking into a week of audience growth.",
       },
       {
         type: "p",
@@ -904,7 +904,7 @@ export const ARTICLES: Article[] = [
       },
       {
         type: "p",
-        content: "With AI, this process — which used to take a full team — now takes two to three hours for one solo founder. One Sunday morning of focused work becomes a full week of content across every channel.",
+        content: "With AI, this process, which used to take a full team, now takes two to three hours for one solo founder. One Sunday morning of focused work becomes a full week of content across every channel.",
       },
       {
         type: "h2",
@@ -916,7 +916,7 @@ export const ARTICLES: Article[] = [
       },
       {
         type: "p",
-        content: "Use Notion or a voice memo app to capture content ideas the moment they occur — in conversations with clients, while reading, while doing competitor research. The constraint is never the quality of ideas. It is the system for capturing and developing them.",
+        content: "Use Notion or a voice memo app to capture content ideas the moment they occur: in conversations with clients, while reading, while doing competitor research. The constraint is never the quality of ideas. It is the system for capturing and developing them.",
       },
       {
         type: "h3",
@@ -940,7 +940,7 @@ export const ARTICLES: Article[] = [
       },
       {
         type: "p",
-        content: "Use Buffer to schedule all social content for the week in one session. Set your newsletter to go out at the same time every week — consistency of timing trains your audience to expect and open your emails. Automate everything that can be automated so your attention goes to creation, not distribution logistics.",
+        content: "Use Buffer to schedule all social content for the week in one session. Set your newsletter to go out at the same time every week. Consistency of timing trains your audience to expect and open your emails. Automate everything that can be automated so your attention goes to creation, not distribution logistics.",
       },
       {
         type: "h2",
@@ -973,7 +973,7 @@ export const ARTICLES: Article[] = [
       },
       {
         type: "blockquote",
-        content: "\"Content marketing is not about creating content. It is about building trust at scale — with hundreds or thousands of potential customers simultaneously — so that when they are ready to buy, you are the obvious choice.\"",
+        content: "\"Content marketing is not about creating content. It is about building trust at scale, with hundreds or thousands of potential customers simultaneously, so that when they are ready to buy, you are the obvious choice.\"",
       },
       {
         type: "h2",
@@ -981,11 +981,11 @@ export const ARTICLES: Article[] = [
       },
       {
         type: "p",
-        content: "OPC founders in the Americas have a unique opportunity that their US or European competitors lack: the ability to reach two massive markets — English-speaking North America and Spanish-speaking Latin America — with the same business and the same content, translated and adapted rather than created from scratch.",
+        content: "OPC founders in the Americas have a unique opportunity that their US or European competitors lack: the ability to reach two massive markets, English-speaking North America and Spanish-speaking Latin America, with the same business and the same content, translated and adapted rather than created from scratch.",
       },
       {
         type: "p",
-        content: "Use Claude to adapt your English content to Spanish with this prompt: 'Translate and adapt this essay for a Latin American audience of [type of founder]. Keep all technical terms in English. Adjust cultural references and examples to resonate with [Mexican / Colombian / Argentine] readers. Write naturally — do not make it sound like a translation.' The result is content that genuinely serves Spanish-speaking founders, not a machine-translated afterthought.",
+        content: "Use Claude to adapt your English content to Spanish with this prompt: 'Translate and adapt this essay for a Latin American audience of [type of founder]. Keep all technical terms in English. Adjust cultural references and examples to resonate with [Mexican / Colombian / Argentine] readers. Write naturally. Do not make it sound like a translation.' The result is content that genuinely serves Spanish-speaking founders, not a machine-translated afterthought.",
       },
     ],
     sectionsEs: [
@@ -1029,16 +1029,16 @@ export const ARTICLES: Article[] = [
     readTime: 6,
     lang: "both",
     publishedAt: "2026-05-20",
-    excerptEn: "From a salaried manufacturing engineer to a $10K/month solo consulting business — in 14 months, without leaving Mexico. Diego's story is a blueprint for every Latam OPC founder.",
-    excerptEs: "De ingeniero de manufactura asalariado a un negocio de consultoría de $10K/mes — en 14 meses, sin salir de México. La historia de Diego es un blueprint para cada fundador OPC de Latam.",
+    excerptEn: "From a salaried manufacturing engineer to a $10K/month solo consulting business, in 14 months, without leaving Mexico. Diego's story is a blueprint for every Latam OPC founder.",
+    excerptEs: "De ingeniero de manufactura asalariado a un negocio de consultoría de $10K/mes, en 14 meses, sin salir de México. La historia de Diego es un blueprint para cada fundador OPC de Latam.",
     sectionsEn: [
       {
         type: "p",
-        content: "In January 2024, Diego Ramírez was making 65,000 Mexican pesos per month — about $3,800 USD — as a senior manufacturing engineer for a Tier 1 automotive supplier in Monterrey. By March 2025, he was making $10,000 USD per month consulting for US and Canadian manufacturers on lean operations and AI-assisted process optimization. He had not moved. He had not raised capital. He had built an OPC.",
+        content: "In January 2024, Diego Ramírez was making 65,000 Mexican pesos per month, about $3,800 USD, as a senior manufacturing engineer for a Tier 1 automotive supplier in Monterrey. By March 2025, he was making $10,000 USD per month consulting for US and Canadian manufacturers on lean operations and AI-assisted process optimization. He had not moved. He had not raised capital. He had built an OPC.",
       },
       {
         type: "p",
-        content: "Diego's story is not unique. It is happening across Mexico, Colombia, Chile, and Argentina as skilled professionals discover that their expertise — valued at salary rates in their home countries — commands global market rates when delivered through the right vehicle. But Diego's execution was sharper than most. This is how he did it.",
+        content: "Diego's story is not unique. It is happening across Mexico, Colombia, Chile, and Argentina as skilled professionals discover that their expertise, valued at salary rates in their home countries, commands global market rates when delivered through the right vehicle. But Diego's execution was sharper than most. This is how he did it.",
       },
       {
         type: "h2",
@@ -1046,7 +1046,7 @@ export const ARTICLES: Article[] = [
       },
       {
         type: "p",
-        content: "Diego had spent 11 years inside manufacturing plants, solving the kinds of problems that US companies flew expensive consultants from Chicago and Detroit to solve. He knew what those consultants charged — $250 to $400 per hour — and he knew that he could solve the same problems, often better, because he had lived them.",
+        content: "Diego had spent 11 years inside manufacturing plants, solving the kinds of problems that US companies flew expensive consultants from Chicago and Detroit to solve. He knew what those consultants charged, $250 to $400 per hour, and he knew that he could solve the same problems, often better, because he had lived them.",
       },
       {
         type: "p",
@@ -1058,7 +1058,7 @@ export const ARTICLES: Article[] = [
       },
       {
         type: "p",
-        content: "Diego did not quit his job. He started his OPC while employed — evenings and weekends — using a disciplined 90-day foundation period:",
+        content: "Diego did not quit his job. He started his OPC while employed, evenings and weekends, using a disciplined 90-day foundation period:",
       },
       {
         type: "ul",
@@ -1066,7 +1066,7 @@ export const ARTICLES: Article[] = [
           "He spent Month 1 documenting his methodology: the exact process he used to identify and eliminate waste in manufacturing operations",
           "He built a LinkedIn presence around lean manufacturing and AI for industrial operations, posting three times per week using content he created with Claude",
           "He created a simple Notion page describing his consulting offer: a 30-day lean assessment for manufacturing SMEs, priced at $5,000",
-          "He reached out to 40 contacts in his network — former colleagues, suppliers, customers — with a genuine message about what he was building",
+          "He reached out to 40 contacts in his network, former colleagues, suppliers, and customers, with a genuine message about what he was building",
         ],
       },
       {
@@ -1075,7 +1075,7 @@ export const ARTICLES: Article[] = [
       },
       {
         type: "p",
-        content: "His third outreach response was from a former supplier — now running his own contract manufacturing operation in Texas — who had a specific problem: waste in changeover time was killing their margins. Diego offered to do a free one-day assessment in exchange for a testimonial. The assessment identified $85,000 in annual savings. The client paid Diego $5,000 for the full engagement. His OPC had its first paying customer.",
+        content: "His third outreach response was from a former supplier, now running his own contract manufacturing operation in Texas, who had a specific problem: waste in changeover time was killing their margins. Diego offered to do a free one-day assessment in exchange for a testimonial. The assessment identified $85,000 in annual savings. The client paid Diego $5,000 for the full engagement. His OPC had its first paying customer.",
       },
       {
         type: "h2",
@@ -1083,7 +1083,7 @@ export const ARTICLES: Article[] = [
       },
       {
         type: "p",
-        content: "With one client and one testimonial, Diego raised his price to $7,500 and landed two more clients in the following three months. He used Claude to create detailed deliverable templates — assessment frameworks, report structures, implementation roadmaps — so each engagement could be delivered in less time without sacrificing quality. His effective hourly rate had reached $250/hour. His employer was paying him $22/hour.",
+        content: "With one client and one testimonial, Diego raised his price to $7,500 and landed two more clients in the following three months. He used Claude to create detailed deliverable templates, assessment frameworks, report structures, and implementation roadmaps, so each engagement could be delivered in less time without sacrificing quality. His effective hourly rate had reached $250/hour. His employer was paying him $22/hour.",
       },
       {
         type: "h2",
@@ -1091,7 +1091,7 @@ export const ARTICLES: Article[] = [
       },
       {
         type: "p",
-        content: "By Month 10, Diego's consulting revenue had exceeded his salary. By Month 14, he was billing $10,000+ per month consistently — with three retainer clients paying him $2,500/month each for ongoing support, plus occasional project work. He gave 60 days notice and left his employer on good terms. They became his fourth client.",
+        content: "By Month 10, Diego's consulting revenue had exceeded his salary. By Month 14, he was billing $10,000+ per month consistently, with three retainer clients paying him $2,500/month each for ongoing support, plus occasional project work. He gave 60 days notice and left his employer on good terms. They became his fourth client.",
       },
       {
         type: "blockquote",
@@ -1121,7 +1121,7 @@ export const ARTICLES: Article[] = [
       },
       {
         type: "p",
-        content: "'Start the LinkedIn content immediately. I waited three months to start posting and those were three months of compounding I missed. The content builds slowly and then all at once — by Month 9, inbound messages were coming to me. I had not needed to do outreach in two months.'",
+        content: "'Start the LinkedIn content immediately. I waited three months to start posting and those were three months of compounding I missed. The content builds slowly and then all at once. By Month 9, inbound messages were coming to me. I had not needed to do outreach in two months.'",
       },
       {
         type: "p",
@@ -1130,7 +1130,7 @@ export const ARTICLES: Article[] = [
       {
         type: "callout",
         label: "The Monterrey Blueprint",
-        content: "Diego's path — skilled professional → documented methodology → LinkedIn content → first client → retainer model — is repeatable for any specialized professional in the Americas. The variables change. The structure does not.",
+        content: "Diego's path, skilled professional to documented methodology to LinkedIn content to first client to retainer model, is repeatable for any specialized professional in the Americas. The variables change. The structure does not.",
       },
       {
         type: "p",
@@ -1140,7 +1140,7 @@ export const ARTICLES: Article[] = [
     sectionsEs: [
       {
         type: "p",
-        content: "En enero de 2024, Diego Ramírez ganaba 65,000 pesos mexicanos por mes — aproximadamente $3,800 USD — como ingeniero de manufactura senior para un proveedor automotriz Tier 1 en Monterrey. Para marzo de 2025, ganaba $10,000 USD por mes consultando para fabricantes de Estados Unidos y Canadá. No se había mudado. No había recaudado capital. Había construido un OPC.",
+        content: "En enero de 2024, Diego Ramírez ganaba 65,000 pesos mexicanos por mes, aproximadamente $3,800 USD, como ingeniero de manufactura senior para un proveedor automotriz Tier 1 en Monterrey. Para marzo de 2025, ganaba $10,000 USD por mes consultando para fabricantes de Estados Unidos y Canadá. No se había mudado. No había recaudado capital. Había construido un OPC.",
       },
       {
         type: "h2",
@@ -1169,7 +1169,7 @@ export const ARTICLES: Article[] = [
       },
       {
         type: "p",
-        content: "Su tercer contacto respondió — un ex proveedor con una operación de manufactura en Texas. Diego ofreció hacer una evaluación gratuita de un día a cambio de un testimonio. La evaluación identificó $85,000 en ahorros anuales. El cliente le pagó $5,000 por el compromiso completo.",
+        content: "Su tercer contacto respondió, un ex proveedor con una operación de manufactura en Texas. Diego ofreció hacer una evaluación gratuita de un día a cambio de un testimonio. La evaluación identificó $85,000 en ahorros anuales. El cliente le pagó $5,000 por el compromiso completo.",
       },
       {
         type: "h2",
@@ -1186,7 +1186,7 @@ export const ARTICLES: Article[] = [
       {
         type: "callout",
         label: "El Blueprint de Monterrey",
-        content: "El camino de Diego — profesional especializado → metodología documentada → contenido en LinkedIn → primer cliente → modelo de retainer — es repetible para cualquier profesional especializado en las Américas.",
+        content: "El camino de Diego, de profesional especializado a metodología documentada, contenido en LinkedIn, primer cliente y modelo de retainer, es repetible para cualquier profesional especializado en las Américas.",
       },
     ],
   },

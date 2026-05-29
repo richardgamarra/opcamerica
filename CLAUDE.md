@@ -157,6 +157,17 @@ Every user-facing element must be available in **English AND Spanish**.
 - **Pricing:** USD for North America, PPP-adjusted ~50% for Latam
 - **Phase approach:** 3 phases — Foundation → Monetization → Scale/AI
 
+## 10. Writing Standards (MANDATORY — applies to ALL content on this site)
+
+**Never use the em dash character (—) anywhere on the site.** This includes articles, page copy, UI strings, i18n files, component text, and any other user-facing content.
+
+Em dashes are a strong signal of AI-generated text and make content feel unnatural. Replace them with:
+- A period when two independent thoughts are being joined
+- A comma when the interruption is a brief aside or clarification
+- A colon when introducing a list or explanation
+
+This rule applies to every page, article, UI label, and language (EN and ES). Any time you write or edit content for this site, check for em dashes before saving.
+
 ---
 
-*Last updated: 2026-05-29 — Homepage implementation complete*
+*Last updated: 2026-05-29*
