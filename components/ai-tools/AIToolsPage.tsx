@@ -121,20 +121,22 @@ export function AIToolsPage({ lang, t }: Props) {
             >
               <div className="flex items-start justify-between mb-3">
                 <span className="text-2xl">{tool.logoEmoji}</span>
-                <div className="flex gap-1.5 flex-wrap justify-end">
-                  {tool.isRecommended && (
-                    <span className="bg-opc-orange/10 text-opc-orange text-[9px] font-sans font-bold px-2 py-0.5 rounded-full uppercase tracking-wide">
-                      ★ Top Pick
-                    </span>
-                  )}
-                  {tool.inCoreStack && (
-                    <span className="bg-gray-100 dark:bg-white/8 text-gray-400 dark:text-white/40 text-[9px] font-sans font-bold px-2 py-0.5 rounded-full uppercase tracking-wide">
-                      Core Stack
-                    </span>
-                  )}
-                </div>
+                {(tool.isRecommended || tool.inCoreStack) && (
+                  <div className="flex gap-1.5 flex-wrap justify-end">
+                    {tool.isRecommended && (
+                      <span className="bg-opc-orange/10 text-opc-orange text-[9px] font-sans font-bold px-2 py-0.5 rounded-full uppercase tracking-wide">
+                        ★ Top Pick
+                      </span>
+                    )}
+                    {tool.inCoreStack && (
+                      <span className="bg-gray-100 dark:bg-white/8 text-gray-400 dark:text-white/40 text-[9px] font-sans font-bold px-2 py-0.5 rounded-full uppercase tracking-wide">
+                        Core Stack
+                      </span>
+                    )}
+                  </div>
+                )}
               </div>
-              <h3 className="font-sans font-bold text-opc-dark dark:text-white mb-0.5 group-hover:text-opc-orange transition-colors">
+              <h3 className="font-sans font-bold text-opc-dark dark:text-white mb-0.5">
                 {tool.name}
               </h3>
               <p className="font-sans text-[11px] text-gray-400 dark:text-white/35 mb-2">
