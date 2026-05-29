@@ -1,0 +1,511 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>OPCAmerica — Homepage Mockup</title>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { font-family: 'Georgia', serif; background: #0a0a0a; color: #fff; }
+
+  /* NAV */
+  nav {
+    position: absolute; top: 0; left: 0; right: 0; z-index: 10;
+    display: flex; justify-content: space-between; align-items: center;
+    padding: 20px 48px;
+    background: linear-gradient(to bottom, rgba(0,0,0,0.75) 0%, transparent 100%);
+  }
+  .logo { font-family: sans-serif; font-size: 20px; font-weight: 900; letter-spacing: -0.5px; }
+  .logo span { color: #e8522a; }
+  .nav-links { display: flex; gap: 32px; font-family: sans-serif; font-size: 13px; color: rgba(255,255,255,0.75); }
+  .nav-links span:hover { color: #fff; cursor: pointer; }
+  .nav-right { display: flex; gap: 14px; align-items: center; font-family: sans-serif; font-size: 13px; }
+  .lang-toggle { border: 1px solid rgba(255,255,255,0.35); padding: 5px 14px; border-radius: 20px; color: rgba(255,255,255,0.75); cursor: pointer; }
+  .btn-signin { color: rgba(255,255,255,0.75); }
+  .btn-signup { background: #e8522a; color: #fff; padding: 8px 20px; border-radius: 7px; font-weight: 700; font-size: 13px; }
+
+  /* HERO */
+  .hero {
+    position: relative; min-height: 100vh; overflow: hidden;
+    display: flex; align-items: center;
+  }
+
+  /* City mosaic grid */
+  .city-mosaic {
+    position: absolute; inset: 0;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-rows: repeat(3, 1fr);
+    gap: 3px;
+  }
+  .city-tile {
+    position: relative; overflow: hidden;
+    background-size: cover; background-position: center;
+  }
+
+  /* Real-feeling city color gradients */
+  .t1  { background: linear-gradient(160deg,#0d1f3c,#1a3a6e,#0d2850); } /* New York — deep blue skyline */
+  .t2  { background: linear-gradient(160deg,#1a0f08,#5c3010,#2e1808); } /* Mexico City — warm terracotta */
+  .t3  { background: linear-gradient(160deg,#0a1a0a,#1c3d1c,#0d2510); } /* Bogotá — mountain green */
+  .t4  { background: linear-gradient(160deg,#05141e,#0a3055,#051830); } /* Miami — ocean blue */
+  .t5  { background: linear-gradient(160deg,#1a1000,#4a2e00,#2a1c00); } /* São Paulo — urban gold */
+  .t6  { background: linear-gradient(160deg,#0a1520,#1a3050,#0d2040); } /* Santiago — Andes blue */
+  .t7  { background: linear-gradient(160deg,#10080a,#3d1020,#200a14); } /* Buenos Aires — deep rose */
+  .t8  { background: linear-gradient(160deg,#1a0f00,#4a2800,#2e1800); } /* Lima — desert amber */
+  .t9  { background: linear-gradient(160deg,#040f1c,#082244,#041530); } /* Toronto — steel blue */
+  .t10 { background: linear-gradient(160deg,#14060a,#42101e,#280810); } /* Los Angeles — sunset pink */
+  .t11 { background: linear-gradient(160deg,#051005,#0f2a10,#071a08); } /* Medellín — lush green */
+  .t12 { background: linear-gradient(160deg,#1a1200,#4a3400,#2e2000); } /* Monterrey — golden dusk */
+
+  /* Shimmer overlay on each tile */
+  .city-tile::after {
+    content: ''; position: absolute; inset: 0;
+    background: linear-gradient(135deg, rgba(255,255,255,0.04) 0%, transparent 60%);
+  }
+
+  .city-label {
+    position: absolute; background: rgba(0,0,0,0.55);
+    backdrop-filter: blur(4px);
+    color: rgba(255,255,255,0.85); font-family: sans-serif; font-size: 10px; font-weight: 600;
+    padding: 4px 10px; border-radius: 20px; white-space: nowrap;
+    display: flex; align-items: center; gap: 5px;
+    border: 1px solid rgba(255,255,255,0.12);
+  }
+  .city-dot { width: 6px; height: 6px; background: #e8522a; border-radius: 50%; flex-shrink: 0; }
+
+  /* Layered dark overlay — heavy left, fades right */
+  .hero-overlay {
+    position: absolute; inset: 0;
+    background: linear-gradient(
+      105deg,
+      rgba(8,8,12,0.96) 0%,
+      rgba(8,8,12,0.85) 35%,
+      rgba(8,8,12,0.45) 65%,
+      rgba(8,8,12,0.15) 100%
+    );
+  }
+
+  /* Bottom fade */
+  .hero-fade-bottom {
+    position: absolute; bottom: 0; left: 0; right: 0; height: 120px;
+    background: linear-gradient(to top, #0a0a0a, transparent);
+  }
+
+  /* Globe */
+  .globe-wrap {
+    position: absolute; right: 5%; top: 50%; transform: translateY(-50%);
+    width: 360px; height: 360px; opacity: 0.65;
+  }
+
+  /* Hero content */
+  .hero-content {
+    position: relative; z-index: 5;
+    padding: 120px 48px 80px;
+    max-width: 640px;
+  }
+  .eyebrow {
+    font-family: sans-serif; font-size: 11px; letter-spacing: 3px;
+    color: rgba(255,255,255,0.5); text-transform: uppercase; margin-bottom: 24px;
+    display: flex; align-items: center; gap: 10px;
+  }
+  .eyebrow-line { width: 32px; height: 1px; background: #e8522a; }
+
+  .headline {
+    font-size: 64px; font-weight: 900; line-height: 1.0;
+    font-family: 'Georgia', serif; margin-bottom: 28px;
+    letter-spacing: -1px;
+  }
+  .headline .line { display: block; }
+  .headline .accent { color: #e8522a; font-style: italic; }
+
+  .opc-badge {
+    display: inline-flex; align-items: center; gap: 8px;
+    font-family: sans-serif; font-size: 11px; letter-spacing: 2px;
+    color: rgba(255,255,255,0.4); text-transform: uppercase;
+    border: 1px solid rgba(255,255,255,0.12); padding: 5px 14px; border-radius: 4px;
+    margin-bottom: 24px;
+  }
+  .opc-dot { width: 6px; height: 6px; background: #e8522a; border-radius: 50%; }
+
+  .subheadline {
+    font-family: sans-serif; font-size: 16px; color: rgba(255,255,255,0.72);
+    line-height: 1.65; margin-bottom: 8px; max-width: 500px;
+  }
+  .subheadline-es {
+    font-family: sans-serif; font-size: 13px; color: rgba(255,255,255,0.35);
+    line-height: 1.65; margin-bottom: 32px; max-width: 500px; font-style: italic;
+  }
+
+  .hero-ctas { display: flex; gap: 14px; align-items: center; margin-bottom: 36px; }
+  .cta-primary {
+    background: #e8522a; color: #fff; padding: 15px 30px;
+    border-radius: 8px; font-family: sans-serif; font-size: 15px; font-weight: 700;
+    display: flex; align-items: center; gap: 8px; cursor: pointer;
+    box-shadow: 0 4px 24px rgba(232,82,42,0.4);
+  }
+  .cta-secondary {
+    border: 1px solid rgba(255,255,255,0.25); color: rgba(255,255,255,0.75);
+    padding: 15px 26px; border-radius: 8px; font-family: sans-serif;
+    font-size: 15px; cursor: pointer;
+  }
+
+  .social-proof { display: flex; align-items: center; gap: 14px; }
+  .avatars { display: flex; }
+  .avatar {
+    width: 34px; height: 34px; border-radius: 50%; border: 2px solid rgba(255,255,255,0.15);
+    margin-left: -10px; font-size: 10px; display: flex; align-items: center;
+    justify-content: center; font-family: sans-serif; font-weight: 800; color: #fff;
+  }
+  .avatar:first-child { margin-left: 0; }
+  .a1{background:#1d4ed8;} .a2{background:#15803d;} .a3{background:#6d28d9;}
+  .a4{background:#e8522a;} .a5{background:#0369a1;} .a6{background:#b45309;}
+  .proof-text { font-family: sans-serif; font-size: 12px; color: rgba(255,255,255,0.45); line-height: 1.5; }
+
+  /* ── WHAT IS OPC ── */
+  .what-is {
+    background: #fff; color: #111;
+    padding: 80px 48px;
+    display: grid; grid-template-columns: 1fr 1fr; gap: 64px; align-items: center;
+  }
+  .what-label {
+    font-family: sans-serif; font-size: 11px; letter-spacing: 3px;
+    color: #e8522a; text-transform: uppercase; margin-bottom: 14px;
+  }
+  .what-title {
+    font-size: 40px; font-weight: 900; line-height: 1.1; font-family: 'Georgia', serif;
+  }
+  .what-title .opc { color: #e8522a; }
+  .what-body {
+    font-family: sans-serif; font-size: 15px; color: #555; line-height: 1.8; margin-bottom: 18px;
+  }
+  .what-body strong { color: #111; }
+  .what-body:last-child { margin-bottom: 0; }
+
+  /* ── 4 PILLARS ── */
+  .pillars {
+    background: #0c1420; padding: 80px 48px;
+    border-top: 1px solid #1e293b;
+  }
+  .section-label {
+    font-family: sans-serif; font-size: 11px; letter-spacing: 3px;
+    color: #e8522a; text-transform: uppercase; text-align: center; margin-bottom: 12px;
+  }
+  .section-title {
+    font-size: 32px; font-weight: 900; color: #fff;
+    font-family: 'Georgia', serif; text-align: center; margin-bottom: 6px;
+  }
+  .section-sub {
+    font-family: sans-serif; font-size: 13px; color: rgba(255,255,255,0.35);
+    text-align: center; font-style: italic; margin-bottom: 40px;
+  }
+  .pillar-grid {
+    display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px;
+  }
+  .pillar {
+    background: #111c2d; border-radius: 10px; padding: 24px 20px;
+    border-top: 3px solid transparent; transition: border-color 0.2s;
+  }
+  .pillar.p1 { border-top-color: #2563eb; }
+  .pillar.p2 { border-top-color: #16a34a; }
+  .pillar.p3 { border-top-color: #7c3aed; }
+  .pillar.p4 { border-top-color: #e8522a; }
+  .pillar-icon { font-size: 28px; margin-bottom: 12px; }
+  .pillar-name { font-family: sans-serif; font-size: 14px; font-weight: 800; color: #fff; margin-bottom: 8px; }
+  .pillar-desc { font-family: sans-serif; font-size: 12px; color: rgba(255,255,255,0.45); line-height: 1.65; }
+
+  /* ── FEATURED ── */
+  .featured {
+    background: #0a0a0a; padding: 72px 48px;
+    border-top: 1px solid #1a1a1a;
+  }
+  .featured-header {
+    display: flex; justify-content: space-between; align-items: flex-end; margin-bottom: 28px;
+  }
+  .featured-title { font-size: 24px; font-weight: 900; color: #fff; font-family: 'Georgia', serif; }
+  .see-all { font-family: sans-serif; font-size: 13px; color: #e8522a; }
+  .card-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
+  .card {
+    background: #111; border-radius: 10px; padding: 22px;
+    border: 1px solid #1e1e1e;
+  }
+  .card-tag {
+    font-family: sans-serif; font-size: 9px; letter-spacing: 2px; color: #e8522a;
+    text-transform: uppercase; margin-bottom: 10px;
+    display: flex; align-items: center; gap: 6px;
+  }
+  .card-title { font-size: 15px; font-weight: 700; color: #f1f5f9; margin-bottom: 8px; font-family: sans-serif; line-height: 1.4; }
+  .card-desc { font-family: sans-serif; font-size: 12px; color: #555; line-height: 1.6; }
+
+  /* ── SOCIAL PROOF ── */
+  .testimonials {
+    background: #0c1420; padding: 72px 48px;
+    border-top: 1px solid #1e293b;
+  }
+  .testi-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; margin-top: 40px; }
+  .testi {
+    background: #111c2d; border-radius: 10px; padding: 22px;
+    border-left: 3px solid #e8522a;
+  }
+  .testi-text { font-family: sans-serif; font-size: 13px; color: rgba(255,255,255,0.65); line-height: 1.7; font-style: italic; margin-bottom: 14px; }
+  .testi-author { font-family: sans-serif; font-size: 11px; color: #e8522a; font-weight: 700; }
+  .testi-role { font-family: sans-serif; font-size: 10px; color: rgba(255,255,255,0.3); }
+
+  /* ── EMAIL ── */
+  .email-capture {
+    background: linear-gradient(135deg, #1a0f08 0%, #2e1205 50%, #1a0a04 100%);
+    padding: 72px 48px; text-align: center;
+    border-top: 1px solid rgba(232,82,42,0.2);
+  }
+  .email-title { font-size: 32px; font-weight: 900; color: #fff; font-family: 'Georgia', serif; margin-bottom: 8px; }
+  .email-sub { font-family: sans-serif; font-size: 14px; color: rgba(255,255,255,0.55); margin-bottom: 6px; }
+  .email-es { font-family: sans-serif; font-size: 12px; color: rgba(255,255,255,0.3); font-style: italic; margin-bottom: 28px; }
+  .email-form { display: flex; gap: 10px; justify-content: center; align-items: center; flex-wrap: wrap; }
+  .email-input {
+    background: rgba(255,255,255,0.08); border: 1px solid rgba(255,255,255,0.15);
+    border-radius: 8px; padding: 13px 20px; font-family: sans-serif; font-size: 14px;
+    color: rgba(255,255,255,0.6); min-width: 260px;
+  }
+  .email-btn {
+    background: #e8522a; color: #fff; padding: 13px 28px;
+    border-radius: 8px; font-family: sans-serif; font-size: 14px; font-weight: 700;
+  }
+  .lang-pick { font-family: sans-serif; font-size: 12px; color: rgba(255,255,255,0.35); }
+  .lang-pick span { color: #e8522a; }
+
+  /* ── FOOTER ── */
+  footer {
+    background: #050505; padding: 28px 48px;
+    display: flex; justify-content: space-between; align-items: center;
+    border-top: 1px solid #111;
+  }
+  .footer-logo { font-family: sans-serif; font-size: 15px; font-weight: 900; }
+  .footer-logo span { color: #e8522a; }
+  .footer-links { display: flex; gap: 24px; font-family: sans-serif; font-size: 11px; color: #333; }
+  .footer-copy { font-family: sans-serif; font-size: 11px; color: #222; }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <div class="logo">OPC<span>America</span></div>
+  <div class="nav-links">
+    <span>LaunchPad</span>
+    <span>AI Tools</span>
+    <span>Community</span>
+    <span>Consulting</span>
+  </div>
+  <div class="nav-right">
+    <div class="lang-toggle">🌐 EN | ES</div>
+    <div class="btn-signin">Sign in →</div>
+    <div class="btn-signup">Join Free</div>
+  </div>
+</nav>
+
+<!-- ══ HERO ══ -->
+<div class="hero">
+
+  <div class="city-mosaic">
+    <div class="city-tile t1"><div class="city-label" style="bottom:14px;right:12px"><div class="city-dot"></div>New York</div></div>
+    <div class="city-tile t2"><div class="city-label" style="bottom:14px;left:12px"><div class="city-dot"></div>Mexico City</div></div>
+    <div class="city-tile t3"><div class="city-label" style="top:14px;right:12px"><div class="city-dot"></div>Bogotá</div></div>
+    <div class="city-tile t4"><div class="city-label" style="bottom:14px;right:12px"><div class="city-dot"></div>Miami</div></div>
+    <div class="city-tile t5"><div class="city-label" style="top:14px;left:12px"><div class="city-dot"></div>São Paulo</div></div>
+    <div class="city-tile t6"><div class="city-label" style="bottom:14px;left:12px"><div class="city-dot"></div>Santiago</div></div>
+    <div class="city-tile t7"><div class="city-label" style="top:14px;right:12px"><div class="city-dot"></div>Buenos Aires</div></div>
+    <div class="city-tile t8"><div class="city-label" style="bottom:14px;left:12px"><div class="city-dot"></div>Lima</div></div>
+    <div class="city-tile t9"><div class="city-label" style="top:14px;left:12px"><div class="city-dot"></div>Toronto</div></div>
+    <div class="city-tile t10"><div class="city-label" style="bottom:14px;right:12px"><div class="city-dot"></div>Los Angeles</div></div>
+    <div class="city-tile t11"><div class="city-label" style="top:14px;left:12px"><div class="city-dot"></div>Medellín</div></div>
+    <div class="city-tile t12"><div class="city-label" style="bottom:14px;right:12px"><div class="city-dot"></div>Monterrey</div></div>
+  </div>
+
+  <div class="hero-overlay"></div>
+  <div class="hero-fade-bottom"></div>
+
+  <!-- Americas Globe -->
+  <div class="globe-wrap">
+    <svg viewBox="0 0 360 360" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <circle cx="180" cy="180" r="165" stroke="rgba(255,255,255,0.1)" stroke-width="1"/>
+      <circle cx="180" cy="180" r="130" stroke="rgba(255,255,255,0.07)" stroke-width="1"/>
+      <ellipse cx="180" cy="180" rx="165" ry="55" stroke="rgba(255,255,255,0.06)" stroke-width="1"/>
+      <ellipse cx="180" cy="180" rx="165" ry="110" stroke="rgba(255,255,255,0.05)" stroke-width="1"/>
+      <ellipse cx="180" cy="120" rx="148" ry="42" stroke="rgba(255,255,255,0.05)" stroke-width="1"/>
+      <ellipse cx="180" cy="235" rx="138" ry="38" stroke="rgba(255,255,255,0.05)" stroke-width="1"/>
+      <ellipse cx="180" cy="180" rx="55" ry="165" stroke="rgba(255,255,255,0.06)" stroke-width="1"/>
+      <ellipse cx="180" cy="180" rx="110" ry="165" stroke="rgba(255,255,255,0.05)" stroke-width="1"/>
+      <!-- Connection lines -->
+      <line x1="138" y1="88"  x2="158" y2="118" stroke="rgba(232,82,42,0.55)" stroke-width="1.2"/>
+      <line x1="158" y1="118" x2="162" y2="148" stroke="rgba(232,82,42,0.5)"  stroke-width="1.2"/>
+      <line x1="162" y1="148" x2="195" y2="168" stroke="rgba(232,82,42,0.45)" stroke-width="1.2"/>
+      <line x1="195" y1="168" x2="205" y2="208" stroke="rgba(232,82,42,0.4)"  stroke-width="1.2"/>
+      <line x1="205" y1="208" x2="182" y2="252" stroke="rgba(232,82,42,0.35)" stroke-width="1.2"/>
+      <line x1="138" y1="88"  x2="195" y2="168" stroke="rgba(255,255,255,0.1)" stroke-width="0.6"/>
+      <line x1="158" y1="118" x2="205" y2="208" stroke="rgba(255,255,255,0.08)" stroke-width="0.6"/>
+      <line x1="162" y1="148" x2="182" y2="252" stroke="rgba(255,255,255,0.07)" stroke-width="0.6"/>
+      <line x1="138" y1="88"  x2="205" y2="208" stroke="rgba(255,255,255,0.06)" stroke-width="0.6"/>
+      <!-- City nodes -->
+      <circle cx="138" cy="88"  r="11" fill="rgba(232,82,42,0.15)"/>
+      <circle cx="138" cy="88"  r="5.5" fill="#e8522a"/>
+      <circle cx="158" cy="118" r="9"  fill="rgba(255,255,255,0.1)"/>
+      <circle cx="158" cy="118" r="4"  fill="rgba(255,255,255,0.75)"/>
+      <circle cx="162" cy="148" r="9"  fill="rgba(232,82,42,0.12)"/>
+      <circle cx="162" cy="148" r="4"  fill="rgba(255,255,255,0.75)"/>
+      <circle cx="150" cy="163" r="7"  fill="rgba(255,255,255,0.08)"/>
+      <circle cx="150" cy="163" r="3.5" fill="rgba(255,255,255,0.6)"/>
+      <circle cx="195" cy="168" r="11" fill="rgba(232,82,42,0.15)"/>
+      <circle cx="195" cy="168" r="5.5" fill="#e8522a"/>
+      <circle cx="183" cy="192" r="7"  fill="rgba(255,255,255,0.08)"/>
+      <circle cx="183" cy="192" r="3.5" fill="rgba(255,255,255,0.6)"/>
+      <circle cx="205" cy="208" r="11" fill="rgba(232,82,42,0.15)"/>
+      <circle cx="205" cy="208" r="5.5" fill="#e8522a"/>
+      <circle cx="182" cy="252" r="11" fill="rgba(232,82,42,0.15)"/>
+      <circle cx="182" cy="252" r="5.5" fill="#e8522a"/>
+    </svg>
+  </div>
+
+  <div class="hero-content">
+    <div class="eyebrow"><div class="eyebrow-line"></div>For the AI-era founder · De Canadá a Argentina</div>
+
+    <div class="headline">
+      <span class="line">One Person.</span>
+      <span class="line">One Company.</span>
+      <span class="line accent">Your Success.</span>
+    </div>
+
+    <div class="opc-badge"><div class="opc-dot"></div>One Person Company · OPCAmerica</div>
+
+    <div class="subheadline">The Americas community for solo founders building scalable, AI-powered businesses — from Canada to Argentina.</div>
+    <div class="subheadline-es">La comunidad de las Américas para fundadores independientes que construyen negocios escalables con IA — de Canadá a Argentina.</div>
+
+    <div class="hero-ctas">
+      <div class="cta-primary">Join Free →</div>
+      <div class="cta-secondary">Explore the Community</div>
+    </div>
+
+    <div class="social-proof">
+      <div class="avatars">
+        <div class="avatar a1">MX</div>
+        <div class="avatar a2">BR</div>
+        <div class="avatar a3">US</div>
+        <div class="avatar a4">CO</div>
+        <div class="avatar a5">CL</div>
+        <div class="avatar a6">AR</div>
+      </div>
+      <div class="proof-text">Meet OPC founders from across the Americas<br/><span style="color:rgba(255,255,255,0.25);font-size:11px">Conoce fundadores OPC de toda América</span></div>
+    </div>
+  </div>
+</div>
+
+<!-- ══ WHAT IS OPC ══ -->
+<div class="what-is">
+  <div>
+    <div class="what-label">What does OPC mean?</div>
+    <div class="what-title">OPC stands for<br/><span class="opc">One-Person<br/>Company</span></div>
+  </div>
+  <div>
+    <div class="what-body">A One-Person Company is a real, scalable business operated by a single founder using <strong>AI tools, automation, and software</strong> — instead of a large team. It's not freelancing. It's not a side hustle. It's a full business built for leverage.</div>
+    <div class="what-body"><strong>OPCAmerica</strong> is the first bilingual community and resource platform dedicated exclusively to OPC founders across the Americas — connecting, equipping, and accelerating solo builders from <strong>Canada to Argentina</strong>.</div>
+  </div>
+</div>
+
+<!-- ══ 4 PILLARS ══ -->
+<div class="pillars">
+  <div class="section-label">Everything you need</div>
+  <div class="section-title">One Platform. Every Tool.</div>
+  <div class="section-sub">Una sola plataforma. Todo lo que necesitas.</div>
+  <div class="pillar-grid">
+    <div class="pillar p1">
+      <div class="pillar-icon">🚀</div>
+      <div class="pillar-name">LaunchPad</div>
+      <div class="pillar-desc">Accelerators, resources, and step-by-step guides to launch your OPC from zero — in English and Spanish.</div>
+    </div>
+    <div class="pillar p2">
+      <div class="pillar-icon">👥</div>
+      <div class="pillar-name">Community</div>
+      <div class="pillar-desc">Bilingual forum, success stories, and a network of OPC founders across the continent. Build solo, not isolated.</div>
+    </div>
+    <div class="pillar p3">
+      <div class="pillar-icon">🤖</div>
+      <div class="pillar-name">AI Tools</div>
+      <div class="pillar-desc">Curated AI tools directory, automation guides, and the OPC AI Assistant — your leverage engine.</div>
+    </div>
+    <div class="pillar p4">
+      <div class="pillar-icon">💼</div>
+      <div class="pillar-name">Consulting</div>
+      <div class="pillar-desc">MCSP program, OPC business strategy sessions, and expert support for founders ready to scale.</div>
+    </div>
+  </div>
+</div>
+
+<!-- ══ FEATURED ══ -->
+<div class="featured">
+  <div class="featured-header">
+    <div class="featured-title">From the Community</div>
+    <div class="see-all">See all →</div>
+  </div>
+  <div class="card-grid">
+    <div class="card">
+      <div class="card-tag">🇲🇽 Success Story · EN+ES</div>
+      <div class="card-title">How a solo founder in Monterrey built a $10K/mo SaaS in 90 days</div>
+      <div class="card-desc">Using AI tools and automation, Carlos went from idea to paying customers — entirely alone.</div>
+    </div>
+    <div class="card">
+      <div class="card-tag">🤖 AI Tools · EN+ES</div>
+      <div class="card-title">The 7 AI tools every OPC founder in the Americas needs in 2025</div>
+      <div class="card-desc">From content to code to customer support — these tools replace an entire team.</div>
+    </div>
+    <div class="card">
+      <div class="card-tag">📚 Guide · EN+ES</div>
+      <div class="card-title">What is a One Person Company? Complete guide for the Americas</div>
+      <div class="card-desc">The definitive bilingual introduction to OPC — what it is, why it works, and how to start.</div>
+    </div>
+  </div>
+</div>
+
+<!-- ══ TESTIMONIALS ══ -->
+<div class="testimonials">
+  <div class="section-label">Voices from the community</div>
+  <div class="section-title">OPC founders across the Americas</div>
+  <div class="testi-grid">
+    <div class="testi">
+      <div class="testi-text">"OPCAmerica is the community I needed when I started. Resources in Spanish, founders who understand my market, and real tools to grow."</div>
+      <div class="testi-author">Carlos M.</div>
+      <div class="testi-role">OPC Founder · Monterrey, Mexico</div>
+    </div>
+    <div class="testi">
+      <div class="testi-text">"Finally a platform that gets what it means to build a one-person company in the Americas. Bilingual, practical, and community-driven."</div>
+      <div class="testi-author">Sarah K.</div>
+      <div class="testi-role">Solo SaaS Founder · Austin, Texas</div>
+    </div>
+    <div class="testi">
+      <div class="testi-text">"Encontré los recursos que necesitaba para lanzar mi OPC — en español y con contexto latinoamericano. Eso no existía antes."</div>
+      <div class="testi-author">Valentina R.</div>
+      <div class="testi-role">Fundadora OPC · Bogotá, Colombia</div>
+    </div>
+  </div>
+</div>
+
+<!-- ══ EMAIL CAPTURE ══ -->
+<div class="email-capture">
+  <div class="email-title">Join the OPC Americas Community</div>
+  <div class="email-sub">Resources, success stories, and AI tools — free for solo founders across the Americas.</div>
+  <div class="email-es">Recursos, casos de éxito y herramientas IA — gratis para fundadores independientes.</div>
+  <div class="email-form">
+    <div class="email-input">your@email.com</div>
+    <div class="email-btn">Join Free →</div>
+    <div class="lang-pick">Language: <span>EN | ES</span></div>
+  </div>
+</div>
+
+<!-- ══ FOOTER ══ -->
+<footer>
+  <div class="footer-logo">OPC<span>America</span></div>
+  <div class="footer-links">
+    <span>LaunchPad</span><span>Community</span><span>AI Tools</span><span>Consulting</span><span>About</span>
+  </div>
+  <div class="footer-copy">© 2025 OPCAmerica · opcamerica.com</div>
+</footer>
+
+</body>
+</html>

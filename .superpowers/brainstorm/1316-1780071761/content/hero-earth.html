@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>OPCAmerica — Hero with Earth3</title>
+<style>
+  * { margin:0; padding:0; box-sizing:border-box; }
+  body { font-family:'Georgia',serif; background:#080d14; color:#fff; }
+
+  /* ── NAV ── */
+  nav {
+    position:absolute; top:0; left:0; right:0; z-index:10;
+    display:flex; justify-content:space-between; align-items:center;
+    padding:20px 48px;
+    background:linear-gradient(to bottom, rgba(5,10,20,0.85) 0%, transparent 100%);
+  }
+  .logo {
+    display:flex; align-items:center; gap:8px;
+    font-family:sans-serif; font-size:20px; font-weight:900; letter-spacing:-0.5px;
+  }
+  .logo-icon { width:16px; height:24px; opacity:0.9; }
+  .logo span { color:#e8522a; }
+  .nav-links { display:flex; gap:32px; font-family:sans-serif; font-size:13px; color:rgba(255,255,255,0.75); }
+  .nav-right { display:flex; gap:14px; align-items:center; font-family:sans-serif; font-size:13px; }
+  .lang-toggle { border:1px solid rgba(255,255,255,0.3); padding:5px 14px; border-radius:20px; color:rgba(255,255,255,0.75); }
+  .btn-signin { color:rgba(255,255,255,0.7); }
+  .btn-signup { background:#e8522a; color:#fff; padding:8px 20px; border-radius:7px; font-weight:700; font-size:13px; }
+
+  /* ── HERO ── */
+  .hero {
+    position:relative; min-height:100vh; overflow:hidden;
+    display:flex; align-items:center;
+  }
+
+  /* earth3.png as right-side background */
+  .hero-earth {
+    position:absolute; inset:0;
+    background:
+      url('earth3.png') right center / cover no-repeat;
+  }
+
+  /* Dark gradient overlays — heavy on left, fade to show image on right */
+  .hero-overlay-left {
+    position:absolute; inset:0;
+    background:linear-gradient(
+      to right,
+      rgba(8,13,20,1.0)   0%,
+      rgba(8,13,20,0.97)  30%,
+      rgba(8,13,20,0.80)  50%,
+      rgba(8,13,20,0.35)  70%,
+      rgba(8,13,20,0.08)  100%
+    );
+  }
+
+  /* Colour tint over the earth image to match dark navy theme */
+  .hero-overlay-tint {
+    position:absolute; inset:0;
+    background:linear-gradient(
+      to right,
+      transparent 40%,
+      rgba(8,13,20,0.25) 100%
+    );
+    mix-blend-mode: multiply;
+  }
+
+  /* Bottom fade */
+  .hero-fade-bottom {
+    position:absolute; bottom:0; left:0; right:0; height:160px;
+    background:linear-gradient(to top, #080d14, transparent);
+  }
+
+  /* City dots on the image */
+  .city-dot-layer {
+    position:absolute; inset:0; pointer-events:none;
+  }
+  .city-pin {
+    position:absolute;
+    display:flex; align-items:center; gap:6px;
+  }
+  .city-pin .dot {
+    width:8px; height:8px; border-radius:50%; background:#e8522a;
+    box-shadow:0 0 10px rgba(232,82,42,0.8), 0 0 20px rgba(232,82,42,0.4);
+    flex-shrink:0;
+  }
+  .city-pin .dot.dim {
+    background:rgba(255,255,255,0.7);
+    box-shadow:0 0 6px rgba(255,255,255,0.5);
+  }
+  .city-pin .city-name {
+    font-family:sans-serif; font-size:10px; font-weight:600;
+    color:rgba(255,255,255,0.75);
+    background:rgba(8,13,20,0.55); backdrop-filter:blur(4px);
+    padding:2px 8px; border-radius:10px;
+    border:1px solid rgba(255,255,255,0.1);
+    white-space:nowrap;
+  }
+
+  /* Hero text */
+  .hero-content {
+    position:relative; z-index:5;
+    padding:120px 48px 80px; max-width:640px;
+  }
+  .eyebrow {
+    font-family:sans-serif; font-size:11px; letter-spacing:3px;
+    color:rgba(255,255,255,0.45); text-transform:uppercase; margin-bottom:24px;
+    display:flex; align-items:center; gap:10px;
+  }
+  .eyebrow-line { width:32px; height:1px; background:#e8522a; }
+
+  .headline {
+    font-size:66px; font-weight:900; line-height:1.0;
+    font-family:'Georgia',serif; margin-bottom:20px; letter-spacing:-1px;
+  }
+  .headline .line { display:block; }
+  .headline .accent { color:#e8522a; font-style:italic; }
+
+  .opc-badge {
+    display:inline-flex; align-items:center; gap:8px;
+    font-family:sans-serif; font-size:11px; letter-spacing:2px;
+    color:rgba(255,255,255,0.4); text-transform:uppercase;
+    border:1px solid rgba(255,255,255,0.1); padding:5px 14px; border-radius:4px;
+    margin-bottom:22px;
+  }
+  .opc-dot { width:6px; height:6px; background:#e8522a; border-radius:50%; }
+
+  .subheadline {
+    font-family:sans-serif; font-size:16px; color:rgba(255,255,255,0.72);
+    line-height:1.65; margin-bottom:8px; max-width:500px;
+  }
+  .subheadline-es {
+    font-family:sans-serif; font-size:13px; color:rgba(255,255,255,0.32);
+    line-height:1.65; margin-bottom:32px; max-width:500px; font-style:italic;
+  }
+
+  .hero-ctas { display:flex; gap:14px; align-items:center; margin-bottom:36px; }
+  .cta-primary {
+    background:#e8522a; color:#fff; padding:15px 30px; border-radius:8px;
+    font-family:sans-serif; font-size:15px; font-weight:700;
+    display:flex; align-items:center; gap:8px;
+    box-shadow:0 4px 28px rgba(232,82,42,0.45);
+  }
+  .cta-secondary {
+    border:1px solid rgba(255,255,255,0.22); color:rgba(255,255,255,0.75);
+    padding:15px 26px; border-radius:8px; font-family:sans-serif; font-size:15px;
+  }
+
+  .social-proof { display:flex; align-items:center; gap:14px; }
+  .avatars { display:flex; }
+  .avatar {
+    width:34px; height:34px; border-radius:50%;
+    border:2px solid rgba(255,255,255,0.12);
+    margin-left:-10px; font-size:10px;
+    display:flex; align-items:center; justify-content:center;
+    font-family:sans-serif; font-weight:800; color:#fff;
+  }
+  .avatar:first-child { margin-left:0; }
+  .a1{background:#1d4ed8;} .a2{background:#15803d;} .a3{background:#6d28d9;}
+  .a4{background:#e8522a;} .a5{background:#0369a1;} .a6{background:#b45309;}
+  .proof-text { font-family:sans-serif; font-size:12px; color:rgba(255,255,255,0.42); line-height:1.5; }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <div class="logo">
+    <!-- Simplified Americas logo icon -->
+    <svg class="logo-icon" viewBox="0 0 40 60" fill="#e8522a" xmlns="http://www.w3.org/2000/svg">
+      <!-- North America simplified -->
+      <path d="M 6,8 C 10,5 18,4 24,6 C 30,8 36,6 38,10 C 40,14 38,20 34,22 C 32,26 32,30 30,34 C 28,36 26,38 25,40 C 24,38 22,36 20,34 C 18,32 16,32 14,34 C 12,36 10,38 8,38 C 6,36 4,32 4,28 C 4,22 4,16 6,8 Z"/>
+      <!-- Isthmus -->
+      <path d="M 24,40 C 24,43 25,46 24,48 C 23,46 22,43 22,40 Z"/>
+      <!-- South America simplified -->
+      <path d="M 20,48 C 22,47 26,47 28,49 C 32,52 34,56 34,60 L 30,60 C 28,58 26,56 24,55 C 22,56 20,58 18,60 L 14,60 C 14,56 16,52 20,48 Z"/>
+    </svg>
+    OPC<span>America</span>
+  </div>
+  <div class="nav-links">
+    <span>LaunchPad</span>
+    <span>Tutorials</span>
+    <span>AI Tools</span>
+    <span>Community</span>
+    <span>Consulting</span>
+  </div>
+  <div class="nav-right">
+    <div class="lang-toggle">🌐 EN | ES</div>
+    <div class="btn-signin">Sign in →</div>
+    <div class="btn-signup">Join Free</div>
+  </div>
+</nav>
+
+<!-- HERO -->
+<div class="hero">
+
+  <!-- Earth image background -->
+  <div class="hero-earth"></div>
+  <div class="hero-overlay-left"></div>
+  <div class="hero-overlay-tint"></div>
+  <div class="hero-fade-bottom"></div>
+
+  <!-- City dots positioned over the earth image -->
+  <div class="city-dot-layer">
+    <!-- Toronto/NY area — upper right of North America -->
+    <div class="city-pin" style="top:22%; right:28%">
+      <div class="dot"></div><div class="city-name">Toronto</div>
+    </div>
+    <!-- Mexico City — center of North America lower portion -->
+    <div class="city-pin" style="top:42%; right:38%">
+      <div class="dot"></div><div class="city-name">Mexico City</div>
+    </div>
+    <!-- Bogotá — top of South America -->
+    <div class="city-pin" style="top:55%; right:33%">
+      <div class="dot dim"></div><div class="city-name" style="color:rgba(255,255,255,0.55)">Bogotá</div>
+    </div>
+    <!-- São Paulo — right side of South America -->
+    <div class="city-pin" style="top:70%; right:22%">
+      <div class="dot"></div><div class="city-name">São Paulo</div>
+    </div>
+    <!-- Santiago — lower South America -->
+    <div class="city-pin" style="top:80%; right:32%">
+      <div class="dot dim"></div><div class="city-name" style="color:rgba(255,255,255,0.55)">Santiago</div>
+    </div>
+    <!-- Bogotá label on left side of image -->
+    <div class="city-pin" style="top:18%; right:20%">
+      <div class="dot dim"></div><div class="city-name" style="color:rgba(255,255,255,0.5)">Bogotá</div>
+    </div>
+  </div>
+
+  <!-- Hero text -->
+  <div class="hero-content">
+    <div class="eyebrow">
+      <div class="eyebrow-line"></div>
+      For the AI-era founder · De Canadá a Argentina
+    </div>
+
+    <div class="headline">
+      <span class="line">One Person.</span>
+      <span class="line">One Company.</span>
+      <span class="line accent">Your Success.</span>
+    </div>
+
+    <div class="opc-badge">
+      <div class="opc-dot"></div>
+      One Person Company · OPCAmerica
+    </div>
+
+    <div class="subheadline">
+      The Americas community for solo founders building scalable, AI-powered businesses — from Canada to Argentina.
+    </div>
+    <div class="subheadline-es">
+      La comunidad de las Américas para fundadores independientes que construyen negocios escalables con IA.
+    </div>
+
+    <div class="hero-ctas">
+      <div class="cta-primary">Join Free →</div>
+      <div class="cta-secondary">Explore the Community</div>
+    </div>
+
+    <div class="social-proof">
+      <div class="avatars">
+        <div class="avatar a1">MX</div>
+        <div class="avatar a2">BR</div>
+        <div class="avatar a3">US</div>
+        <div class="avatar a4">CO</div>
+        <div class="avatar a5">CL</div>
+        <div class="avatar a6">AR</div>
+      </div>
+      <div class="proof-text">
+        Meet OPC founders from across the Americas<br/>
+        <span style="font-size:11px;color:rgba(255,255,255,0.22)">Conoce fundadores OPC de toda América</span>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+</body>
+</html>

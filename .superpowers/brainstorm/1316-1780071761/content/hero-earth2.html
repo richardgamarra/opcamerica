@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>OPCAmerica — Hero</title>
+<style>
+  * { margin:0; padding:0; box-sizing:border-box; }
+  body { font-family:'Georgia',serif; background:#080d14; color:#fff; }
+
+  nav {
+    position:absolute; top:0; left:0; right:0; z-index:10;
+    display:flex; justify-content:space-between; align-items:center;
+    padding:20px 48px;
+    background:linear-gradient(to bottom, rgba(5,10,20,0.9) 0%, transparent 100%);
+  }
+  .logo { font-family:sans-serif; font-size:20px; font-weight:900; letter-spacing:-0.5px; color:#fff; }
+  .logo span { color:#e8522a; }
+  .nav-links { display:flex; gap:32px; font-family:sans-serif; font-size:13px; color:rgba(255,255,255,0.75); }
+  .nav-right { display:flex; gap:14px; align-items:center; font-family:sans-serif; font-size:13px; }
+  .lang-toggle { border:1px solid rgba(255,255,255,0.3); padding:5px 14px; border-radius:20px; color:rgba(255,255,255,0.75); }
+  .btn-signin { color:rgba(255,255,255,0.7); }
+  .btn-signup { background:#e8522a; color:#fff; padding:8px 20px; border-radius:7px; font-weight:700; }
+
+  .hero {
+    position:relative; min-height:100vh; overflow:hidden;
+    display:flex; align-items:center;
+  }
+
+  /* Earth image — positioned as img tag on the right */
+  .earth-img {
+    position:absolute;
+    right:-5%;
+    top:50%;
+    transform:translateY(-50%);
+    width:62%;
+    height:110%;
+    object-fit:cover;
+    object-position:center center;
+    z-index:1;
+  }
+
+  /* Gradient from left (dark) fading into the image */
+  .overlay-left {
+    position:absolute; inset:0; z-index:2;
+    background:linear-gradient(
+      to right,
+      #080d14 0%,
+      #080d14 35%,
+      rgba(8,13,20,0.92) 48%,
+      rgba(8,13,20,0.60) 62%,
+      rgba(8,13,20,0.20) 80%,
+      rgba(8,13,20,0.05) 100%
+    );
+  }
+
+  /* Dark navy tint over image so it blends with page palette */
+  .overlay-tint {
+    position:absolute; inset:0; z-index:3;
+    background:linear-gradient(
+      to right,
+      transparent 35%,
+      rgba(4,10,25,0.45) 100%
+    );
+  }
+
+  /* Bottom fade */
+  .overlay-bottom {
+    position:absolute; bottom:0; left:0; right:0; height:200px; z-index:4;
+    background:linear-gradient(to top, #080d14 0%, transparent 100%);
+  }
+
+  /* City pins */
+  .pins { position:absolute; inset:0; z-index:5; pointer-events:none; }
+  .pin {
+    position:absolute;
+    display:flex; align-items:center; gap:7px;
+  }
+  .pin-dot {
+    width:9px; height:9px; border-radius:50%; flex-shrink:0;
+    background:#e8522a;
+    box-shadow:0 0 0 3px rgba(232,82,42,0.25), 0 0 16px rgba(232,82,42,0.6);
+  }
+  .pin-dot.soft {
+    background:rgba(255,255,255,0.75);
+    box-shadow:0 0 0 3px rgba(255,255,255,0.15), 0 0 10px rgba(255,255,255,0.4);
+  }
+  .pin-label {
+    font-family:sans-serif; font-size:10px; font-weight:700;
+    color:rgba(255,255,255,0.82);
+    background:rgba(8,13,20,0.6); backdrop-filter:blur(6px);
+    padding:3px 9px; border-radius:12px;
+    border:1px solid rgba(255,255,255,0.12);
+    white-space:nowrap; letter-spacing:0.3px;
+  }
+
+  /* Hero content */
+  .hero-content {
+    position:relative; z-index:6;
+    padding:130px 48px 80px; max-width:620px;
+  }
+  .eyebrow {
+    font-family:sans-serif; font-size:11px; letter-spacing:3px;
+    color:rgba(255,255,255,0.42); text-transform:uppercase; margin-bottom:26px;
+    display:flex; align-items:center; gap:12px;
+  }
+  .eyebrow-line { width:30px; height:1px; background:#e8522a; flex-shrink:0; }
+
+  .headline {
+    font-size:68px; font-weight:900; line-height:1.0;
+    font-family:'Georgia',serif; margin-bottom:20px; letter-spacing:-1.5px;
+  }
+  .headline .accent { color:#e8522a; font-style:italic; display:block; }
+
+  .opc-badge {
+    display:inline-flex; align-items:center; gap:8px; margin-bottom:22px;
+    font-family:sans-serif; font-size:10px; letter-spacing:2.5px; color:rgba(255,255,255,0.38);
+    text-transform:uppercase; border:1px solid rgba(255,255,255,0.1);
+    padding:5px 14px; border-radius:4px;
+  }
+  .opc-dot { width:5px; height:5px; background:#e8522a; border-radius:50%; }
+
+  .subheadline {
+    font-family:sans-serif; font-size:16px; color:rgba(255,255,255,0.70);
+    line-height:1.65; margin-bottom:6px; max-width:490px;
+  }
+  .subheadline-es {
+    font-family:sans-serif; font-size:13px; color:rgba(255,255,255,0.30);
+    line-height:1.65; margin-bottom:34px; max-width:490px; font-style:italic;
+  }
+
+  .hero-ctas { display:flex; gap:14px; align-items:center; margin-bottom:38px; }
+  .cta-primary {
+    background:#e8522a; color:#fff; padding:15px 32px; border-radius:8px;
+    font-family:sans-serif; font-size:15px; font-weight:700;
+    box-shadow:0 4px 28px rgba(232,82,42,0.5);
+  }
+  .cta-secondary {
+    border:1px solid rgba(255,255,255,0.2); color:rgba(255,255,255,0.72);
+    padding:15px 26px; border-radius:8px; font-family:sans-serif; font-size:15px;
+  }
+
+  .social-proof { display:flex; align-items:center; gap:14px; }
+  .avatars { display:flex; }
+  .avatar {
+    width:34px; height:34px; border-radius:50%;
+    border:2px solid rgba(255,255,255,0.1);
+    margin-left:-10px; font-size:10px; font-weight:800;
+    display:flex; align-items:center; justify-content:center;
+    font-family:sans-serif; color:#fff;
+  }
+  .avatar:first-child { margin-left:0; }
+  .a1{background:#1d4ed8;} .a2{background:#15803d;} .a3{background:#6d28d9;}
+  .a4{background:#e8522a;} .a5{background:#0369a1;} .a6{background:#b45309;}
+  .proof-text { font-family:sans-serif; font-size:12px; color:rgba(255,255,255,0.40); line-height:1.55; }
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="logo">OPC<span>America</span></div>
+  <div class="nav-links">
+    <span>LaunchPad</span><span>Tutorials</span><span>AI Tools</span><span>Community</span><span>Consulting</span>
+  </div>
+  <div class="nav-right">
+    <div class="lang-toggle">🌐 EN | ES</div>
+    <div class="btn-signin">Sign in →</div>
+    <div class="btn-signup">Join Free</div>
+  </div>
+</nav>
+
+<div class="hero">
+
+  <!-- Earth image -->
+  <img class="earth-img" src="earth3.png" alt="Americas continent"/>
+
+  <!-- Overlays -->
+  <div class="overlay-left"></div>
+  <div class="overlay-tint"></div>
+  <div class="overlay-bottom"></div>
+
+  <!-- City pins — positioned to match where cities appear on earth3.png -->
+  <div class="pins">
+    <!-- Toronto — NE part of North America -->
+    <div class="pin" style="top:26%; right:29%">
+      <div class="pin-dot"></div><div class="pin-label">Toronto</div>
+    </div>
+    <!-- New York -->
+    <div class="pin" style="top:32%; right:25%">
+      <div class="pin-dot soft"></div><div class="pin-label" style="color:rgba(255,255,255,0.6)">New York</div>
+    </div>
+    <!-- Mexico City — lower North America -->
+    <div class="pin" style="top:50%; right:34%">
+      <div class="pin-dot"></div><div class="pin-label">Mexico City</div>
+    </div>
+    <!-- Bogotá — top of South America -->
+    <div class="pin" style="top:60%; right:28%">
+      <div class="pin-dot soft"></div><div class="pin-label" style="color:rgba(255,255,255,0.6)">Bogotá</div>
+    </div>
+    <!-- São Paulo — right/east of South America -->
+    <div class="pin" style="top:73%; right:16%">
+      <div class="pin-dot"></div><div class="pin-label">São Paulo</div>
+    </div>
+    <!-- Santiago -->
+    <div class="pin" style="top:82%; right:30%">
+      <div class="pin-dot soft"></div><div class="pin-label" style="color:rgba(255,255,255,0.6)">Santiago</div>
+    </div>
+  </div>
+
+  <!-- Hero text -->
+  <div class="hero-content">
+    <div class="eyebrow">
+      <div class="eyebrow-line"></div>
+      For the AI-era founder · De Canadá a Argentina
+    </div>
+
+    <div class="headline">
+      One Person.<br/>
+      One Company.<br/>
+      <span class="accent">Your Success.</span>
+    </div>
+
+    <div class="opc-badge">
+      <div class="opc-dot"></div>
+      One Person Company · OPCAmerica
+    </div>
+
+    <div class="subheadline">
+      The Americas community for solo founders building scalable, AI-powered businesses — from Canada to Argentina.
+    </div>
+    <div class="subheadline-es">
+      La comunidad de las Américas para fundadores independientes que construyen negocios escalables con IA.
+    </div>
+
+    <div class="hero-ctas">
+      <div class="cta-primary">Join Free →</div>
+      <div class="cta-secondary">Explore the Community</div>
+    </div>
+
+    <div class="social-proof">
+      <div class="avatars">
+        <div class="avatar a1">MX</div>
+        <div class="avatar a2">BR</div>
+        <div class="avatar a3">US</div>
+        <div class="avatar a4">CO</div>
+        <div class="avatar a5">CL</div>
+        <div class="avatar a6">AR</div>
+      </div>
+      <div class="proof-text">
+        Meet OPC founders from across the Americas<br/>
+        <span style="font-size:11px;color:rgba(255,255,255,0.20)">Conoce fundadores OPC de toda América</span>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+</body>
+</html>

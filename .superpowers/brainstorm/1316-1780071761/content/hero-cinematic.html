@@ -1,0 +1,325 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>OPCAmerica — Cinematic Hero Mockup</title>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { font-family: 'Georgia', serif; background: #0a0a0a; color: #fff; }
+
+  /* NAV */
+  nav {
+    position: absolute; top: 0; left: 0; right: 0; z-index: 10;
+    display: flex; justify-content: space-between; align-items: center;
+    padding: 18px 40px;
+    background: linear-gradient(to bottom, rgba(0,0,0,0.7) 0%, transparent 100%);
+  }
+  .logo { font-family: sans-serif; font-size: 18px; font-weight: 900; letter-spacing: -0.5px; }
+  .logo span { color: #e8522a; }
+  .nav-links { display: flex; gap: 28px; font-family: sans-serif; font-size: 13px; color: rgba(255,255,255,0.8); }
+  .nav-right { display: flex; gap: 12px; align-items: center; font-family: sans-serif; font-size: 12px; }
+  .lang-toggle { border: 1px solid rgba(255,255,255,0.4); padding: 4px 12px; border-radius: 20px; color: rgba(255,255,255,0.8); }
+  .btn-signin { color: rgba(255,255,255,0.8); }
+  .btn-signup { background: #e8522a; color: #fff; padding: 7px 18px; border-radius: 6px; font-weight: 700; }
+
+  /* HERO */
+  .hero {
+    position: relative; min-height: 100vh; overflow: hidden;
+    display: flex; align-items: center;
+  }
+
+  /* City mosaic grid background */
+  .city-mosaic {
+    position: absolute; inset: 0;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-rows: repeat(3, 1fr);
+    gap: 3px;
+    opacity: 0.55;
+  }
+  .city-tile {
+    background-size: cover; background-position: center;
+    position: relative;
+  }
+  /* Simulated city tiles with gradients representing different cities */
+  .tile-1 { background: linear-gradient(135deg, #1a2744 0%, #2d4a7a 50%, #1a3355 100%); } /* New York */
+  .tile-2 { background: linear-gradient(135deg, #2d1b0e 0%, #8b4513 50%, #4a2010 100%); } /* Mexico City */
+  .tile-3 { background: linear-gradient(135deg, #0d1f0d 0%, #1a3d1a 50%, #0a1a0a 100%); } /* Bogotá */
+  .tile-4 { background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%); } /* Miami */
+  .tile-5 { background: linear-gradient(135deg, #2a1a00 0%, #5c3a00 50%, #3d2800 100%); } /* São Paulo */
+  .tile-6 { background: linear-gradient(135deg, #1a2a1a 0%, #2d4a2d 50%, #1a351a 100%); } /* Santiago */
+  .tile-7 { background: linear-gradient(135deg, #0a1628 0%, #1a3050 50%, #0d2040 100%); } /* Buenos Aires */
+  .tile-8 { background: linear-gradient(135deg, #1f0a0a 0%, #4a1515 50%, #2d0d0d 100%); } /* Lima */
+  .tile-9 { background: linear-gradient(135deg, #0a1a2a 0%, #1a3555 50%, #0d2540 100%); } /* Toronto */
+  .tile-10 { background: linear-gradient(135deg, #1a0a2a 0%, #3d1f5c 50%, #2a1040 100%); } /* Los Angeles */
+  .tile-11 { background: linear-gradient(135deg, #0d1a10 0%, #1a3520 50%, #0a2015 100%); } /* Medellín */
+  .tile-12 { background: linear-gradient(135deg, #1a1500 0%, #3d3000 50%, #2a2000 100%); } /* Monterrey */
+
+  /* City label dots */
+  .city-label {
+    position: absolute; background: rgba(232,82,42,0.9);
+    color: #fff; font-family: sans-serif; font-size: 10px; font-weight: 600;
+    padding: 3px 8px; border-radius: 12px; white-space: nowrap;
+    display: flex; align-items: center; gap: 4px;
+  }
+  .city-dot { width: 6px; height: 6px; background: #fff; border-radius: 50%; }
+
+  /* Dark overlay gradient */
+  .hero-overlay {
+    position: absolute; inset: 0;
+    background: linear-gradient(
+      to right,
+      rgba(10,10,10,0.92) 0%,
+      rgba(10,10,10,0.75) 40%,
+      rgba(10,10,10,0.2) 100%
+    );
+  }
+
+  /* Globe network visualization (right side) */
+  .globe-container {
+    position: absolute; right: 6%; top: 50%; transform: translateY(-50%);
+    width: 340px; height: 340px;
+  }
+  .globe-svg { width: 100%; height: 100%; opacity: 0.7; }
+
+  /* Hero content */
+  .hero-content {
+    position: relative; z-index: 5;
+    padding: 0 40px; max-width: 620px; padding-top: 80px;
+  }
+  .eyebrow {
+    font-family: sans-serif; font-size: 11px; letter-spacing: 3px;
+    color: rgba(255,255,255,0.6); text-transform: uppercase; margin-bottom: 20px;
+  }
+  .headline {
+    font-size: 58px; font-weight: 900; line-height: 1.05;
+    font-family: 'Georgia', serif; margin-bottom: 10px;
+  }
+  .headline .accent { color: #e8522a; font-style: italic; }
+  .subheadline {
+    font-family: sans-serif; font-size: 15px; color: rgba(255,255,255,0.75);
+    line-height: 1.6; margin-bottom: 6px; max-width: 480px;
+  }
+  .subheadline-es {
+    font-family: sans-serif; font-size: 13px; color: rgba(255,255,255,0.4);
+    line-height: 1.6; margin-bottom: 28px; max-width: 480px; font-style: italic;
+  }
+  .hero-ctas { display: flex; gap: 12px; align-items: center; margin-bottom: 28px; }
+  .cta-primary {
+    background: #e8522a; color: #fff; padding: 14px 28px;
+    border-radius: 8px; font-family: sans-serif; font-size: 14px; font-weight: 700;
+    display: flex; align-items: center; gap: 8px;
+  }
+  .cta-secondary {
+    border: 1px solid rgba(255,255,255,0.35); color: rgba(255,255,255,0.8);
+    padding: 14px 24px; border-radius: 8px; font-family: sans-serif; font-size: 14px;
+  }
+  .social-proof {
+    display: flex; align-items: center; gap: 12px;
+  }
+  .avatars { display: flex; }
+  .avatar {
+    width: 30px; height: 30px; border-radius: 50%; border: 2px solid #0a0a0a;
+    margin-left: -8px; font-size: 10px; display: flex; align-items: center;
+    justify-content: center; font-family: sans-serif; font-weight: 700;
+  }
+  .avatar:first-child { margin-left: 0; }
+  .av1 { background: #2563eb; }
+  .av2 { background: #16a34a; }
+  .av3 { background: #7c3aed; }
+  .av4 { background: #e8522a; }
+  .av5 { background: #0891b2; }
+  .proof-text { font-family: sans-serif; font-size: 12px; color: rgba(255,255,255,0.6); }
+
+  /* Below hero — What is OPC */
+  .what-is {
+    background: #fff; color: #111;
+    padding: 72px 40px; display: grid; grid-template-columns: 1fr 1fr; gap: 48px;
+    align-items: center;
+  }
+  .what-label {
+    font-family: sans-serif; font-size: 11px; letter-spacing: 3px;
+    color: #e8522a; text-transform: uppercase; margin-bottom: 12px;
+  }
+  .what-title {
+    font-size: 36px; font-weight: 900; line-height: 1.15;
+    font-family: 'Georgia', serif; margin-bottom: 0;
+  }
+  .what-title .opc { color: #e8522a; }
+  .what-body {
+    font-family: sans-serif; font-size: 15px; color: #444;
+    line-height: 1.75; margin-bottom: 16px;
+  }
+  .what-body strong { color: #111; }
+
+  /* Note at bottom */
+  .design-note {
+    background: #1a1a1a; padding: 20px 40px; font-family: sans-serif;
+    font-size: 12px; color: #666; text-align: center;
+  }
+  .design-note span { color: #e8522a; font-weight: 600; }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <div class="logo">OPC<span>America</span></div>
+  <div class="nav-links">
+    <span>LaunchPad</span>
+    <span>AI Tools</span>
+    <span>Community</span>
+    <span>Consulting</span>
+  </div>
+  <div class="nav-right">
+    <div class="lang-toggle">🌐 EN | ES</div>
+    <div class="btn-signin">Sign in →</div>
+    <div class="btn-signup">Join Free</div>
+  </div>
+</nav>
+
+<!-- HERO -->
+<div class="hero">
+
+  <!-- City mosaic background -->
+  <div class="city-mosaic">
+    <div class="city-tile tile-1">
+      <div class="city-label" style="bottom:12px;right:10px"><div class="city-dot"></div>New York</div>
+    </div>
+    <div class="city-tile tile-2">
+      <div class="city-label" style="bottom:12px;left:10px"><div class="city-dot"></div>Mexico City</div>
+    </div>
+    <div class="city-tile tile-3">
+      <div class="city-label" style="top:12px;right:10px"><div class="city-dot"></div>Bogotá</div>
+    </div>
+    <div class="city-tile tile-4">
+      <div class="city-label" style="bottom:12px;right:10px"><div class="city-dot"></div>Miami</div>
+    </div>
+    <div class="city-tile tile-5">
+      <div class="city-label" style="top:12px;left:10px"><div class="city-dot"></div>São Paulo</div>
+    </div>
+    <div class="city-tile tile-6">
+      <div class="city-label" style="bottom:12px;left:10px"><div class="city-dot"></div>Santiago</div>
+    </div>
+    <div class="city-tile tile-7">
+      <div class="city-label" style="top:12px;right:10px"><div class="city-dot"></div>Buenos Aires</div>
+    </div>
+    <div class="city-tile tile-8">
+      <div class="city-label" style="bottom:12px;left:10px"><div class="city-dot"></div>Lima</div>
+    </div>
+    <div class="city-tile tile-9">
+      <div class="city-label" style="top:12px;left:10px"><div class="city-dot"></div>Toronto</div>
+    </div>
+    <div class="city-tile tile-10">
+      <div class="city-label" style="bottom:12px;right:10px"><div class="city-dot"></div>Los Angeles</div>
+    </div>
+    <div class="city-tile tile-11">
+      <div class="city-label" style="top:12px;left:10px"><div class="city-dot"></div>Medellín</div>
+    </div>
+    <div class="city-tile tile-12">
+      <div class="city-label" style="bottom:12px;right:10px"><div class="city-dot"></div>Monterrey</div>
+    </div>
+  </div>
+
+  <!-- Overlay -->
+  <div class="hero-overlay"></div>
+
+  <!-- Globe SVG (Americas network) -->
+  <div class="globe-container">
+    <svg class="globe-svg" viewBox="0 0 340 340" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <!-- Outer circle -->
+      <circle cx="170" cy="170" r="155" stroke="rgba(255,255,255,0.15)" stroke-width="1"/>
+      <circle cx="170" cy="170" r="120" stroke="rgba(255,255,255,0.1)" stroke-width="1"/>
+      <!-- Latitude lines -->
+      <ellipse cx="170" cy="170" rx="155" ry="50" stroke="rgba(255,255,255,0.08)" stroke-width="1"/>
+      <ellipse cx="170" cy="170" rx="155" ry="100" stroke="rgba(255,255,255,0.06)" stroke-width="1"/>
+      <ellipse cx="170" cy="115" rx="140" ry="40" stroke="rgba(255,255,255,0.07)" stroke-width="1"/>
+      <ellipse cx="170" cy="220" rx="130" ry="35" stroke="rgba(255,255,255,0.07)" stroke-width="1"/>
+      <!-- Longitude lines -->
+      <ellipse cx="170" cy="170" rx="50" ry="155" stroke="rgba(255,255,255,0.07)" stroke-width="1"/>
+      <ellipse cx="170" cy="170" rx="100" ry="155" stroke="rgba(255,255,255,0.06)" stroke-width="1"/>
+      <!-- Connection lines between cities -->
+      <line x1="130" y1="90" x2="160" y2="130" stroke="rgba(232,82,42,0.6)" stroke-width="1"/>
+      <line x1="160" y1="130" x2="185" y2="160" stroke="rgba(232,82,42,0.5)" stroke-width="1"/>
+      <line x1="185" y1="160" x2="200" y2="200" stroke="rgba(232,82,42,0.5)" stroke-width="1"/>
+      <line x1="200" y1="200" x2="175" y2="240" stroke="rgba(232,82,42,0.4)" stroke-width="1"/>
+      <line x1="130" y1="90" x2="185" y2="160" stroke="rgba(255,255,255,0.15)" stroke-width="0.5"/>
+      <line x1="160" y1="130" x2="200" y2="200" stroke="rgba(255,255,255,0.12)" stroke-width="0.5"/>
+      <line x1="130" y1="90" x2="200" y2="200" stroke="rgba(255,255,255,0.08)" stroke-width="0.5"/>
+      <line x1="185" y1="160" x2="175" y2="240" stroke="rgba(255,255,255,0.1)" stroke-width="0.5"/>
+      <line x1="160" y1="130" x2="175" y2="240" stroke="rgba(255,255,255,0.08)" stroke-width="0.5"/>
+      <!-- City dots on globe -->
+      <circle cx="130" cy="90" r="5" fill="#e8522a"/> <!-- Toronto -->
+      <circle cx="145" cy="108" r="4" fill="rgba(255,255,255,0.8)"/> <!-- New York -->
+      <circle cx="160" cy="130" r="5" fill="#e8522a"/> <!-- Miami / CDMX -->
+      <circle cx="152" cy="155" r="4" fill="rgba(255,255,255,0.8)"/> <!-- Bogotá -->
+      <circle cx="185" cy="160" r="5" fill="#e8522a"/> <!-- São Paulo -->
+      <circle cx="178" cy="185" r="4" fill="rgba(255,255,255,0.8)"/> <!-- Lima -->
+      <circle cx="200" cy="200" r="5" fill="#e8522a"/> <!-- Santiago -->
+      <circle cx="175" cy="240" r="5" fill="#e8522a"/> <!-- Buenos Aires -->
+      <!-- Glow on dots -->
+      <circle cx="130" cy="90" r="10" fill="rgba(232,82,42,0.15)"/>
+      <circle cx="160" cy="130" r="10" fill="rgba(232,82,42,0.12)"/>
+      <circle cx="185" cy="160" r="10" fill="rgba(232,82,42,0.12)"/>
+      <circle cx="200" cy="200" r="10" fill="rgba(232,82,42,0.12)"/>
+      <circle cx="175" cy="240" r="10" fill="rgba(232,82,42,0.12)"/>
+    </svg>
+  </div>
+
+  <!-- Hero text content -->
+  <div class="hero-content">
+    <div class="eyebrow">For the AI-era solo founder · De Canada a Argentina</div>
+    <div class="headline">
+      Build solo,<br/>
+      <span class="accent">not alone.</span>
+    </div>
+    <div class="subheadline">
+      The Americas community for One Person Companies — solo founders building scalable, AI-powered businesses from Canada to Argentina.
+    </div>
+    <div class="subheadline-es">
+      La comunidad de las Américas para One Person Companies — fundadores independientes construyendo negocios escalables con IA, de Canadá a Argentina.
+    </div>
+    <div class="hero-ctas">
+      <div class="cta-primary">Join Free →</div>
+      <div class="cta-secondary">Explore the Community</div>
+    </div>
+    <div class="social-proof">
+      <div class="avatars">
+        <div class="avatar av1">MX</div>
+        <div class="avatar av2">BR</div>
+        <div class="avatar av3">US</div>
+        <div class="avatar av4">CO</div>
+        <div class="avatar av5">CL</div>
+      </div>
+      <div class="proof-text">Meet OPC founders from across the Americas</div>
+    </div>
+  </div>
+
+</div>
+
+<!-- WHAT IS OPC SECTION -->
+<div class="what-is">
+  <div>
+    <div class="what-label">What does OPC mean?</div>
+    <div class="what-title">
+      OPC stands for<br/>
+      <span class="opc">One-Person<br/>Company</span>
+    </div>
+  </div>
+  <div>
+    <div class="what-body">
+      A One-Person Company is a real, scalable business operated by a single founder using <strong>AI tools, automation, and software</strong> — instead of a large team. It's not freelancing. It's not a side hustle. It's a full business built for leverage.
+    </div>
+    <div class="what-body">
+      <strong>OPCAmerica</strong> is the first bilingual community and resource platform dedicated exclusively to OPC founders across the Americas — connecting, equipping, and accelerating solo builders from <strong>Canada to Argentina</strong>.
+    </div>
+  </div>
+</div>
+
+<div class="design-note">
+  <span>Mockup only</span> — City tiles would use real photography (Unsplash/licensed). Globe animates on scroll. Colors & typography subject to brand refinement.
+</div>
+
+</body>
+</html>
