@@ -4,7 +4,6 @@ import { Footer } from "@/components/layout/Footer";
 import { Hero } from "@/components/home/Hero";
 import { WhatIsOPC } from "@/components/home/WhatIsOPC";
 import { Pillars } from "@/components/home/Pillars";
-import { Tutorials } from "@/components/home/Tutorials";
 import { LaunchPad } from "@/components/home/LaunchPad";
 import { Testimonials } from "@/components/home/Testimonials";
 import { EmailCapture } from "@/components/home/EmailCapture";
@@ -25,7 +24,6 @@ export default async function HomePage({
         <Hero lang={lang as Lang} t={t.hero} />
         <WhatIsOPC t={t.whatIsOpc} />
         <Pillars lang={lang as Lang} t={t.pillars} />
-        <Tutorials lang={lang as Lang} t={t.tutorials} />
         <LaunchPad lang={lang as Lang} t={t.launchpad} />
         <Testimonials t={t.testimonials} />
         <EmailCapture t={t.emailCapture} />

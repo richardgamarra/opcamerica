@@ -26,7 +26,7 @@ export function Nav({ lang, t }: NavProps) {
 
   const navLinks = [
     { key: "launchpad" as const, href: `/${lang}/#launchpad` },
-    { key: "tutorials" as const, href: `/${lang}/#tutorials` },
+    { key: "tutorials" as const, href: `/${lang}/tutorials` },
     { key: "aiTools" as const, href: `/${lang}/ai-tools` },
     { key: "community" as const, href: `/${lang}/#community` },
     { key: "consulting" as const, href: `/${lang}/#consulting` },
