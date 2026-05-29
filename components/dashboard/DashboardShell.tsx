@@ -37,10 +37,14 @@ export function DashboardShell({ lang, children }: Props) {
         {/* Logo */}
         <div className="px-5 py-4 border-b border-gray-100">
           <Link href={`/${lang}/`} className="flex items-center gap-2">
-            <span className="w-7 h-7 rounded-full bg-opc-dark flex items-center justify-center">
+            <span className="w-7 h-7 rounded-full bg-opc-dark flex items-center justify-center flex-shrink-0">
               <span className="text-white text-[10px] font-black">OPC</span>
             </span>
-            <span className="text-xs font-bold text-gray-400 tracking-wide">Community</span>
+            <div className="min-w-0">
+              <span className="text-xs font-bold text-gray-700 tracking-wide">OPCAmerica</span>
+              <span className="text-gray-200 mx-1">/</span>
+              <span className="text-xs font-bold text-opc-orange">LaunchPad</span>
+            </div>
           </Link>
         </div>
 
@@ -78,15 +82,19 @@ export function DashboardShell({ lang, children }: Props) {
           })}
         </nav>
 
-        {/* Upgrade */}
-        <div className="px-3 pb-4">
+        {/* Upgrade + Sign out */}
+        <div className="px-3 pb-4 space-y-0.5 border-t border-gray-100 pt-3">
           <Link
-            href={`/${lang}/dashboard/upgrade`}
+            href={`/${lang}/join-elite`}
             className="flex items-center gap-2 px-3 py-2 rounded-lg text-xs font-semibold text-amber-600 hover:bg-amber-50 transition-colors w-full"
           >
             <CrownIcon />
             {isEs ? "Mejorar Plan" : "Upgrade"}
           </Link>
+          <button className="flex items-center gap-2 px-3 py-2 rounded-lg text-xs text-gray-400 hover:text-gray-600 hover:bg-gray-50 transition-colors w-full">
+            <SignOutIcon />
+            {isEs ? "Cerrar sesión" : "Sign out"}
+          </button>
         </div>
       </aside>
 
@@ -95,7 +103,8 @@ export function DashboardShell({ lang, children }: Props) {
         {/* Top bar */}
         <header className="h-12 bg-white border-b border-gray-100 flex items-center justify-between px-6 sticky top-0 z-30">
           <div className="flex items-center gap-2 text-sm text-gray-400">
-            <span className="font-semibold text-gray-700">Dashboard</span>
+            <span className="text-gray-300">/</span>
+            <span className="font-semibold text-gray-700">LaunchPad</span>
           </div>
           <div className="flex items-center gap-4 text-sm">
             <Link href={`/${lang}/`} className="text-gray-400 hover:text-gray-600 flex items-center gap-1.5 transition-colors">
@@ -207,6 +216,13 @@ function HomeIcon() {
   return (
     <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" className="flex-shrink-0">
       <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/>
+    </svg>
+  );
+}
+function SignOutIcon() {
+  return (
+    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" className="flex-shrink-0">
+      <path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"/><polyline points="16 17 21 12 16 7"/><line x1="21" y1="12" x2="9" y2="12"/>
     </svg>
   );
 }
