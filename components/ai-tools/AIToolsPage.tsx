@@ -129,7 +129,7 @@ export function AIToolsPage({ lang, t }: Props) {
                       </span>
                     )}
                     {tool.inCoreStack && (
-                      <span className="bg-gray-100 dark:bg-white/8 text-gray-400 dark:text-white/40 text-[9px] font-sans font-bold px-2 py-0.5 rounded-full uppercase tracking-wide">
+                      <span className="bg-gray-100 text-gray-500 dark:bg-white/15 dark:text-white/80 text-[9px] font-sans font-bold px-2 py-0.5 rounded-full uppercase tracking-wide">
                         Core Stack
                       </span>
                     )}
