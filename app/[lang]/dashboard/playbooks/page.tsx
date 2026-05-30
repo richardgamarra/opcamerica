@@ -22,7 +22,7 @@ export default async function PlaybooksPage({ params }: { params: Promise<{ lang
 
   if (!canView) {
     return (
-      <div className="flex items-center justify-center py-24 text-white/40 text-sm">
+      <div className="flex items-center justify-center py-24 text-[var(--t3)] text-sm">
         {isEs ? "Esta seccion no esta disponible actualmente." : "This section is not available right now."}
       </div>
     );
@@ -32,8 +32,8 @@ export default async function PlaybooksPage({ params }: { params: Promise<{ lang
     <div>
       <EliteBanner lang={lang} />
 
-      <h1 className="text-2xl font-bold text-white mb-1">Playbooks</h1>
-      <p className="text-sm text-white/40 mb-6">
+      <h1 className="text-2xl font-bold text-[var(--t1)] mb-1">Playbooks</h1>
+      <p className="text-sm text-[var(--t3)] mb-6">
         {isEs
           ? "Guias paso a paso para founders OPC. Ejecuta, no solo leas."
           : "Step-by-step guides for OPC founders. Execute, don't just read."}
@@ -41,32 +41,32 @@ export default async function PlaybooksPage({ params }: { params: Promise<{ lang
 
       {/* Submit form */}
       {canPost && (
-        <div className="border rounded-xl p-5 mb-6" style={{ backgroundColor: "rgba(255,255,255,0.04)", borderColor: "rgba(255,255,255,0.08)" }}>
-          <p className="text-sm font-semibold text-white mb-4">
+        <div className="border rounded-xl p-5 mb-6" style={{ backgroundColor: "var(--card)", borderColor: "var(--border)" }}>
+          <p className="text-sm font-semibold text-[var(--t1)] mb-4">
             {isEs ? "Proponer un playbook" : "Suggest a playbook"}
           </p>
           <form action={submitPlaybook} encType="multipart/form-data" className="space-y-3">
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
               <div className="sm:col-span-2">
-                <label className="block text-xs font-semibold text-white/40 mb-1">{isEs ? "Titulo" : "Title"} *</label>
+                <label className="block text-xs font-semibold text-[var(--t3)] mb-1">{isEs ? "Titulo" : "Title"} *</label>
                 <input name="title" type="text" required placeholder={isEs ? "Como conseguir tus primeros 10 clientes" : "How to get your first 10 clients"}
-                  className="w-full rounded-lg px-3 py-2 text-sm text-white/70 placeholder:text-white/20 focus:outline-none focus:border-opc-orange transition-colors"
-                  style={{ backgroundColor: "rgba(255,255,255,0.06)", border: "1px solid rgba(255,255,255,0.08)" }} />
+                  className="w-full rounded-lg px-3 py-2 text-sm text-[var(--t2)] placeholder:text-[var(--t4)] focus:outline-none focus:border-opc-orange transition-colors"
+                  style={{ backgroundColor: "var(--input)", border: "1px solid var(--border)" }} />
               </div>
               <div>
-                <label className="block text-xs font-semibold text-white/40 mb-1">{isEs ? "Tiempo estimado" : "Estimated read time"}</label>
+                <label className="block text-xs font-semibold text-[var(--t3)] mb-1">{isEs ? "Tiempo estimado" : "Estimated read time"}</label>
                 <input name="read_time" type="text" placeholder="20 min"
-                  className="w-full rounded-lg px-3 py-2 text-sm text-white/70 placeholder:text-white/20 focus:outline-none focus:border-opc-orange transition-colors"
-                  style={{ backgroundColor: "rgba(255,255,255,0.06)", border: "1px solid rgba(255,255,255,0.08)" }} />
+                  className="w-full rounded-lg px-3 py-2 text-sm text-[var(--t2)] placeholder:text-[var(--t4)] focus:outline-none focus:border-opc-orange transition-colors"
+                  style={{ backgroundColor: "var(--input)", border: "1px solid var(--border)" }} />
               </div>
               <div className="sm:col-span-2">
-                <label className="block text-xs font-semibold text-white/40 mb-1">
+                <label className="block text-xs font-semibold text-[var(--t3)] mb-1">
                   {isEs ? "PDF (opcional)" : "PDF file (optional)"}
                 </label>
                 <input name="pdf" type="file" accept=".pdf"
-                  className="w-full rounded-lg px-3 py-2 text-sm text-white/55 file:mr-3 file:py-1 file:px-3 file:rounded file:border-0 file:text-xs file:font-semibold file:bg-opc-orange/10 file:text-opc-orange hover:file:bg-opc-orange/20 transition-colors"
-                  style={{ border: "1px solid rgba(255,255,255,0.08)" }} />
-                <p className="text-[11px] text-white/40 mt-1">
+                  className="w-full rounded-lg px-3 py-2 text-sm text-[var(--t2)] file:mr-3 file:py-1 file:px-3 file:rounded file:border-0 file:text-xs file:font-semibold file:bg-opc-orange/10 file:text-opc-orange hover:file:bg-opc-orange/20 transition-colors"
+                  style={{ border: "1px solid var(--border)" }} />
+                <p className="text-[11px] text-[var(--t3)] mt-1">
                   {isEs
                     ? "Si tienes el playbook en PDF, adjuntalo aqui para que el admin lo revise."
                     : "If you have the playbook as a PDF, attach it here for admin review."}
@@ -84,14 +84,14 @@ export default async function PlaybooksPage({ params }: { params: Promise<{ lang
       {playbooks.length > 0 ? (
         <div className="space-y-3">
           {playbooks.map((pb) => (
-            <div key={pb.id} className="border rounded-xl p-4 flex items-center gap-4 hover:border-opc-orange/30 transition-all" style={{ backgroundColor: "rgba(255,255,255,0.04)", borderColor: "rgba(255,255,255,0.08)" }}>
+            <div key={pb.id} className="border rounded-xl p-4 flex items-center gap-4 hover:border-opc-orange/30 transition-all" style={{ backgroundColor: "var(--card)", borderColor: "var(--border)" }}>
               <span className="text-2xl flex-shrink-0">{pb.icon}</span>
               <div className="flex-1 min-w-0">
                 <div className="flex items-center gap-2 flex-wrap">
-                  <p className="text-sm font-semibold text-white">{isEs && pb.title_es ? pb.title_es : pb.title}</p>
+                  <p className="text-sm font-semibold text-[var(--t1)]">{isEs && pb.title_es ? pb.title_es : pb.title}</p>
                   {pb.is_elite && <span className="text-[10px] font-bold px-2 py-0.5 rounded bg-amber-400/10 text-amber-400">Elite</span>}
                 </div>
-                <p className="text-xs text-white/40 mt-0.5">
+                <p className="text-xs text-[var(--t3)] mt-0.5">
                   {pb.steps > 0 && <span>{pb.steps} {isEs ? "pasos" : "steps"}</span>}
                   {pb.read_time && <span>{pb.steps > 0 ? " · " : ""}{pb.read_time} {isEs ? "de lectura" : "read"}</span>}
                 </p>
@@ -111,7 +111,7 @@ export default async function PlaybooksPage({ params }: { params: Promise<{ lang
                   PDF
                 </a>
               ) : (
-                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="rgba(255,255,255,0.15)" strokeWidth="2" className="flex-shrink-0">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--t5)" strokeWidth="2" className="flex-shrink-0">
                   <polyline points="9 18 15 12 9 6"/>
                 </svg>
               )}
@@ -119,7 +119,7 @@ export default async function PlaybooksPage({ params }: { params: Promise<{ lang
           ))}
         </div>
       ) : (
-        <div className="border border-dashed rounded-xl p-8 text-center text-sm text-white/40" style={{ backgroundColor: "rgba(255,255,255,0.04)", borderColor: "rgba(255,255,255,0.08)" }}>
+        <div className="border border-dashed rounded-xl p-8 text-center text-sm text-[var(--t3)]" style={{ backgroundColor: "var(--card)", borderColor: "var(--border)" }}>
           {isEs ? "Playbooks proximamente. Sugiere uno arriba." : "Playbooks coming soon. Suggest one above."}
         </div>
       )}

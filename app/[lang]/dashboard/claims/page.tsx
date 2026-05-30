@@ -35,10 +35,10 @@ export default async function ClaimsPage({ params }: { params: Promise<{ lang: s
     <div>
       <EliteBanner lang={lang} />
 
-      <h1 className="text-2xl font-bold text-white mb-1">
+      <h1 className="text-2xl font-bold text-[var(--t1)] mb-1">
         {isEs ? "Mis Claims" : "My Claims"}
       </h1>
-      <p className="text-sm text-white/40 mb-6">
+      <p className="text-sm text-[var(--t3)] mb-6">
         {isEs
           ? "Todos los deals y perks que has reclamado en un solo lugar."
           : "All the deals and perks you have claimed in one place."}
@@ -47,19 +47,19 @@ export default async function ClaimsPage({ params }: { params: Promise<{ lang: s
       {claims.length > 0 ? (
         <div className="space-y-3">
           {claims.map((c) => (
-            <div key={c.id} className="border rounded-xl p-4 flex items-center gap-4 hover:border-opc-orange/30 transition-all" style={{ backgroundColor: "rgba(255,255,255,0.04)", borderColor: "rgba(255,255,255,0.08)" }}>
-              <div className="w-10 h-10 rounded-xl border flex items-center justify-center text-xl flex-shrink-0" style={{ backgroundColor: "rgba(255,255,255,0.04)", borderColor: "rgba(255,255,255,0.08)" }}>
+            <div key={c.id} className="border rounded-xl p-4 flex items-center gap-4 hover:border-opc-orange/30 transition-all" style={{ backgroundColor: "var(--card)", borderColor: "var(--border)" }}>
+              <div className="w-10 h-10 rounded-xl border flex items-center justify-center text-xl flex-shrink-0" style={{ backgroundColor: "var(--card)", borderColor: "var(--border)" }}>
                 {c.logo}
               </div>
               <div className="flex-1 min-w-0">
                 <div className="flex items-center gap-2 flex-wrap mb-0.5">
-                  <span className="font-semibold text-white text-sm">{c.brand}</span>
+                  <span className="font-semibold text-[var(--t1)] text-sm">{c.brand}</span>
                   <span className={`text-[10px] font-bold px-2 py-0.5 rounded ${CAT_COLOR[c.category] ?? "bg-white/10 text-white/55"}`}>
                     {c.category}
                   </span>
                 </div>
-                <p className="text-xs text-white/40">{isEs && c.offer_es ? c.offer_es : c.offer}</p>
-                <p className="text-[10px] text-white/25 mt-0.5">
+                <p className="text-xs text-[var(--t3)]">{isEs && c.offer_es ? c.offer_es : c.offer}</p>
+                <p className="text-[10px] text-[var(--t4)] mt-0.5">
                   {isEs ? "Reclamado" : "Claimed"} {new Date(c.claimed_at).toLocaleDateString("en-US", { month: "short", day: "numeric", year: "numeric" })}
                 </p>
               </div>
@@ -81,18 +81,18 @@ export default async function ClaimsPage({ params }: { params: Promise<{ lang: s
           ))}
         </div>
       ) : (
-        <div className="border border-dashed rounded-xl p-10 flex flex-col items-center text-center" style={{ backgroundColor: "rgba(255,255,255,0.04)", borderColor: "rgba(255,255,255,0.08)" }}>
+        <div className="border border-dashed rounded-xl p-10 flex flex-col items-center text-center" style={{ backgroundColor: "var(--card)", borderColor: "var(--border)" }}>
           <div className="w-12 h-12 bg-white/5 rounded-full flex items-center justify-center mb-3">
-            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="rgba(255,255,255,0.15)" strokeWidth="1.5">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="var(--t5)" strokeWidth="1.5">
               <path d="M20 12v10H4V12"/><path d="M22 7H2v5h20V7z"/><path d="M12 22V7"/>
               <path d="M12 7H7.5a2.5 2.5 0 0 1 0-5C11 2 12 7 12 7z"/>
               <path d="M12 7h4.5a2.5 2.5 0 0 0 0-5C13 2 12 7 12 7z"/>
             </svg>
           </div>
-          <p className="text-sm font-semibold text-white/40 mb-1">
+          <p className="text-sm font-semibold text-[var(--t3)] mb-1">
             {isEs ? "Sin claims aun" : "No claims yet"}
           </p>
-          <p className="text-xs text-white/25 mb-4">
+          <p className="text-xs text-[var(--t4)] mb-4">
             {isEs
               ? "Ve a Perks y Deals para reclamar tu primer beneficio."
               : "Head to Perks and Deals to claim your first benefit."}

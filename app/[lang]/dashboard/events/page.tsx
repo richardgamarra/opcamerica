@@ -29,7 +29,7 @@ export default async function EventsPage({ params }: { params: Promise<{ lang: s
 
   if (!canView) {
     return (
-      <div className="flex items-center justify-center py-24 text-white/40 text-sm">
+      <div className="flex items-center justify-center py-24 text-[var(--t3)] text-sm">
         {isEs ? "Esta seccion no esta disponible actualmente." : "This section is not available right now."}
       </div>
     );
@@ -39,10 +39,10 @@ export default async function EventsPage({ params }: { params: Promise<{ lang: s
     <div>
       <EliteBanner lang={lang} />
 
-      <h1 className="text-2xl font-bold text-white mb-1">
+      <h1 className="text-2xl font-bold text-[var(--t1)] mb-1">
         {isEs ? "Eventos" : "Events"}
       </h1>
-      <p className="text-sm text-white/40 mb-6">
+      <p className="text-sm text-[var(--t3)] mb-6">
         {isEs
           ? "Conectate con founders OPC en tiempo real. Virtual y en persona."
           : "Connect with OPC founders in real-time. Virtual and in-person."}
@@ -50,22 +50,22 @@ export default async function EventsPage({ params }: { params: Promise<{ lang: s
 
       {/* Submit form */}
       {canPost && (
-        <div className="border rounded-xl p-5 mb-6" style={{ backgroundColor: "rgba(255,255,255,0.04)", borderColor: "rgba(255,255,255,0.08)" }}>
-          <p className="text-sm font-semibold text-white mb-4">
+        <div className="border rounded-xl p-5 mb-6" style={{ backgroundColor: "var(--card)", borderColor: "var(--border)" }}>
+          <p className="text-sm font-semibold text-[var(--t1)] mb-4">
             {isEs ? "Compartir un evento" : "Share an event"}
           </p>
           <form action={submitEvent} className="space-y-3">
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
               <div>
-                <label className="block text-xs font-semibold text-white/40 mb-1">{isEs ? "Nombre del evento" : "Event name"} *</label>
+                <label className="block text-xs font-semibold text-[var(--t3)] mb-1">{isEs ? "Nombre del evento" : "Event name"} *</label>
                 <input name="title" type="text" required placeholder={isEs ? "Webinar de IA para founders" : "AI webinar for founders"}
-                  className="w-full rounded-lg px-3 py-2 text-sm text-white/70 placeholder:text-white/20 focus:outline-none focus:border-opc-orange transition-colors"
-                  style={{ backgroundColor: "rgba(255,255,255,0.06)", border: "1px solid rgba(255,255,255,0.08)" }} />
+                  className="w-full rounded-lg px-3 py-2 text-sm text-[var(--t2)] placeholder:text-[var(--t4)] focus:outline-none focus:border-opc-orange transition-colors"
+                  style={{ backgroundColor: "var(--input)", border: "1px solid var(--border)" }} />
               </div>
               <div>
-                <label className="block text-xs font-semibold text-white/40 mb-1">{isEs ? "Tipo" : "Type"} *</label>
-                <select name="type" required className="w-full rounded-lg px-3 py-2 text-sm text-white/70 focus:outline-none focus:border-opc-orange transition-colors"
-                  style={{ backgroundColor: "rgba(255,255,255,0.06)", border: "1px solid rgba(255,255,255,0.08)" }}>
+                <label className="block text-xs font-semibold text-[var(--t3)] mb-1">{isEs ? "Tipo" : "Type"} *</label>
+                <select name="type" required className="w-full rounded-lg px-3 py-2 text-sm text-[var(--t2)] focus:outline-none focus:border-opc-orange transition-colors"
+                  style={{ backgroundColor: "var(--input)", border: "1px solid var(--border)" }}>
                   <option value="Virtual">Virtual</option>
                   <option value="Webinar">Webinar</option>
                   <option value="In-Person">{isEs ? "Presencial" : "In-Person"}</option>
@@ -73,28 +73,28 @@ export default async function EventsPage({ params }: { params: Promise<{ lang: s
                 </select>
               </div>
               <div>
-                <label className="block text-xs font-semibold text-white/40 mb-1">{isEs ? "Fecha" : "Date"} *</label>
+                <label className="block text-xs font-semibold text-[var(--t3)] mb-1">{isEs ? "Fecha" : "Date"} *</label>
                 <input name="event_date" type="date" required
-                  className="w-full rounded-lg px-3 py-2 text-sm text-white/70 focus:outline-none focus:border-opc-orange transition-colors"
-                  style={{ backgroundColor: "rgba(255,255,255,0.06)", border: "1px solid rgba(255,255,255,0.08)" }} />
+                  className="w-full rounded-lg px-3 py-2 text-sm text-[var(--t2)] focus:outline-none focus:border-opc-orange transition-colors"
+                  style={{ backgroundColor: "var(--input)", border: "1px solid var(--border)" }} />
               </div>
               <div>
-                <label className="block text-xs font-semibold text-white/40 mb-1">{isEs ? "Hora" : "Time"}</label>
+                <label className="block text-xs font-semibold text-[var(--t3)] mb-1">{isEs ? "Hora" : "Time"}</label>
                 <input name="event_time" type="text" placeholder="6:00 PM CT"
-                  className="w-full rounded-lg px-3 py-2 text-sm text-white/70 placeholder:text-white/20 focus:outline-none focus:border-opc-orange transition-colors"
-                  style={{ backgroundColor: "rgba(255,255,255,0.06)", border: "1px solid rgba(255,255,255,0.08)" }} />
+                  className="w-full rounded-lg px-3 py-2 text-sm text-[var(--t2)] placeholder:text-[var(--t4)] focus:outline-none focus:border-opc-orange transition-colors"
+                  style={{ backgroundColor: "var(--input)", border: "1px solid var(--border)" }} />
               </div>
               <div>
-                <label className="block text-xs font-semibold text-white/40 mb-1">Host</label>
+                <label className="block text-xs font-semibold text-[var(--t3)] mb-1">Host</label>
                 <input name="host" type="text" placeholder={isEs ? "Tu nombre" : "Your name"}
-                  className="w-full rounded-lg px-3 py-2 text-sm text-white/70 placeholder:text-white/20 focus:outline-none focus:border-opc-orange transition-colors"
-                  style={{ backgroundColor: "rgba(255,255,255,0.06)", border: "1px solid rgba(255,255,255,0.08)" }} />
+                  className="w-full rounded-lg px-3 py-2 text-sm text-[var(--t2)] placeholder:text-[var(--t4)] focus:outline-none focus:border-opc-orange transition-colors"
+                  style={{ backgroundColor: "var(--input)", border: "1px solid var(--border)" }} />
               </div>
               <div>
-                <label className="block text-xs font-semibold text-white/40 mb-1">URL</label>
+                <label className="block text-xs font-semibold text-[var(--t3)] mb-1">URL</label>
                 <input name="url" type="url" placeholder="https://..."
-                  className="w-full rounded-lg px-3 py-2 text-sm text-white/70 placeholder:text-white/20 focus:outline-none focus:border-opc-orange transition-colors"
-                  style={{ backgroundColor: "rgba(255,255,255,0.06)", border: "1px solid rgba(255,255,255,0.08)" }} />
+                  className="w-full rounded-lg px-3 py-2 text-sm text-[var(--t2)] placeholder:text-[var(--t4)] focus:outline-none focus:border-opc-orange transition-colors"
+                  style={{ backgroundColor: "var(--input)", border: "1px solid var(--border)" }} />
               </div>
             </div>
             <button type="submit" className="bg-opc-orange hover:bg-opc-orange/90 text-white font-bold text-sm px-5 py-2 rounded-lg transition-colors">
@@ -112,18 +112,18 @@ export default async function EventsPage({ params }: { params: Promise<{ lang: s
             const month = dateObj.toLocaleDateString("en-US", { month: "short" });
             const day = dateObj.getDate();
             return (
-              <div key={ev.id} className="border rounded-xl p-4 hover:border-opc-orange/30 transition-all" style={{ backgroundColor: "rgba(255,255,255,0.04)", borderColor: "rgba(255,255,255,0.08)" }}>
+              <div key={ev.id} className="border rounded-xl p-4 hover:border-opc-orange/30 transition-all" style={{ backgroundColor: "var(--card)", borderColor: "var(--border)" }}>
                 <div className="flex items-start gap-3">
-                  <div className="flex-shrink-0 w-12 text-center border rounded-lg py-2" style={{ backgroundColor: "rgba(255,255,255,0.04)", borderColor: "rgba(255,255,255,0.08)" }}>
-                    <p className="text-[10px] font-bold text-white/40 uppercase">{month}</p>
-                    <p className="text-lg font-black text-white leading-none">{day}</p>
+                  <div className="flex-shrink-0 w-12 text-center border rounded-lg py-2" style={{ backgroundColor: "var(--card)", borderColor: "var(--border)" }}>
+                    <p className="text-[10px] font-bold text-[var(--t3)] uppercase">{month}</p>
+                    <p className="text-lg font-black text-[var(--t1)] leading-none">{day}</p>
                   </div>
                   <div className="flex-1 min-w-0">
                     <div className="flex items-center gap-2 flex-wrap mb-0.5">
-                      <span className="font-semibold text-white text-sm">{isEs && ev.title_es ? ev.title_es : ev.title}</span>
+                      <span className="font-semibold text-[var(--t1)] text-sm">{isEs && ev.title_es ? ev.title_es : ev.title}</span>
                       {ev.is_elite && <span className="text-[10px] font-bold px-2 py-0.5 rounded bg-amber-400/10 text-amber-400">Elite</span>}
                     </div>
-                    <div className="flex items-center gap-3 text-xs text-white/40 flex-wrap">
+                    <div className="flex items-center gap-3 text-xs text-[var(--t3)] flex-wrap">
                       <span className={`text-[10px] font-bold px-2 py-0.5 rounded ${TYPE_COLOR[ev.type] ?? "bg-white/10 text-white/55"}`}>{ev.type}</span>
                       {ev.event_time && <span>{ev.event_time}</span>}
                       {ev.host && <span>Host: {ev.host}</span>}
@@ -133,7 +133,7 @@ export default async function EventsPage({ params }: { params: Promise<{ lang: s
                         <div className="flex-1 bg-white/10 rounded-full h-1.5">
                           <div className="bg-opc-orange h-1.5 rounded-full" style={{ width: `${((ev.spots - ev.spots_left) / ev.spots) * 100}%` }} />
                         </div>
-                        <span className="text-[10px] text-white/40 whitespace-nowrap">{ev.spots_left} {isEs ? "lugares" : "spots left"}</span>
+                        <span className="text-[10px] text-[var(--t3)] whitespace-nowrap">{ev.spots_left} {isEs ? "lugares" : "spots left"}</span>
                       </div>
                     )}
                   </div>
@@ -153,7 +153,7 @@ export default async function EventsPage({ params }: { params: Promise<{ lang: s
           })}
         </div>
       ) : (
-        <div className="border border-dashed rounded-xl p-5 text-center text-sm text-white/40" style={{ backgroundColor: "rgba(255,255,255,0.04)", borderColor: "rgba(255,255,255,0.08)" }}>
+        <div className="border border-dashed rounded-xl p-5 text-center text-sm text-[var(--t3)]" style={{ backgroundColor: "var(--card)", borderColor: "var(--border)" }}>
           {isEs ? "Mas eventos proximamente." : "More events coming soon. Be the first to share one above."}
         </div>
       )}

@@ -27,7 +27,7 @@ export default async function SignInPage({
   const action = signIn.bind(null, lang);
 
   return (
-    <div className="min-h-screen flex items-center justify-center p-4" style={{ backgroundColor: "#080d14" }}>
+    <div className="min-h-screen flex items-center justify-center p-4" style={{ backgroundColor: "var(--bg)" }}>
       <div className="w-full max-w-sm">
         {/* Logo */}
         <div className="text-center mb-8">
@@ -35,17 +35,17 @@ export default async function SignInPage({
             <span className="w-9 h-9 rounded-full bg-opc-orange flex items-center justify-center">
               <span className="text-white text-[11px] font-black">OPC</span>
             </span>
-            <span className="font-bold text-white/70 text-sm">OPCAmerica</span>
+            <span className="font-bold text-[var(--t2)] text-sm">OPCAmerica</span>
           </Link>
-          <h1 className="text-xl font-bold text-white">
+          <h1 className="text-xl font-bold text-[var(--t1)]">
             {isEs ? "Iniciar sesion" : "Sign in"}
           </h1>
-          <p className="text-sm text-white/40 mt-1">
+          <p className="text-sm text-[var(--t3)] mt-1">
             {isEs ? "Bienvenido de vuelta." : "Welcome back."}
           </p>
         </div>
 
-        <form action={action} className="rounded-2xl p-6 space-y-4" style={{ backgroundColor: "rgba(255,255,255,0.05)", border: "1px solid rgba(255,255,255,0.08)" }}>
+        <form action={action} className="rounded-2xl p-6 space-y-4" style={{ backgroundColor: "var(--card)", border: "1px solid var(--border)" }}>
           {error && (
             <div className="rounded-lg px-4 py-2.5 text-sm text-red-400" style={{ backgroundColor: "rgba(239,68,68,0.1)", border: "1px solid rgba(239,68,68,0.2)" }}>
               {isEs ? error.es : error.en}
@@ -53,7 +53,7 @@ export default async function SignInPage({
           )}
 
           <div>
-            <label className="block text-xs font-semibold text-white/40 mb-1.5">
+            <label className="block text-xs font-semibold text-[var(--t3)] mb-1.5">
               {isEs ? "Correo electronico" : "Email address"}
             </label>
             <input
@@ -61,8 +61,8 @@ export default async function SignInPage({
               type="email"
               autoComplete="email"
               required
-              className="w-full rounded-lg px-3 py-2.5 text-sm text-white/80 placeholder:text-white/20 focus:outline-none transition-colors"
-              style={{ backgroundColor: "rgba(255,255,255,0.06)", border: "1px solid rgba(255,255,255,0.1)" }}
+              className="w-full rounded-lg px-3 py-2.5 text-sm text-[var(--t1)] placeholder:text-[var(--t4)] focus:outline-none transition-colors"
+              style={{ backgroundColor: "var(--input)", border: "1px solid var(--border-strong)" }}
             />
           </div>
 
@@ -80,8 +80,8 @@ export default async function SignInPage({
               type="password"
               autoComplete="current-password"
               required
-              className="w-full rounded-lg px-3 py-2.5 text-sm text-white/80 placeholder:text-white/20 focus:outline-none transition-colors"
-              style={{ backgroundColor: "rgba(255,255,255,0.06)", border: "1px solid rgba(255,255,255,0.1)" }}
+              className="w-full rounded-lg px-3 py-2.5 text-sm text-[var(--t1)] placeholder:text-[var(--t4)] focus:outline-none transition-colors"
+              style={{ backgroundColor: "var(--input)", border: "1px solid var(--border-strong)" }}
             />
           </div>
 
@@ -93,7 +93,7 @@ export default async function SignInPage({
           </button>
         </form>
 
-        <p className="text-center text-sm text-white/35 mt-5">
+        <p className="text-center text-sm text-[var(--t3)] mt-5">
           {isEs ? "No tienes cuenta?" : "Don't have an account?"}{" "}
           <Link href={`/${lang}/auth/signup`} className="text-opc-orange font-semibold hover:underline">
             {isEs ? "Registrate gratis" : "Sign up free"}
@@ -101,11 +101,11 @@ export default async function SignInPage({
         </p>
 
         <p className="text-center mt-4">
-          <a href="/admin/login" className="text-xs text-white/20 hover:text-white/40 transition-colors">
+          <a href="/admin/login" className="text-xs text-[var(--t4)] hover:text-[var(--t3)] transition-colors">
             Admin panel
           </a>
-          <span className="text-white/15 text-xs mx-2">·</span>
-          <span className="text-xs text-white/20">Use <span className="font-mono">admin</span> + password to sign in as admin</span>
+          <span className="text-[var(--t5)] text-xs mx-2">·</span>
+          <span className="text-xs text-[var(--t4)]">Use <span className="font-mono">admin</span> + password to sign in as admin</span>
         </p>
       </div>
     </div>

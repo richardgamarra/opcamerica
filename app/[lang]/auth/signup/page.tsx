@@ -41,7 +41,7 @@ export default async function SignUpPage({
   const action = signUp.bind(null, lang);
 
   return (
-    <div className="min-h-screen flex items-center justify-center p-4" style={{ backgroundColor: "#080d14" }}>
+    <div className="min-h-screen flex items-center justify-center p-4" style={{ backgroundColor: "var(--bg)" }}>
       <div className="w-full max-w-sm">
         {/* Logo */}
         <div className="text-center mb-8">
@@ -49,17 +49,17 @@ export default async function SignUpPage({
             <span className="w-9 h-9 rounded-full bg-opc-orange flex items-center justify-center">
               <span className="text-white text-[11px] font-black">OPC</span>
             </span>
-            <span className="font-bold text-white/70 text-sm">OPCAmerica</span>
+            <span className="font-bold text-[var(--t2)] text-sm">OPCAmerica</span>
           </Link>
-          <h1 className="text-xl font-bold text-white">
+          <h1 className="text-xl font-bold text-[var(--t1)]">
             {isEs ? "Crear cuenta gratis" : "Create your free account"}
           </h1>
-          <p className="text-sm text-white/40 mt-1">
+          <p className="text-sm text-[var(--t3)] mt-1">
             {isEs ? "Unete a la comunidad OPC de las Americas." : "Join the OPC community of the Americas."}
           </p>
         </div>
 
-        <form action={action} className="rounded-2xl p-6 space-y-4" style={{ backgroundColor: "rgba(255,255,255,0.05)", border: "1px solid rgba(255,255,255,0.08)" }}>
+        <form action={action} className="rounded-2xl p-6 space-y-4" style={{ backgroundColor: "var(--card)", border: "1px solid var(--border)" }}>
           {error && (
             <div className="rounded-lg px-4 py-2.5 text-sm text-red-400" style={{ backgroundColor: "rgba(239,68,68,0.1)", border: "1px solid rgba(239,68,68,0.2)" }}>
               {isEs ? error.es : error.en}
@@ -67,7 +67,7 @@ export default async function SignUpPage({
           )}
 
           <div>
-            <label className="block text-xs font-semibold text-white/40 mb-1.5">
+            <label className="block text-xs font-semibold text-[var(--t3)] mb-1.5">
               {isEs ? "Nombre completo" : "Full name"}
             </label>
             <input
@@ -75,13 +75,13 @@ export default async function SignUpPage({
               type="text"
               autoComplete="name"
               required
-              className="w-full rounded-lg px-3 py-2.5 text-sm text-white/80 placeholder:text-white/20 focus:outline-none transition-colors"
-              style={{ backgroundColor: "rgba(255,255,255,0.06)", border: "1px solid rgba(255,255,255,0.1)" }}
+              className="w-full rounded-lg px-3 py-2.5 text-sm text-[var(--t1)] placeholder:text-[var(--t4)] focus:outline-none transition-colors"
+              style={{ backgroundColor: "var(--input)", border: "1px solid var(--border-strong)" }}
             />
           </div>
 
           <div>
-            <label className="block text-xs font-semibold text-white/40 mb-1.5">
+            <label className="block text-xs font-semibold text-[var(--t3)] mb-1.5">
               {isEs ? "Correo electronico" : "Email address"}
             </label>
             <input
@@ -89,13 +89,13 @@ export default async function SignUpPage({
               type="email"
               autoComplete="email"
               required
-              className="w-full rounded-lg px-3 py-2.5 text-sm text-white/80 placeholder:text-white/20 focus:outline-none transition-colors"
-              style={{ backgroundColor: "rgba(255,255,255,0.06)", border: "1px solid rgba(255,255,255,0.1)" }}
+              className="w-full rounded-lg px-3 py-2.5 text-sm text-[var(--t1)] placeholder:text-[var(--t4)] focus:outline-none transition-colors"
+              style={{ backgroundColor: "var(--input)", border: "1px solid var(--border-strong)" }}
             />
           </div>
 
           <div>
-            <label className="block text-xs font-semibold text-white/40 mb-1.5">
+            <label className="block text-xs font-semibold text-[var(--t3)] mb-1.5">
               {isEs ? "Contrasena" : "Password"}
             </label>
             <input
@@ -104,22 +104,22 @@ export default async function SignUpPage({
               autoComplete="new-password"
               required
               minLength={8}
-              className="w-full rounded-lg px-3 py-2.5 text-sm text-white/80 placeholder:text-white/20 focus:outline-none transition-colors"
-              style={{ backgroundColor: "rgba(255,255,255,0.06)", border: "1px solid rgba(255,255,255,0.1)" }}
+              className="w-full rounded-lg px-3 py-2.5 text-sm text-[var(--t1)] placeholder:text-[var(--t4)] focus:outline-none transition-colors"
+              style={{ backgroundColor: "var(--input)", border: "1px solid var(--border-strong)" }}
             />
-            <p className="text-[11px] text-white/25 mt-1">
+            <p className="text-[11px] text-[var(--t4)] mt-1">
               {isEs ? "Minimo 8 caracteres" : "Minimum 8 characters"}
             </p>
           </div>
 
           <div>
-            <label className="block text-xs font-semibold text-white/40 mb-1.5">
+            <label className="block text-xs font-semibold text-[var(--t3)] mb-1.5">
               {isEs ? "Pais" : "Country"}
             </label>
             <select
               name="country"
-              className="w-full rounded-lg px-3 py-2.5 text-sm text-white/80 focus:outline-none transition-colors"
-              style={{ backgroundColor: "rgba(255,255,255,0.06)", border: "1px solid rgba(255,255,255,0.1)" }}
+              className="w-full rounded-lg px-3 py-2.5 text-sm text-[var(--t1)] focus:outline-none transition-colors"
+              style={{ backgroundColor: "var(--input)", border: "1px solid var(--border-strong)" }}
             >
               <option value="" style={{ backgroundColor: "#0f1826" }}>{isEs ? "Selecciona tu pais" : "Select your country"}</option>
               {COUNTRIES.map((c) => (
@@ -135,14 +135,14 @@ export default async function SignUpPage({
             {isEs ? "Crear cuenta" : "Create account"}
           </button>
 
-          <p className="text-[11px] text-white/25 text-center">
+          <p className="text-[11px] text-[var(--t4)] text-center">
             {isEs
               ? "Al registrarte aceptas nuestros terminos de uso."
               : "By signing up you agree to our terms of use."}
           </p>
         </form>
 
-        <p className="text-center text-sm text-white/35 mt-5">
+        <p className="text-center text-sm text-[var(--t3)] mt-5">
           {isEs ? "Ya tienes cuenta?" : "Already have an account?"}{" "}
           <Link href={`/${lang}/auth/signin`} className="text-opc-orange font-semibold hover:underline">
             {isEs ? "Iniciar sesion" : "Sign in"}

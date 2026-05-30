@@ -18,24 +18,24 @@ export default async function SettingsPage({ params }: { params: Promise<{ lang:
 
   return (
     <div>
-      <h1 className="text-2xl font-bold text-white mb-1">
+      <h1 className="text-2xl font-bold text-[var(--t1)] mb-1">
         {isEs ? "Configuracion" : "Settings"}
       </h1>
-      <p className="text-sm text-white/40 mb-6">
+      <p className="text-sm text-[var(--t3)] mb-6">
         {isEs ? "Gestiona tu perfil y preferencias de cuenta." : "Manage your profile and account preferences."}
       </p>
 
       <div className="space-y-4">
         {/* Profile */}
-        <div className="border rounded-xl p-5" style={{ backgroundColor: "rgba(255,255,255,0.04)", borderColor: "rgba(255,255,255,0.08)" }}>
-          <h2 className="text-sm font-semibold text-white mb-4">{isEs ? "Perfil" : "Profile"}</h2>
+        <div className="border rounded-xl p-5" style={{ backgroundColor: "var(--card)", borderColor: "var(--border)" }}>
+          <h2 className="text-sm font-semibold text-[var(--t1)] mb-4">{isEs ? "Perfil" : "Profile"}</h2>
           <div className="flex items-center gap-4 mb-5">
             <div className="w-14 h-14 rounded-full bg-opc-orange/15 flex items-center justify-center text-opc-orange font-black text-lg">
               {initials}
             </div>
             <div>
-              <p className="font-semibold text-white text-sm">{session.name}</p>
-              <p className="text-xs text-white/40">{session.email}</p>
+              <p className="font-semibold text-[var(--t1)] text-sm">{session.name}</p>
+              <p className="text-xs text-[var(--t3)]">{session.email}</p>
               <span className={`inline-block mt-1 text-[10px] font-bold px-2 py-0.5 rounded ${session.plan === "elite" ? "bg-amber-400/10 text-amber-400" : "bg-white/10 text-white/40"}`}>
                 {session.plan === "elite" ? "OPC Elite" : (isEs ? "Plan Gratis" : "Free Plan")}
               </span>
@@ -45,34 +45,34 @@ export default async function SettingsPage({ params }: { params: Promise<{ lang:
             <input type="hidden" name="lang" value={lang} />
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
               <div>
-                <label className="text-xs text-white/40 block mb-1">{isEs ? "Nombre" : "Full name"}</label>
+                <label className="text-xs text-[var(--t3)] block mb-1">{isEs ? "Nombre" : "Full name"}</label>
                 <input
                   name="name"
                   type="text"
                   defaultValue={session.name}
-                  className="w-full rounded-lg px-3 py-2 text-sm text-white/70 focus:outline-none transition-colors"
-                  style={{ backgroundColor: "rgba(255,255,255,0.06)", border: "1px solid rgba(255,255,255,0.08)" }}
+                  className="w-full rounded-lg px-3 py-2 text-sm text-[var(--t2)] focus:outline-none transition-colors"
+                  style={{ backgroundColor: "var(--input)", border: "1px solid var(--border)" }}
                 />
               </div>
               <div>
-                <label className="text-xs text-white/40 block mb-1">{isEs ? "Correo" : "Email"}</label>
+                <label className="text-xs text-[var(--t3)] block mb-1">{isEs ? "Correo" : "Email"}</label>
                 <input
                   type="text"
                   value={session.email}
                   disabled
-                  className="w-full rounded-lg px-3 py-2 text-sm text-white/25 cursor-not-allowed"
-                  style={{ backgroundColor: "rgba(255,255,255,0.03)", border: "1px solid rgba(255,255,255,0.06)" }}
+                  className="w-full rounded-lg px-3 py-2 text-sm text-[var(--t4)] cursor-not-allowed"
+                  style={{ backgroundColor: "var(--card)", border: "1px solid var(--border)" }}
                 />
               </div>
               <div>
-                <label className="text-xs text-white/40 block mb-1">{isEs ? "Pais" : "Country"}</label>
+                <label className="text-xs text-[var(--t3)] block mb-1">{isEs ? "Pais" : "Country"}</label>
                 <input
                   name="country"
                   type="text"
                   defaultValue={session.country || ""}
                   placeholder={isEs ? "Agregar..." : "Add..."}
-                  className="w-full rounded-lg px-3 py-2 text-sm text-white/70 placeholder:text-white/20 focus:outline-none transition-colors"
-                  style={{ backgroundColor: "rgba(255,255,255,0.06)", border: "1px solid rgba(255,255,255,0.08)" }}
+                  className="w-full rounded-lg px-3 py-2 text-sm text-[var(--t2)] placeholder:text-[var(--t4)] focus:outline-none transition-colors"
+                  style={{ backgroundColor: "var(--input)", border: "1px solid var(--border)" }}
                 />
               </div>
             </div>
@@ -83,15 +83,15 @@ export default async function SettingsPage({ params }: { params: Promise<{ lang:
         </div>
 
         {/* Language */}
-        <div className="border rounded-xl p-5" style={{ backgroundColor: "rgba(255,255,255,0.04)", borderColor: "rgba(255,255,255,0.08)" }}>
-          <h2 className="text-sm font-semibold text-white mb-3">{isEs ? "Idioma" : "Language"}</h2>
+        <div className="border rounded-xl p-5" style={{ backgroundColor: "var(--card)", borderColor: "var(--border)" }}>
+          <h2 className="text-sm font-semibold text-[var(--t1)] mb-3">{isEs ? "Idioma" : "Language"}</h2>
           <div className="flex gap-2">
-            <a href="/en/dashboard/settings" className={`px-4 py-2 rounded-lg text-sm font-semibold border transition-colors ${lang === "en" ? "bg-opc-orange text-white border-opc-orange" : "text-white/40 hover:text-white/60"}`}
-              style={lang !== "en" ? { backgroundColor: "rgba(255,255,255,0.04)", borderColor: "rgba(255,255,255,0.08)" } : {}}>
+            <a href="/en/dashboard/settings" className={`px-4 py-2 rounded-lg text-sm font-semibold border transition-colors ${lang === "en" ? "bg-opc-orange text-white border-opc-orange" : "text-[var(--t3)] hover:text-[var(--t2)]"}`}
+              style={lang !== "en" ? { backgroundColor: "var(--card)", borderColor: "var(--border)" } : {}}>
               English
             </a>
-            <a href="/es/dashboard/settings" className={`px-4 py-2 rounded-lg text-sm font-semibold border transition-colors ${lang === "es" ? "bg-opc-orange text-white border-opc-orange" : "text-white/40 hover:text-white/60"}`}
-              style={lang !== "es" ? { backgroundColor: "rgba(255,255,255,0.04)", borderColor: "rgba(255,255,255,0.08)" } : {}}>
+            <a href="/es/dashboard/settings" className={`px-4 py-2 rounded-lg text-sm font-semibold border transition-colors ${lang === "es" ? "bg-opc-orange text-white border-opc-orange" : "text-[var(--t3)] hover:text-[var(--t2)]"}`}
+              style={lang !== "es" ? { backgroundColor: "var(--card)", borderColor: "var(--border)" } : {}}>
               Español
             </a>
           </div>

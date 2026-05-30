@@ -49,32 +49,32 @@ export function DashboardShell({ lang, user, children }: Props) {
   }
 
   return (
-    <div className="flex min-h-screen font-sans" style={{ backgroundColor: "#080d14" }}>
+    <div className="flex min-h-screen font-sans" style={{ backgroundColor: "var(--bg)" }}>
       {/* Sidebar */}
-      <aside className="w-[220px] flex-shrink-0 flex flex-col fixed top-0 bottom-0 left-0 z-40 border-r" style={{ backgroundColor: "#0a1018", borderColor: "rgba(255,255,255,0.06)" }}>
+      <aside className="w-[220px] flex-shrink-0 flex flex-col fixed top-0 bottom-0 left-0 z-40 border-r" style={{ backgroundColor: "var(--sidebar)", borderColor: "var(--border)" }}>
         {/* Logo */}
-        <div className="px-5 py-4 border-b" style={{ borderColor: "rgba(255,255,255,0.06)" }}>
+        <div className="px-5 py-4 border-b" style={{ borderColor: "var(--border)" }}>
           <Link href={`/${lang}/`} className="flex items-center gap-2">
             <span className="w-7 h-7 rounded-full bg-opc-orange flex items-center justify-center flex-shrink-0">
               <span className="text-white text-[10px] font-black">OPC</span>
             </span>
             <div className="min-w-0">
-              <span className="text-xs font-bold text-white/70 tracking-wide">OPCAmerica</span>
-              <span className="text-white/20 mx-1">/</span>
+              <span className="text-xs font-bold text-[var(--t2)] tracking-wide">OPCAmerica</span>
+              <span className="text-[var(--t4)] mx-1">/</span>
               <span className="text-xs font-bold text-opc-orange">LaunchPad</span>
             </div>
           </Link>
         </div>
 
         {/* User */}
-        <div className="px-4 py-4 border-b" style={{ borderColor: "rgba(255,255,255,0.06)" }}>
+        <div className="px-4 py-4 border-b" style={{ borderColor: "var(--border)" }}>
           <div className="flex items-center gap-3">
             <div className="w-9 h-9 rounded-full bg-opc-orange flex items-center justify-center text-white text-xs font-black flex-shrink-0">
               {initials}
             </div>
             <div className="min-w-0">
-              <p className="text-sm font-semibold text-white truncate">{user.name}</p>
-              <p className={`text-xs ${user.plan === "elite" ? "text-amber-400 font-semibold" : "text-white/35"}`}>
+              <p className="text-sm font-semibold text-[var(--t1)] truncate">{user.name}</p>
+              <p className={`text-xs ${user.plan === "elite" ? "text-amber-400 font-semibold" : "text-[var(--t3)]"}`}>
                 {user.plan === "elite" ? "OPC Elite" : "Free Plan"}
               </p>
             </div>
@@ -92,7 +92,7 @@ export function DashboardShell({ lang, user, children }: Props) {
                 className={`flex items-center gap-3 px-3 py-2 rounded-lg text-sm transition-colors ${
                   active
                     ? "bg-opc-orange/10 text-opc-orange font-semibold"
-                    : "text-white/45 hover:bg-white/5 hover:text-white"
+                    : "text-[var(--t3)] hover:bg-white/5 hover:text-[var(--t1)]"
                 }`}
               >
                 <Icon active={active} />
@@ -103,7 +103,7 @@ export function DashboardShell({ lang, user, children }: Props) {
         </nav>
 
         {/* Upgrade + Admin + Sign out */}
-        <div className="px-3 pb-4 space-y-0.5 border-t pt-3" style={{ borderColor: "rgba(255,255,255,0.06)" }}>
+        <div className="px-3 pb-4 space-y-0.5 border-t pt-3" style={{ borderColor: "var(--border)" }}>
           {user.plan !== "elite" && (
             <Link
               href={`/${lang}/join-elite`}
@@ -124,7 +124,7 @@ export function DashboardShell({ lang, user, children }: Props) {
           )}
           <a
             href={`/${lang}/auth/signout`}
-            className="flex items-center gap-2 px-3 py-2 rounded-lg text-xs text-white/30 hover:text-white/60 hover:bg-white/5 transition-colors w-full"
+            className="flex items-center gap-2 px-3 py-2 rounded-lg text-xs text-[var(--t3)] hover:text-[var(--t2)] hover:bg-white/5 transition-colors w-full"
           >
             <SignOutIcon />
             {isEs ? "Cerrar sesion" : "Sign out"}
@@ -135,32 +135,32 @@ export function DashboardShell({ lang, user, children }: Props) {
       {/* Main */}
       <div className="flex-1 ml-[220px] flex flex-col min-h-screen">
         {/* Top bar */}
-        <header className="h-12 border-b flex items-center justify-between px-6 sticky top-0 z-30" style={{ backgroundColor: "#0a1018", borderColor: "rgba(255,255,255,0.06)" }}>
-          <div className="flex items-center gap-2 text-sm text-white/30">
+        <header className="h-12 border-b flex items-center justify-between px-6 sticky top-0 z-30" style={{ backgroundColor: "var(--header)", borderColor: "var(--border)" }}>
+          <div className="flex items-center gap-2 text-sm text-[var(--t3)]">
             <span>/</span>
-            <span className="font-semibold text-white/70">LaunchPad</span>
+            <span className="font-semibold text-[var(--t2)]">LaunchPad</span>
           </div>
           <div className="flex items-center gap-4 text-xs">
-            <Link href={`/${lang}/`} className="text-white/40 hover:text-white/70 transition-colors">
+            <Link href={`/${lang}/`} className="text-[var(--t3)] hover:text-[var(--t2)] transition-colors">
               {isEs ? "Inicio" : "Home"}
             </Link>
             <Link href={`/${lang}/launchpad`} className="text-opc-orange hover:text-opc-orange/80 font-semibold transition-colors">
               LaunchPad
             </Link>
-            <Link href={`/${lang}/tutorials`} className="text-white/40 hover:text-white/70 transition-colors hidden lg:block">
+            <Link href={`/${lang}/tutorials`} className="text-[var(--t3)] hover:text-[var(--t2)] transition-colors hidden lg:block">
               {isEs ? "Tutoriales" : "Tutorials"}
             </Link>
-            <Link href={`/${lang}/ai-tools`} className="text-white/40 hover:text-white/70 transition-colors hidden lg:block">
+            <Link href={`/${lang}/ai-tools`} className="text-[var(--t3)] hover:text-[var(--t2)] transition-colors hidden lg:block">
               {isEs ? "Herramientas IA" : "AI Tools"}
             </Link>
-            <Link href={`/${lang}/marketplace`} className="text-white/40 hover:text-white/70 transition-colors hidden xl:block">
+            <Link href={`/${lang}/marketplace`} className="text-[var(--t3)] hover:text-[var(--t2)] transition-colors hidden xl:block">
               Marketplace
             </Link>
-            <div className="flex items-center gap-2 ml-2 pl-2 border-l" style={{ borderColor: "rgba(255,255,255,0.08)" }}>
+            <div className="flex items-center gap-2 ml-2 pl-2 border-l" style={{ borderColor: "var(--border-strong)" }}>
               <button
                 onClick={toggle}
                 aria-label="Toggle theme"
-                className="w-7 h-7 flex items-center justify-center rounded-full border border-white/15 text-white/40 hover:text-white hover:border-white/30 transition-colors"
+                className="w-7 h-7 flex items-center justify-center rounded-full border border-white/15 text-[var(--t3)] hover:text-[var(--t1)] hover:border-white/30 transition-colors"
               >
                 {theme === "dark" ? (
                   <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
@@ -176,7 +176,7 @@ export function DashboardShell({ lang, user, children }: Props) {
               </button>
               <button
                 onClick={switchLang}
-                className="border border-white/15 text-white/40 hover:text-white hover:border-white/30 px-2.5 py-1 rounded-full transition-colors"
+                className="border border-white/15 text-[var(--t3)] hover:text-[var(--t1)] hover:border-white/30 px-2.5 py-1 rounded-full transition-colors"
               >
                 {lang === "en" ? "EN | ES" : "ES | EN"}
               </button>
