@@ -1,3 +1,4 @@
+import Link from "next/link";
 import { adminLogin } from "./actions";
 
 export default function AdminLoginPage({
@@ -57,6 +58,11 @@ export default function AdminLoginPage({
 
         <p className="text-center text-xs text-gray-700 mt-4">
           OPCAmerica · Restricted access
+        </p>
+        <p className="text-center mt-3">
+          <Link href="/en" className="text-xs text-gray-600 hover:text-gray-400 transition-colors">
+            ← Back to home
+          </Link>
         </p>
       </div>
     </div>

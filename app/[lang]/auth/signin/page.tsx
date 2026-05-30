@@ -101,11 +101,9 @@ export default async function SignInPage({
         </p>
 
         <p className="text-center mt-4">
-          <a href="/admin/login" className="text-xs text-[var(--t4)] hover:text-[var(--t3)] transition-colors">
-            Admin panel
-          </a>
-          <span className="text-[var(--t5)] text-xs mx-2">·</span>
-          <span className="text-xs text-[var(--t4)]">Use <span className="font-mono">admin</span> + password to sign in as admin</span>
+          <Link href={`/${lang}`} className="text-xs text-[var(--t4)] hover:text-[var(--t3)] transition-colors">
+            ← {isEs ? "Volver al inicio" : "Back to home"}
+          </Link>
         </p>
       </div>
     </div>
