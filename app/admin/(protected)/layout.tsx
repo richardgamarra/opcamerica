@@ -31,6 +31,13 @@ export default function AdminProtectedLayout({ children }: { children: React.Rea
           <nav className="space-y-0.5 px-3">
             {[
               { label: "Users", href: "/admin/users", icon: "👥" },
+              { label: "Events", href: "/admin/events", icon: "📅" },
+              { label: "Funding", href: "/admin/funding", icon: "💰" },
+              { label: "Launches", href: "/admin/launches", icon: "🚀" },
+              { label: "Playbooks", href: "/admin/playbooks", icon: "📖" },
+              { label: "Perks", href: "/admin/perks", icon: "🎁" },
+              { label: "Claims", href: "/admin/claims", icon: "✅" },
+              { label: "Resources", href: "/admin/resources", icon: "📚" },
               { label: "Settings", href: "/admin/settings", icon: "⚙️" },
             ].map((item) => (
               <a
