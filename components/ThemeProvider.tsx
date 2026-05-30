@@ -36,3 +36,13 @@ export function ThemeProvider({ children }: { children: React.ReactNode }) {
     </ThemeContext.Provider>
   );
 }
+
+export function ThemeScript() {
+  return (
+    <script
+      dangerouslySetInnerHTML={{
+        __html: `(function(){try{var t=localStorage.getItem('theme');document.documentElement.classList.toggle('dark',t!=='light')}catch(e){}})()`,
+      }}
+    />
+  );
+}

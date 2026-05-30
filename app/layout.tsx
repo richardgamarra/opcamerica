@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import "./globals.css";
-import { ThemeProvider } from "@/components/ThemeProvider";
+import { ThemeProvider, ThemeScript } from "@/components/ThemeProvider";
 
 export const metadata: Metadata = {
   title: "OPCAmerica — One Person Company for the Americas",
@@ -10,6 +10,9 @@ export const metadata: Metadata = {
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="en" className="dark">
+      <head>
+        <ThemeScript />
+      </head>
       <body>
         <ThemeProvider>{children}</ThemeProvider>
       </body>
