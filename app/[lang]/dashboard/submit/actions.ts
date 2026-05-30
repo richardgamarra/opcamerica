@@ -54,12 +54,27 @@ export async function submitPlaybook(formData: FormData) {
 
   const title = (formData.get("title") as string).trim();
   const read_time = (formData.get("read_time") as string).trim();
+  const pdfFile = formData.get("pdf") as File | null;
 
   if (!title) return;
 
+  let pdf_url: string | null = null;
+  if (pdfFile && pdfFile.size > 0) {
+    const { writeFile, mkdir } = await import("fs/promises");
+    const { join } = await import("path");
+    const uploadDir = join(process.cwd(), "public", "uploads", "playbooks");
+    await mkdir(uploadDir, { recursive: true });
+    const ext = pdfFile.name.split(".").pop() || "pdf";
+    const slug = title.toLowerCase().replace(/[^a-z0-9]+/g, "-").slice(0, 40);
+    const filename = `${slug}-${Date.now()}.${ext}`;
+    const bytes = await pdfFile.arrayBuffer();
+    await writeFile(join(uploadDir, filename), Buffer.from(bytes));
+    pdf_url = `/uploads/playbooks/${filename}`;
+  }
+
   await pool.query(
-    "INSERT INTO playbooks (icon, title, title_es, steps, read_time, is_elite, is_active, submitted_by) VALUES ($1,$2,$2,0,$3,false,false,$4)",
-    ["📖", title, read_time, session.id]
+    "INSERT INTO playbooks (icon, title, title_es, steps, read_time, is_elite, is_active, submitted_by, pdf_url) VALUES ($1,$2,$2,0,$3,false,false,$4,$5)",
+    ["📖", title, read_time, session.id, pdf_url]
   );
 
   revalidatePath("/en/dashboard/playbooks");

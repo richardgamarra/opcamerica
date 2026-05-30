@@ -15,7 +15,7 @@ export default function NewPlaybookPage({ searchParams }: { searchParams: { erro
 
       <h1 className="text-xl font-bold text-white mt-4 mb-6">Add Playbook</h1>
 
-      <form action={createPlaybook} className="bg-gray-900 border border-gray-800 rounded-xl p-6 space-y-4">
+      <form action={createPlaybook} encType="multipart/form-data" className="bg-gray-900 border border-gray-800 rounded-xl p-6 space-y-4">
         {error && (
           <div className="bg-red-500/10 border border-red-500/20 rounded-lg px-4 py-2.5 text-sm text-red-400">
             {error}
@@ -55,6 +55,12 @@ export default function NewPlaybookPage({ searchParams }: { searchParams: { erro
               <option value="0">Free (all members)</option>
               <option value="1">Elite only</option>
             </select>
+          </div>
+          <div className="sm:col-span-2">
+            <label className="block text-xs font-semibold text-gray-400 mb-1.5">PDF File</label>
+            <input name="pdf" type="file" accept=".pdf"
+              className="w-full bg-gray-800 border border-gray-700 rounded-lg px-3 py-2.5 text-sm text-gray-300 file:mr-3 file:py-1 file:px-3 file:rounded file:border-0 file:text-xs file:font-semibold file:bg-opc-orange/20 file:text-opc-orange hover:file:bg-opc-orange/30 transition-colors" />
+            <p className="text-[11px] text-gray-600 mt-1">Optional. Members will be able to download this file.</p>
           </div>
         </div>
 

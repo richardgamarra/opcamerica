@@ -29,7 +29,14 @@ export default async function AdminPlaybooksPage() {
             <tbody>
               {pending.map((pb) => (
                 <tr key={pb.id} className="border-b border-amber-500/10 last:border-0">
-                  <td className="px-5 py-3 text-white font-medium">{pb.icon} {pb.title}</td>
+                  <td className="px-5 py-3 text-white font-medium">
+                    {pb.icon} {pb.title}
+                    {pb.pdf_url && (
+                      <a href={pb.pdf_url} target="_blank" rel="noopener noreferrer" className="ml-2 text-[10px] font-bold px-1.5 py-0.5 rounded bg-blue-500/20 text-blue-400 hover:bg-blue-500/30 transition-colors">
+                        PDF
+                      </a>
+                    )}
+                  </td>
                   <td className="px-4 py-3 text-gray-500 text-xs">by {pb.submitter_name}</td>
                   <td className="px-4 py-3">
                     <div className="flex items-center gap-2 justify-end">
@@ -61,6 +68,11 @@ export default async function AdminPlaybooksPage() {
               <tr key={pb.id} className="border-b border-gray-800/50 hover:bg-gray-800/30 transition-colors">
                 <td className="px-5 py-3 text-white font-medium">
                   <span className="mr-2">{pb.icon}</span>{pb.title}
+                  {pb.pdf_url && (
+                    <a href={pb.pdf_url} target="_blank" rel="noopener noreferrer" className="ml-2 text-[10px] font-bold px-1.5 py-0.5 rounded bg-blue-500/20 text-blue-400 hover:bg-blue-500/30 transition-colors">
+                      PDF
+                    </a>
+                  )}
                 </td>
                 <td className="px-4 py-3 text-gray-400">{pb.steps}</td>
                 <td className="px-4 py-3 text-gray-400">{pb.read_time}</td>

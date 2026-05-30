@@ -45,7 +45,7 @@ export default async function PlaybooksPage({ params }: { params: Promise<{ lang
           <p className="text-sm font-semibold text-gray-800 mb-4">
             {isEs ? "Proponer un playbook" : "Suggest a playbook"}
           </p>
-          <form action={submitPlaybook} className="space-y-3">
+          <form action={submitPlaybook} encType="multipart/form-data" className="space-y-3">
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
               <div className="sm:col-span-2">
                 <label className="block text-xs font-semibold text-gray-400 mb-1">{isEs ? "Titulo" : "Title"} *</label>
@@ -56,6 +56,18 @@ export default async function PlaybooksPage({ params }: { params: Promise<{ lang
                 <label className="block text-xs font-semibold text-gray-400 mb-1">{isEs ? "Tiempo estimado" : "Estimated read time"}</label>
                 <input name="read_time" type="text" placeholder="20 min"
                   className="w-full border border-gray-200 rounded-lg px-3 py-2 text-sm text-gray-800 placeholder:text-gray-300 focus:outline-none focus:border-opc-orange transition-colors" />
+              </div>
+              <div className="sm:col-span-2">
+                <label className="block text-xs font-semibold text-gray-400 mb-1">
+                  {isEs ? "PDF (opcional)" : "PDF file (optional)"}
+                </label>
+                <input name="pdf" type="file" accept=".pdf"
+                  className="w-full border border-gray-200 rounded-lg px-3 py-2 text-sm text-gray-600 file:mr-3 file:py-1 file:px-3 file:rounded file:border-0 file:text-xs file:font-semibold file:bg-opc-orange/10 file:text-opc-orange hover:file:bg-opc-orange/20 transition-colors" />
+                <p className="text-[11px] text-gray-400 mt-1">
+                  {isEs
+                    ? "Si tienes el playbook en PDF, adjuntalo aqui para que el admin lo revise."
+                    : "If you have the playbook as a PDF, attach it here for admin review."}
+                </p>
               </div>
             </div>
             <button type="submit" className="bg-opc-orange hover:bg-opc-orange/90 text-white font-bold text-sm px-5 py-2 rounded-lg transition-colors">
@@ -69,7 +81,7 @@ export default async function PlaybooksPage({ params }: { params: Promise<{ lang
       {playbooks.length > 0 ? (
         <div className="space-y-3">
           {playbooks.map((pb) => (
-            <div key={pb.id} className="bg-white border border-gray-100 rounded-xl p-4 flex items-center gap-4 hover:border-gray-200 hover:shadow-sm transition-all cursor-pointer">
+            <div key={pb.id} className="bg-white border border-gray-100 rounded-xl p-4 flex items-center gap-4 hover:border-gray-200 hover:shadow-sm transition-all">
               <span className="text-2xl flex-shrink-0">{pb.icon}</span>
               <div className="flex-1 min-w-0">
                 <div className="flex items-center gap-2 flex-wrap">
@@ -81,9 +93,25 @@ export default async function PlaybooksPage({ params }: { params: Promise<{ lang
                   {pb.read_time && <span>{pb.steps > 0 ? " · " : ""}{pb.read_time} {isEs ? "de lectura" : "read"}</span>}
                 </p>
               </div>
-              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#d1d5db" strokeWidth="2" className="flex-shrink-0">
-                <polyline points="9 18 15 12 9 6"/>
-              </svg>
+              {pb.pdf_url ? (
+                <a
+                  href={pb.pdf_url}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="flex items-center gap-1.5 text-xs font-semibold text-opc-orange hover:text-opc-orange/80 bg-opc-orange/8 hover:bg-opc-orange/15 px-3 py-1.5 rounded-lg transition-colors flex-shrink-0"
+                >
+                  <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.2">
+                    <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/>
+                    <polyline points="7 10 12 15 17 10"/>
+                    <line x1="12" y1="15" x2="12" y2="3"/>
+                  </svg>
+                  PDF
+                </a>
+              ) : (
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#d1d5db" strokeWidth="2" className="flex-shrink-0">
+                  <polyline points="9 18 15 12 9 6"/>
+                </svg>
+              )}
             </div>
           ))}
         </div>
