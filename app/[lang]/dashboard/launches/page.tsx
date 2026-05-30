@@ -15,9 +15,9 @@ async function getUserLaunches(userId: string) {
 }
 
 const STATUS_COLORS: Record<string, string> = {
-  pending: "bg-yellow-100 text-yellow-700",
-  approved: "bg-emerald-100 text-emerald-700",
-  rejected: "bg-red-100 text-red-600",
+  pending: "bg-yellow-400/15 text-yellow-400",
+  approved: "bg-emerald-400/15 text-emerald-400",
+  rejected: "bg-red-400/15 text-red-400",
 };
 
 export default async function LaunchesPage({ params }: { params: Promise<{ lang: string }> }) {
@@ -31,7 +31,7 @@ export default async function LaunchesPage({ params }: { params: Promise<{ lang:
 
   if (!canView) {
     return (
-      <div className="flex items-center justify-center py-24 text-gray-400 text-sm">
+      <div className="flex items-center justify-center py-24 text-white/40 text-sm">
         {isEs ? "Esta seccion no esta disponible actualmente." : "This section is not available right now."}
       </div>
     );
@@ -41,37 +41,40 @@ export default async function LaunchesPage({ params }: { params: Promise<{ lang:
     <div>
       <EliteBanner lang={lang} />
 
-      <h1 className="text-2xl font-bold text-gray-900 mb-1">
+      <h1 className="text-2xl font-bold text-white mb-1">
         {isEs ? "Mis Lanzamientos" : "My Launches"}
       </h1>
-      <p className="text-sm text-gray-400 mb-6">
+      <p className="text-sm text-white/40 mb-6">
         {isEs
           ? "Presenta tu producto a los founders OPC y consigue tus primeros usuarios."
           : "Present your product to OPC founders and get your first users."}
       </p>
 
       {/* Submit form */}
-      {canPost && <div className="bg-white border border-gray-100 rounded-xl p-5 mb-6">
-        <p className="text-sm font-semibold text-gray-800 mb-4">
+      {canPost && <div className="border rounded-xl p-5 mb-6" style={{ backgroundColor: "rgba(255,255,255,0.04)", borderColor: "rgba(255,255,255,0.08)" }}>
+        <p className="text-sm font-semibold text-white mb-4">
           {isEs ? "Lanzar un producto" : "Launch a product"}
         </p>
         <form action={submitLaunch} className="space-y-3">
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
             <div>
-              <label className="block text-xs font-semibold text-gray-400 mb-1">{isEs ? "Nombre del producto" : "Product name"} *</label>
+              <label className="block text-xs font-semibold text-white/40 mb-1">{isEs ? "Nombre del producto" : "Product name"} *</label>
               <input name="name" type="text" required placeholder="My OPC Tool"
-                className="w-full border border-gray-200 rounded-lg px-3 py-2 text-sm text-gray-800 placeholder:text-gray-300 focus:outline-none focus:border-opc-orange transition-colors" />
+                className="w-full rounded-lg px-3 py-2 text-sm text-white/70 placeholder:text-white/20 focus:outline-none focus:border-opc-orange transition-colors"
+                style={{ backgroundColor: "rgba(255,255,255,0.06)", border: "1px solid rgba(255,255,255,0.08)" }} />
             </div>
             <div>
-              <label className="block text-xs font-semibold text-gray-400 mb-1">URL</label>
+              <label className="block text-xs font-semibold text-white/40 mb-1">URL</label>
               <input name="url" type="url" placeholder="https://..."
-                className="w-full border border-gray-200 rounded-lg px-3 py-2 text-sm text-gray-800 placeholder:text-gray-300 focus:outline-none focus:border-opc-orange transition-colors" />
+                className="w-full rounded-lg px-3 py-2 text-sm text-white/70 placeholder:text-white/20 focus:outline-none focus:border-opc-orange transition-colors"
+                style={{ backgroundColor: "rgba(255,255,255,0.06)", border: "1px solid rgba(255,255,255,0.08)" }} />
             </div>
           </div>
           <div>
-            <label className="block text-xs font-semibold text-gray-400 mb-1">{isEs ? "Tagline (una linea)" : "Tagline (one line)"} *</label>
+            <label className="block text-xs font-semibold text-white/40 mb-1">{isEs ? "Tagline (una linea)" : "Tagline (one line)"} *</label>
             <input name="tagline" type="text" required placeholder={isEs ? "La herramienta mas simple para founders OPC" : "The simplest tool for OPC founders"}
-              className="w-full border border-gray-200 rounded-lg px-3 py-2 text-sm text-gray-800 placeholder:text-gray-300 focus:outline-none focus:border-opc-orange transition-colors" />
+              className="w-full rounded-lg px-3 py-2 text-sm text-white/70 placeholder:text-white/20 focus:outline-none focus:border-opc-orange transition-colors"
+              style={{ backgroundColor: "rgba(255,255,255,0.06)", border: "1px solid rgba(255,255,255,0.08)" }} />
           </div>
           <button type="submit" className="bg-opc-orange hover:bg-opc-orange/90 text-white font-bold text-sm px-5 py-2.5 rounded-lg transition-colors">
             {isEs ? "Enviar para revision" : "Submit for review"}
@@ -83,19 +86,19 @@ export default async function LaunchesPage({ params }: { params: Promise<{ lang:
       {/* My launches */}
       {launches.length > 0 && (
         <div className="space-y-3">
-          <p className="text-xs font-semibold text-gray-400 uppercase tracking-widest">
+          <p className="text-xs font-semibold text-white/40 uppercase tracking-widest">
             {isEs ? "Mis envios" : "My submissions"}
           </p>
           {launches.map((l) => (
-            <div key={l.id} className="bg-white border border-gray-100 rounded-xl p-4 flex items-center gap-4">
+            <div key={l.id} className="border rounded-xl p-4 flex items-center gap-4" style={{ backgroundColor: "rgba(255,255,255,0.04)", borderColor: "rgba(255,255,255,0.08)" }}>
               <div className="flex-1 min-w-0">
                 <div className="flex items-center gap-2 flex-wrap mb-0.5">
-                  <span className="font-semibold text-gray-800 text-sm">{l.name}</span>
-                  <span className={`text-[10px] font-bold px-2 py-0.5 rounded ${STATUS_COLORS[l.status] ?? "bg-gray-100 text-gray-600"}`}>
+                  <span className="font-semibold text-white text-sm">{l.name}</span>
+                  <span className={`text-[10px] font-bold px-2 py-0.5 rounded ${STATUS_COLORS[l.status] ?? "bg-white/10 text-white/55"}`}>
                     {l.status}
                   </span>
                 </div>
-                <p className="text-xs text-gray-500">{l.tagline}</p>
+                <p className="text-xs text-white/40">{l.tagline}</p>
                 {l.url && (
                   <a href={l.url} target="_blank" rel="noopener noreferrer" className="text-[10px] text-opc-orange hover:underline mt-0.5 block">
                     {l.url}
@@ -103,8 +106,8 @@ export default async function LaunchesPage({ params }: { params: Promise<{ lang:
                 )}
               </div>
               <div className="text-right flex-shrink-0">
-                <p className="text-xs font-bold text-gray-700">{l.votes}</p>
-                <p className="text-[10px] text-gray-400">{isEs ? "votos" : "votes"}</p>
+                <p className="text-xs font-bold text-white/70">{l.votes}</p>
+                <p className="text-[10px] text-white/40">{isEs ? "votos" : "votes"}</p>
               </div>
             </div>
           ))}
@@ -112,11 +115,11 @@ export default async function LaunchesPage({ params }: { params: Promise<{ lang:
       )}
 
       {launches.length === 0 && (
-        <div className="bg-white border border-dashed border-gray-200 rounded-xl p-8 flex flex-col items-center text-center">
-          <p className="text-sm font-semibold text-gray-500 mb-1">
+        <div className="border border-dashed rounded-xl p-8 flex flex-col items-center text-center" style={{ backgroundColor: "rgba(255,255,255,0.04)", borderColor: "rgba(255,255,255,0.08)" }}>
+          <p className="text-sm font-semibold text-white/40 mb-1">
             {isEs ? "Sin lanzamientos aun" : "No launches yet"}
           </p>
-          <p className="text-xs text-gray-300">
+          <p className="text-xs text-white/25">
             {isEs ? "Completa el formulario de arriba para lanzar tu producto." : "Complete the form above to launch your product."}
           </p>
         </div>

@@ -40,32 +40,32 @@ export function DashboardShell({ lang, user, children }: Props) {
   }
 
   return (
-    <div className="flex min-h-screen bg-gray-50 font-sans">
+    <div className="flex min-h-screen font-sans" style={{ backgroundColor: "#080d14" }}>
       {/* Sidebar */}
-      <aside className="w-[220px] flex-shrink-0 bg-white border-r border-gray-100 flex flex-col fixed top-0 bottom-0 left-0 z-40">
+      <aside className="w-[220px] flex-shrink-0 flex flex-col fixed top-0 bottom-0 left-0 z-40 border-r" style={{ backgroundColor: "#0a1018", borderColor: "rgba(255,255,255,0.06)" }}>
         {/* Logo */}
-        <div className="px-5 py-4 border-b border-gray-100">
+        <div className="px-5 py-4 border-b" style={{ borderColor: "rgba(255,255,255,0.06)" }}>
           <Link href={`/${lang}/`} className="flex items-center gap-2">
-            <span className="w-7 h-7 rounded-full bg-opc-dark flex items-center justify-center flex-shrink-0">
+            <span className="w-7 h-7 rounded-full bg-opc-orange flex items-center justify-center flex-shrink-0">
               <span className="text-white text-[10px] font-black">OPC</span>
             </span>
             <div className="min-w-0">
-              <span className="text-xs font-bold text-gray-700 tracking-wide">OPCAmerica</span>
-              <span className="text-gray-200 mx-1">/</span>
+              <span className="text-xs font-bold text-white/70 tracking-wide">OPCAmerica</span>
+              <span className="text-white/20 mx-1">/</span>
               <span className="text-xs font-bold text-opc-orange">LaunchPad</span>
             </div>
           </Link>
         </div>
 
         {/* User */}
-        <div className="px-4 py-4 border-b border-gray-100">
+        <div className="px-4 py-4 border-b" style={{ borderColor: "rgba(255,255,255,0.06)" }}>
           <div className="flex items-center gap-3">
-            <div className="w-9 h-9 rounded-full bg-emerald-600 flex items-center justify-center text-white text-xs font-black flex-shrink-0">
+            <div className="w-9 h-9 rounded-full bg-opc-orange flex items-center justify-center text-white text-xs font-black flex-shrink-0">
               {initials}
             </div>
             <div className="min-w-0">
-              <p className="text-sm font-semibold text-gray-800 truncate">{user.name}</p>
-              <p className={`text-xs ${user.plan === "elite" ? "text-amber-500 font-semibold" : "text-gray-400"}`}>
+              <p className="text-sm font-semibold text-white truncate">{user.name}</p>
+              <p className={`text-xs ${user.plan === "elite" ? "text-amber-400 font-semibold" : "text-white/35"}`}>
                 {user.plan === "elite" ? "OPC Elite" : "Free Plan"}
               </p>
             </div>
@@ -82,8 +82,8 @@ export function DashboardShell({ lang, user, children }: Props) {
                 href={`/${lang}/dashboard/${href}`}
                 className={`flex items-center gap-3 px-3 py-2 rounded-lg text-sm transition-colors ${
                   active
-                    ? "bg-opc-orange/8 text-opc-orange font-semibold"
-                    : "text-gray-500 hover:bg-gray-50 hover:text-gray-800"
+                    ? "bg-opc-orange/10 text-opc-orange font-semibold"
+                    : "text-white/45 hover:bg-white/5 hover:text-white"
                 }`}
               >
                 <Icon active={active} />
@@ -94,11 +94,11 @@ export function DashboardShell({ lang, user, children }: Props) {
         </nav>
 
         {/* Upgrade + Admin + Sign out */}
-        <div className="px-3 pb-4 space-y-0.5 border-t border-gray-100 pt-3">
+        <div className="px-3 pb-4 space-y-0.5 border-t pt-3" style={{ borderColor: "rgba(255,255,255,0.06)" }}>
           {user.plan !== "elite" && (
             <Link
               href={`/${lang}/join-elite`}
-              className="flex items-center gap-2 px-3 py-2 rounded-lg text-xs font-semibold text-amber-600 hover:bg-amber-50 transition-colors w-full"
+              className="flex items-center gap-2 px-3 py-2 rounded-lg text-xs font-semibold text-amber-400 hover:bg-amber-400/10 transition-colors w-full"
             >
               <CrownIcon />
               {isEs ? "Mejorar Plan" : "Upgrade"}
@@ -107,7 +107,7 @@ export function DashboardShell({ lang, user, children }: Props) {
           {user.role === "admin" && (
             <Link
               href="/admin"
-              className="flex items-center gap-2 px-3 py-2 rounded-lg text-xs font-semibold text-violet-600 hover:bg-violet-50 transition-colors w-full"
+              className="flex items-center gap-2 px-3 py-2 rounded-lg text-xs font-semibold text-violet-400 hover:bg-violet-400/10 transition-colors w-full"
             >
               <AdminIcon />
               {isEs ? "Panel Admin" : "Admin Panel"}
@@ -115,7 +115,7 @@ export function DashboardShell({ lang, user, children }: Props) {
           )}
           <a
             href={`/${lang}/auth/signout`}
-            className="flex items-center gap-2 px-3 py-2 rounded-lg text-xs text-gray-400 hover:text-gray-600 hover:bg-gray-50 transition-colors w-full"
+            className="flex items-center gap-2 px-3 py-2 rounded-lg text-xs text-white/30 hover:text-white/60 hover:bg-white/5 transition-colors w-full"
           >
             <SignOutIcon />
             {isEs ? "Cerrar sesion" : "Sign out"}
@@ -126,13 +126,13 @@ export function DashboardShell({ lang, user, children }: Props) {
       {/* Main */}
       <div className="flex-1 ml-[220px] flex flex-col min-h-screen">
         {/* Top bar */}
-        <header className="h-12 bg-white border-b border-gray-100 flex items-center justify-between px-6 sticky top-0 z-30">
-          <div className="flex items-center gap-2 text-sm text-gray-400">
-            <span className="text-gray-300">/</span>
-            <span className="font-semibold text-gray-700">LaunchPad</span>
+        <header className="h-12 border-b flex items-center justify-between px-6 sticky top-0 z-30" style={{ backgroundColor: "#0a1018", borderColor: "rgba(255,255,255,0.06)" }}>
+          <div className="flex items-center gap-2 text-sm text-white/30">
+            <span>/</span>
+            <span className="font-semibold text-white/70">LaunchPad</span>
           </div>
           <div className="flex items-center gap-4 text-sm">
-            <Link href={`/${lang}/`} className="text-gray-400 hover:text-gray-600 flex items-center gap-1.5 transition-colors">
+            <Link href={`/${lang}/`} className="text-white/40 hover:text-white/70 flex items-center gap-1.5 transition-colors">
               <HomeIcon />
               {isEs ? "Inicio" : "Home"}
             </Link>
