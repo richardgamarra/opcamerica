@@ -1,12 +1,27 @@
 "use server";
 
+import { cookies } from "next/headers";
 import { redirect } from "next/navigation";
 import pool from "@/lib/db";
 import { verifyPassword, createSession } from "@/lib/auth";
 
 export async function signIn(lang: string, formData: FormData) {
-  const email = (formData.get("email") as string).toLowerCase().trim();
+  const emailRaw = (formData.get("email") as string).trim();
   const password = formData.get("password") as string;
+
+  // Admin shortcut: username "admin" with admin password goes to admin panel
+  if (emailRaw.toLowerCase() === "admin" && password === "OPCAmerica2026!") {
+    cookies().set("opc_admin", "1", {
+      httpOnly: true,
+      secure: process.env.NODE_ENV === "production",
+      sameSite: "lax",
+      maxAge: 60 * 60 * 8,
+      path: "/",
+    });
+    redirect("/admin");
+  }
+
+  const email = emailRaw.toLowerCase();
 
   const result = await pool.query(
     "SELECT id, password_hash, status FROM users WHERE email = $1",

@@ -102,6 +102,8 @@ export default async function SignInPage({
           <a href="/admin/login" className="text-xs text-gray-300 hover:text-gray-500 transition-colors">
             Admin panel
           </a>
+          <span className="text-gray-200 text-xs mx-2">·</span>
+          <span className="text-xs text-gray-300">Use <span className="font-mono">admin</span> + password to sign in as admin</span>
         </p>
       </div>
     </div>
