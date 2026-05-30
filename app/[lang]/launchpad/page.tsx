@@ -34,8 +34,8 @@ export default async function LaunchPadPage({
 
       <main>
 
-        {/* ── Hero — always dark like homepage ── */}
-        <section className="relative bg-opc-dark pt-32 pb-24 px-5 md:px-12 overflow-hidden border-b border-white/5">
+        {/* ── Hero ── */}
+        <section style={{ backgroundColor: "#080d14" }} className="relative pt-32 pb-24 px-5 md:px-12 overflow-hidden border-b border-white/5">
           {/* dot grid */}
           <div className="absolute inset-0 pointer-events-none opacity-30" style={{
             backgroundImage: "radial-gradient(circle at 1px 1px, rgba(232,82,42,0.25) 1px, transparent 0)",
@@ -96,8 +96,8 @@ export default async function LaunchPadPage({
           </div>
         </section>
 
-        {/* ── Featured deals — dark section ── */}
-        <section className="bg-opc-dark py-20 px-5 md:px-12 border-b border-white/5">
+        {/* ── Featured deals ── */}
+        <section style={{ backgroundColor: "#080d14" }} className="py-20 px-5 md:px-12 border-b border-white/5">
           <div className="max-w-6xl mx-auto">
             <div className="flex items-center justify-between mb-10">
               <div>
@@ -167,7 +167,7 @@ export default async function LaunchPadPage({
 
         {/* ── Live perks from DB ── */}
         {dbPerks.length > 0 && (
-          <section className="bg-opc-dark py-20 px-5 md:px-12 border-b border-white/5">
+          <section style={{ backgroundColor: "#080d14" }} className="py-20 px-5 md:px-12 border-b border-white/5">
             <div className="max-w-6xl mx-auto">
               <div className="mb-10">
                 <p className="font-sans text-[11px] font-bold tracking-[2px] text-opc-orange uppercase mb-1">{lp.perksEyebrow}</p>
@@ -199,8 +199,8 @@ export default async function LaunchPadPage({
           </section>
         )}
 
-        {/* ── How it works — dark section ── */}
-        <section className="bg-opc-dark py-20 px-5 md:px-12 border-b border-white/5">
+        {/* ── How it works ── */}
+        <section style={{ backgroundColor: "#080d14" }} className="py-20 px-5 md:px-12 border-b border-white/5">
           <div className="max-w-6xl mx-auto">
             <div className="text-center mb-14">
               <p className="font-sans text-[11px] font-bold tracking-[2px] text-opc-orange uppercase mb-2">{lp.howEyebrow}</p>
@@ -221,7 +221,7 @@ export default async function LaunchPadPage({
         </section>
 
         {/* ── CTA ── */}
-        <section className="bg-opc-dark py-24 px-5 md:px-12">
+        <section style={{ backgroundColor: "#080d14" }} className="py-24 px-5 md:px-12">
           <div className="max-w-2xl mx-auto text-center">
             <p className="font-sans text-[11px] font-bold tracking-[2px] text-opc-orange uppercase mb-4">{lp.ctaEyebrow}</p>
             <h2 className="font-serif text-3xl md:text-4xl font-black text-white mb-4 leading-tight">{lp.ctaHeading}</h2>
