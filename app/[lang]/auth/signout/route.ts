@@ -6,5 +6,5 @@ export async function GET(
   { params }: { params: { lang: string } }
 ) {
   await destroySession();
-  return NextResponse.redirect(new URL(`/${params.lang}/auth/signin`, _req.url));
+  return NextResponse.redirect(new URL(`/${params.lang}`, _req.url));
 }
