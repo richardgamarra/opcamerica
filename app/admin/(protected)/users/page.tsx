@@ -1,4 +1,4 @@
-import { getUsers, toggleUserStatus, toggleUserPlan } from "./actions";
+import { getUsers, toggleUserStatus, toggleUserPlan } from "../../users/actions";
 
 export default async function AdminUsersPage() {
   const users = await getUsers();
@@ -10,12 +10,6 @@ export default async function AdminUsersPage() {
           <h1 className="text-xl font-bold text-white">Users</h1>
           <p className="text-sm text-gray-500 mt-0.5">{users.length} registered</p>
         </div>
-        <a
-          href="/admin/users/new"
-          className="bg-opc-orange hover:bg-opc-orange/90 text-white font-semibold text-sm px-4 py-2 rounded-lg transition-colors"
-        >
-          + Add user
-        </a>
       </div>
 
       {/* Stats */}
@@ -51,49 +45,29 @@ export default async function AdminUsersPage() {
               <tr key={user.id} className="border-b border-gray-800/50 hover:bg-gray-800/30 transition-colors">
                 <td className="px-5 py-3 text-white font-medium">{user.name}</td>
                 <td className="px-5 py-3 text-gray-400">{user.email}</td>
-                <td className="px-4 py-3 text-gray-400">{user.country}</td>
+                <td className="px-4 py-3 text-gray-400">{user.country || "—"}</td>
                 <td className="px-4 py-3">
                   <form action={toggleUserPlan.bind(null, user.id)}>
-                    <button
-                      type="submit"
-                      className={`text-[10px] font-bold px-2 py-0.5 rounded cursor-pointer transition-colors ${
-                        user.plan === "elite"
-                          ? "bg-amber-500/20 text-amber-400 hover:bg-amber-500/30"
-                          : "bg-gray-700 text-gray-400 hover:bg-gray-600"
-                      }`}
-                    >
+                    <button type="submit" className={`text-[10px] font-bold px-2 py-0.5 rounded cursor-pointer transition-colors ${user.plan === "elite" ? "bg-amber-500/20 text-amber-400 hover:bg-amber-500/30" : "bg-gray-700 text-gray-400 hover:bg-gray-600"}`}>
                       {user.plan === "elite" ? "Elite" : "Free"}
                     </button>
                   </form>
                 </td>
                 <td className="px-4 py-3">
                   <form action={toggleUserStatus.bind(null, user.id)}>
-                    <button
-                      type="submit"
-                      className={`text-[10px] font-bold px-2 py-0.5 rounded cursor-pointer transition-colors ${
-                        user.status === "active"
-                          ? "bg-emerald-500/20 text-emerald-400 hover:bg-emerald-500/30"
-                          : "bg-red-500/20 text-red-400 hover:bg-red-500/30"
-                      }`}
-                    >
+                    <button type="submit" className={`text-[10px] font-bold px-2 py-0.5 rounded cursor-pointer transition-colors ${user.status === "active" ? "bg-emerald-500/20 text-emerald-400 hover:bg-emerald-500/30" : "bg-red-500/20 text-red-400 hover:bg-red-500/30"}`}>
                       {user.status === "active" ? "Active" : "Disabled"}
                     </button>
                   </form>
                 </td>
                 <td className="px-4 py-3 text-gray-500 text-xs">{new Date(user.created_at).toLocaleDateString("en-US", { year: "numeric", month: "short", day: "numeric" })}</td>
                 <td className="px-4 py-3">
-                  <a
-                    href={`/admin/users/${user.id}`}
-                    className="text-xs text-gray-500 hover:text-opc-orange transition-colors"
-                  >
-                    Edit
-                  </a>
+                  <a href={`/admin/users/${user.id}`} className="text-xs text-gray-500 hover:text-opc-orange transition-colors">Edit</a>
                 </td>
               </tr>
             ))}
           </tbody>
         </table>
-
         {users.length === 0 && (
           <div className="py-12 text-center text-gray-600 text-sm">No users yet.</div>
         )}
