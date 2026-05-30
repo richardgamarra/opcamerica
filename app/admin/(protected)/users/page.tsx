@@ -1,4 +1,4 @@
-import { getUsers, toggleUserStatus, toggleUserPlan } from "../../users/actions";
+import { getUsers, toggleUserStatus, toggleUserPlan, deleteUser } from "../../users/actions";
 
 export default async function AdminUsersPage() {
   const users = await getUsers();
@@ -10,6 +10,12 @@ export default async function AdminUsersPage() {
           <h1 className="text-xl font-bold text-white">Users</h1>
           <p className="text-sm text-gray-500 mt-0.5">{users.length} registered</p>
         </div>
+        <a
+          href="/admin/users/new"
+          className="bg-opc-orange hover:bg-opc-orange/90 text-white font-semibold text-sm px-4 py-2 rounded-lg transition-colors"
+        >
+          + Add user
+        </a>
       </div>
 
       {/* Stats */}
@@ -37,7 +43,7 @@ export default async function AdminUsersPage() {
               <th className="text-left px-4 py-3 text-xs font-semibold text-gray-500">Plan</th>
               <th className="text-left px-4 py-3 text-xs font-semibold text-gray-500">Status</th>
               <th className="text-left px-4 py-3 text-xs font-semibold text-gray-500">Joined</th>
-              <th className="px-4 py-3" />
+              <th className="px-4 py-3 text-xs font-semibold text-gray-500 text-right">Actions</th>
             </tr>
           </thead>
           <tbody>
@@ -60,16 +66,31 @@ export default async function AdminUsersPage() {
                     </button>
                   </form>
                 </td>
-                <td className="px-4 py-3 text-gray-500 text-xs">{new Date(user.created_at).toLocaleDateString("en-US", { year: "numeric", month: "short", day: "numeric" })}</td>
-                <td className="px-4 py-3">
-                  <a href={`/admin/users/${user.id}`} className="text-xs text-gray-500 hover:text-opc-orange transition-colors">Edit</a>
+                <td className="px-4 py-3 text-gray-500 text-xs">
+                  {new Date(user.created_at).toLocaleDateString("en-US", { year: "numeric", month: "short", day: "numeric" })}
+                </td>
+                <td className="px-4 py-3 text-right">
+                  <div className="flex items-center justify-end gap-3">
+                    <a href={`/admin/users/${user.id}`} className="text-xs text-gray-500 hover:text-opc-orange transition-colors">
+                      Edit
+                    </a>
+                    <form action={deleteUser.bind(null, user.id)}>
+                      <button type="submit" className="text-xs text-gray-600 hover:text-red-400 transition-colors">
+                        Delete
+                      </button>
+                    </form>
+                  </div>
                 </td>
               </tr>
             ))}
           </tbody>
         </table>
+
         {users.length === 0 && (
-          <div className="py-12 text-center text-gray-600 text-sm">No users yet.</div>
+          <div className="py-12 text-center">
+            <p className="text-gray-600 text-sm mb-3">No users yet.</p>
+            <a href="/admin/users/new" className="text-opc-orange text-sm font-semibold hover:underline">+ Add the first user</a>
+          </div>
         )}
       </div>
     </div>
