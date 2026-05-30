@@ -113,13 +113,13 @@ export function DashboardShell({ lang, user, children }: Props) {
               {isEs ? "Panel Admin" : "Admin Panel"}
             </Link>
           )}
-          <Link
+          <a
             href={`/${lang}/auth/signout`}
             className="flex items-center gap-2 px-3 py-2 rounded-lg text-xs text-gray-400 hover:text-gray-600 hover:bg-gray-50 transition-colors w-full"
           >
             <SignOutIcon />
             {isEs ? "Cerrar sesion" : "Sign out"}
-          </Link>
+          </a>
         </div>
       </aside>
 
