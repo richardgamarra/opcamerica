@@ -1,4 +1,4 @@
-import { getUsers, toggleUserStatus, toggleUserPlan, resetUserPassword } from "../../../users/actions";
+import { getUsers, toggleUserStatus, toggleUserPlan, toggleUserRole, resetUserPassword } from "../../../users/actions";
 import { notFound } from "next/navigation";
 
 export default async function EditUserPage({ params }: { params: { id: string } }) {
@@ -13,7 +13,9 @@ export default async function EditUserPage({ params }: { params: { id: string } 
   async function handleResetPassword(formData: FormData) {
     "use server";
     const pw = formData.get("newPassword") as string;
-    if (pw && pw.length >= 8) await resetUserPassword(user!.id, pw);
+    if (pw && pw.length >= 8) {
+      await resetUserPassword(user!.id, pw);
+    }
   }
 
   return (
@@ -30,7 +32,7 @@ export default async function EditUserPage({ params }: { params: { id: string } 
           <div>
             <p className="font-semibold text-white">{user.name}</p>
             <p className="text-sm text-gray-500">{user.email}</p>
-            <p className="text-xs text-gray-600 mt-0.5">Joined {joined} · {user.country || "—"}</p>
+            <p className="text-xs text-gray-600 mt-0.5">Joined {joined}{user.country ? ` · ${user.country}` : ""}</p>
           </div>
         </div>
 
@@ -42,6 +44,18 @@ export default async function EditUserPage({ params }: { params: { id: string } 
           <form action={toggleUserPlan.bind(null, user.id)}>
             <button type="submit" className={`text-xs font-bold px-4 py-1.5 rounded-lg transition-colors border ${user.plan === "elite" ? "bg-amber-500/20 text-amber-400 hover:bg-amber-500/30 border-amber-500/30" : "bg-gray-800 text-gray-400 hover:bg-gray-700 border-gray-700"}`}>
               {user.plan === "elite" ? "Revoke Elite" : "Grant Elite"}
+            </button>
+          </form>
+        </div>
+
+        <div className="flex items-center justify-between">
+          <div>
+            <p className="text-sm font-semibold text-white">Role</p>
+            <p className="text-xs text-gray-500 mt-0.5">{user.role === "admin" ? "Full admin panel access" : "Regular member"}</p>
+          </div>
+          <form action={toggleUserRole.bind(null, user.id)}>
+            <button type="submit" className={`text-xs font-bold px-4 py-1.5 rounded-lg transition-colors border ${user.role === "admin" ? "bg-violet-500/20 text-violet-400 hover:bg-violet-500/30 border-violet-500/30" : "bg-gray-800 text-gray-400 hover:bg-gray-700 border-gray-700"}`}>
+              {user.role === "admin" ? "Revoke Admin" : "Grant Admin"}
             </button>
           </form>
         </div>
