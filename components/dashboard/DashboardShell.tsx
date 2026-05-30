@@ -1,9 +1,10 @@
 "use client";
 
 import Link from "next/link";
-import { usePathname } from "next/navigation";
+import { usePathname, useRouter } from "next/navigation";
 import type { Lang } from "@/lib/i18n";
 import type { SessionUser } from "@/lib/auth";
+import { useTheme } from "@/components/ThemeProvider";
 
 interface Props {
   lang: Lang;
@@ -26,7 +27,15 @@ const NAV_ITEMS = [
 
 export function DashboardShell({ lang, user, children }: Props) {
   const pathname = usePathname();
+  const router = useRouter();
   const isEs = lang === "es";
+  const { theme, toggle } = useTheme();
+  const otherLang = lang === "en" ? "es" : "en";
+
+  function switchLang() {
+    document.cookie = `lang=${otherLang};path=/;max-age=31536000`;
+    router.push(`/${otherLang}/dashboard/overview`);
+  }
 
   const initials = user.name
     .split(" ")
@@ -131,7 +140,7 @@ export function DashboardShell({ lang, user, children }: Props) {
             <span>/</span>
             <span className="font-semibold text-white/70">LaunchPad</span>
           </div>
-          <div className="flex items-center gap-5 text-xs">
+          <div className="flex items-center gap-4 text-xs">
             <Link href={`/${lang}/`} className="text-white/40 hover:text-white/70 transition-colors">
               {isEs ? "Inicio" : "Home"}
             </Link>
@@ -147,6 +156,31 @@ export function DashboardShell({ lang, user, children }: Props) {
             <Link href={`/${lang}/marketplace`} className="text-white/40 hover:text-white/70 transition-colors hidden xl:block">
               Marketplace
             </Link>
+            <div className="flex items-center gap-2 ml-2 pl-2 border-l" style={{ borderColor: "rgba(255,255,255,0.08)" }}>
+              <button
+                onClick={toggle}
+                aria-label="Toggle theme"
+                className="w-7 h-7 flex items-center justify-center rounded-full border border-white/15 text-white/40 hover:text-white hover:border-white/30 transition-colors"
+              >
+                {theme === "dark" ? (
+                  <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                    <circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/>
+                    <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/>
+                    <line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/>
+                  </svg>
+                ) : (
+                  <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                    <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/>
+                  </svg>
+                )}
+              </button>
+              <button
+                onClick={switchLang}
+                className="border border-white/15 text-white/40 hover:text-white hover:border-white/30 px-2.5 py-1 rounded-full transition-colors"
+              >
+                {lang === "en" ? "EN | ES" : "ES | EN"}
+              </button>
+            </div>
           </div>
         </header>
 
