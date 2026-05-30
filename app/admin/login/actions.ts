@@ -3,14 +3,14 @@
 import { cookies } from "next/headers";
 import { redirect } from "next/navigation";
 
-const ADMIN_USER = "admin";
+const ADMIN_USERS = ["admin", "admin@opcamerica.com"];
 const ADMIN_PASS = "OPCAmerica2026!";
 
 export async function adminLogin(formData: FormData) {
-  const username = formData.get("username") as string;
+  const username = (formData.get("username") as string).trim().toLowerCase();
   const password = formData.get("password") as string;
 
-  if (username === ADMIN_USER && password === ADMIN_PASS) {
+  if (ADMIN_USERS.includes(username) && password === ADMIN_PASS) {
     cookies().set("opc_admin", "1", {
       httpOnly: true,
       secure: process.env.NODE_ENV === "production",
