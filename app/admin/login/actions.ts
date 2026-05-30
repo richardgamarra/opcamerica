@@ -26,5 +26,5 @@ export async function adminLogin(formData: FormData) {
 
 export async function adminLogout() {
   cookies().delete("opc_admin");
-  redirect("/admin/login");
+  redirect("/en");
 }
