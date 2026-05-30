@@ -1,3 +1,4 @@
+import Link from "next/link";
 import { cookies } from "next/headers";
 import { redirect } from "next/navigation";
 import { adminLogout } from "../login/actions";
@@ -17,7 +18,7 @@ export default async function AdminProtectedLayout({ children }: { children: Rea
       {/* Top bar */}
       <header className="h-12 bg-gray-900 border-b border-gray-800 flex items-center justify-between px-6">
         <div className="flex items-center gap-3">
-          <span className="text-opc-orange font-black text-sm">OPC</span>
+          <Link href="/en" className="text-opc-orange font-black text-sm hover:text-opc-orange/80 transition-colors">OPC</Link>
           <span className="text-gray-600 text-sm">/</span>
           <span className="text-gray-300 text-sm font-semibold">Admin</span>
         </div>
@@ -54,6 +55,11 @@ export default async function AdminProtectedLayout({ children }: { children: Rea
               </a>
             ))}
           </nav>
+          <div className="mt-auto px-3 pb-2 pt-4 border-t border-gray-800 mx-3">
+            <Link href="/en" className="flex items-center gap-2 text-xs text-gray-500 hover:text-gray-300 transition-colors py-1">
+              <span>←</span> Go to site
+            </Link>
+          </div>
         </aside>
 
         {/* Content */}
