@@ -97,6 +97,12 @@ export default async function SignInPage({
             {isEs ? "Registrate gratis" : "Sign up free"}
           </Link>
         </p>
+
+        <p className="text-center mt-4">
+          <a href="/admin/login" className="text-xs text-gray-300 hover:text-gray-500 transition-colors">
+            Admin panel
+          </a>
+        </p>
       </div>
     </div>
   );

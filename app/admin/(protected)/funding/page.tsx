@@ -1,14 +1,16 @@
-import { getFundingPrograms, deleteFundingProgram, toggleFundingActive } from "../../funding/actions";
+import { getFundingPrograms, deleteFundingProgram, toggleFundingActive, approveFunding, rejectFunding } from "../../funding/actions";
 
 export default async function AdminFundingPage() {
   const programs = await getFundingPrograms();
+  const pending = programs.filter((p) => !p.is_active && p.submitter_name);
+  const active = programs.filter((p) => p.is_active);
 
   return (
     <div>
       <div className="flex items-center justify-between mb-6">
         <div>
           <h1 className="text-xl font-bold text-white">Funding Programs</h1>
-          <p className="text-sm text-gray-500 mt-0.5">{programs.length} total</p>
+          <p className="text-sm text-gray-500 mt-0.5">{active.length} active{pending.length > 0 && <span className="ml-2 text-amber-400">· {pending.length} pending review</span>}</p>
         </div>
         <a
           href="/admin/funding/new"
@@ -17,6 +19,32 @@ export default async function AdminFundingPage() {
           + Add program
         </a>
       </div>
+
+      {pending.length > 0 && (
+        <div className="bg-amber-500/5 border border-amber-500/20 rounded-xl overflow-hidden mb-6">
+          <div className="px-5 py-3 border-b border-amber-500/20">
+            <p className="text-xs font-semibold text-amber-400 uppercase tracking-wider">Pending review ({pending.length})</p>
+          </div>
+          <table className="w-full text-sm">
+            <tbody>
+              {pending.map((p) => (
+                <tr key={p.id} className="border-b border-amber-500/10 last:border-0">
+                  <td className="px-5 py-3 text-white font-medium">{p.name}</td>
+                  <td className="px-4 py-3 text-gray-400">{p.type}</td>
+                  <td className="px-4 py-3 text-gray-400">{p.country}</td>
+                  <td className="px-4 py-3 text-gray-500 text-xs">by {p.submitter_name}</td>
+                  <td className="px-4 py-3">
+                    <div className="flex items-center gap-2 justify-end">
+                      <form action={approveFunding.bind(null, p.id)}><button type="submit" className="text-xs text-emerald-500 hover:text-emerald-300 transition-colors font-semibold">Approve</button></form>
+                      <form action={rejectFunding.bind(null, p.id)}><button type="submit" className="text-xs text-red-500 hover:text-red-300 transition-colors">Reject</button></form>
+                    </div>
+                  </td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        </div>
+      )}
 
       <div className="bg-gray-900 border border-gray-800 rounded-xl overflow-hidden">
         <table className="w-full text-sm">

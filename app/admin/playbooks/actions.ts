@@ -14,11 +14,26 @@ export type AdminPlaybook = {
   is_elite: boolean;
   is_active: boolean;
   created_at: string;
+  submitter_name?: string;
 };
 
 export async function getPlaybooks(): Promise<AdminPlaybook[]> {
-  const result = await pool.query("SELECT * FROM playbooks ORDER BY created_at DESC");
+  const result = await pool.query(
+    "SELECT pb.*, u.name as submitter_name FROM playbooks pb LEFT JOIN users u ON pb.submitted_by = u.id ORDER BY pb.is_active DESC, pb.created_at DESC"
+  );
   return result.rows;
+}
+
+export async function approvePlaybook(id: string) {
+  await pool.query("UPDATE playbooks SET is_active = true, submitted_by = NULL WHERE id = $1", [id]);
+  revalidatePath("/admin/playbooks");
+  revalidatePath("/en/dashboard/playbooks");
+  revalidatePath("/es/dashboard/playbooks");
+}
+
+export async function rejectPlaybook(id: string) {
+  await pool.query("DELETE FROM playbooks WHERE id = $1", [id]);
+  revalidatePath("/admin/playbooks");
 }
 
 export async function createPlaybook(formData: FormData) {

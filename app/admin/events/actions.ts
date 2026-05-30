@@ -18,13 +18,26 @@ export type AdminEvent = {
   is_active: boolean;
   url: string;
   created_at: string;
+  submitter_name?: string;
 };
 
 export async function getEvents(): Promise<AdminEvent[]> {
   const result = await pool.query(
-    "SELECT * FROM events ORDER BY event_date ASC"
+    "SELECT e.*, u.name as submitter_name FROM events e LEFT JOIN users u ON e.submitted_by = u.id ORDER BY e.is_active DESC, e.event_date ASC"
   );
   return result.rows;
+}
+
+export async function approveEvent(id: string) {
+  await pool.query("UPDATE events SET is_active = true, submitted_by = NULL WHERE id = $1", [id]);
+  revalidatePath("/admin/events");
+  revalidatePath("/en/dashboard/events");
+  revalidatePath("/es/dashboard/events");
+}
+
+export async function rejectEvent(id: string) {
+  await pool.query("DELETE FROM events WHERE id = $1", [id]);
+  revalidatePath("/admin/events");
 }
 
 export async function createEvent(formData: FormData) {

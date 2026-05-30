@@ -15,13 +15,26 @@ export type AdminFunding = {
   url: string;
   is_active: boolean;
   created_at: string;
+  submitter_name?: string;
 };
 
 export async function getFundingPrograms(): Promise<AdminFunding[]> {
   const result = await pool.query(
-    "SELECT * FROM funding_programs ORDER BY created_at DESC"
+    "SELECT fp.*, u.name as submitter_name FROM funding_programs fp LEFT JOIN users u ON fp.submitted_by = u.id ORDER BY fp.is_active DESC, fp.created_at DESC"
   );
   return result.rows;
+}
+
+export async function approveFunding(id: string) {
+  await pool.query("UPDATE funding_programs SET is_active = true, submitted_by = NULL WHERE id = $1", [id]);
+  revalidatePath("/admin/funding");
+  revalidatePath("/en/dashboard/funding");
+  revalidatePath("/es/dashboard/funding");
+}
+
+export async function rejectFunding(id: string) {
+  await pool.query("DELETE FROM funding_programs WHERE id = $1", [id]);
+  revalidatePath("/admin/funding");
 }
 
 export async function createFundingProgram(formData: FormData) {

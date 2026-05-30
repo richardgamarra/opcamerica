@@ -1,7 +1,9 @@
 import { EliteBanner } from "@/components/dashboard/EliteBanner";
+import { ModerationNotice } from "@/components/dashboard/ModerationNotice";
 import type { Lang } from "@/lib/i18n";
 import pool from "@/lib/db";
 import { getSession } from "@/lib/auth";
+import { getSectionSettings } from "@/lib/settings";
 import { submitLaunch } from "./actions";
 
 async function getUserLaunches(userId: string) {
@@ -22,7 +24,18 @@ export default async function LaunchesPage({ params }: { params: Promise<{ lang:
   const { lang } = (await params) as { lang: Lang };
   const isEs = lang === "es";
   const session = await getSession();
-  const launches = session ? await getUserLaunches(session.id) : [];
+  const [launches, { canView, canPost }] = await Promise.all([
+    session ? getUserLaunches(session.id) : Promise.resolve([]),
+    getSectionSettings("launches"),
+  ]);
+
+  if (!canView) {
+    return (
+      <div className="flex items-center justify-center py-24 text-gray-400 text-sm">
+        {isEs ? "Esta seccion no esta disponible actualmente." : "This section is not available right now."}
+      </div>
+    );
+  }
 
   return (
     <div>
@@ -38,7 +51,7 @@ export default async function LaunchesPage({ params }: { params: Promise<{ lang:
       </p>
 
       {/* Submit form */}
-      <div className="bg-white border border-gray-100 rounded-xl p-5 mb-6">
+      {canPost && <div className="bg-white border border-gray-100 rounded-xl p-5 mb-6">
         <p className="text-sm font-semibold text-gray-800 mb-4">
           {isEs ? "Lanzar un producto" : "Launch a product"}
         </p>
@@ -63,8 +76,9 @@ export default async function LaunchesPage({ params }: { params: Promise<{ lang:
           <button type="submit" className="bg-opc-orange hover:bg-opc-orange/90 text-white font-bold text-sm px-5 py-2.5 rounded-lg transition-colors">
             {isEs ? "Enviar para revision" : "Submit for review"}
           </button>
+          <ModerationNotice isEs={isEs} />
         </form>
-      </div>
+      </div>}
 
       {/* My launches */}
       {launches.length > 0 && (

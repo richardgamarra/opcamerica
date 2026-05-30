@@ -1,14 +1,16 @@
-import { getEvents, deleteEvent, toggleEventActive } from "../../events/actions";
+import { getEvents, deleteEvent, toggleEventActive, approveEvent, rejectEvent } from "../../events/actions";
 
 export default async function AdminEventsPage() {
   const events = await getEvents();
+  const pending = events.filter((e) => !e.is_active && e.submitter_name);
+  const active = events.filter((e) => e.is_active);
 
   return (
     <div>
       <div className="flex items-center justify-between mb-6">
         <div>
           <h1 className="text-xl font-bold text-white">Events</h1>
-          <p className="text-sm text-gray-500 mt-0.5">{events.length} total</p>
+          <p className="text-sm text-gray-500 mt-0.5">{active.length} active{pending.length > 0 && <span className="ml-2 text-amber-400">· {pending.length} pending review</span>}</p>
         </div>
         <a
           href="/admin/events/new"
@@ -17,6 +19,37 @@ export default async function AdminEventsPage() {
           + Add event
         </a>
       </div>
+
+      {/* Pending submissions */}
+      {pending.length > 0 && (
+        <div className="bg-amber-500/5 border border-amber-500/20 rounded-xl overflow-hidden mb-6">
+          <div className="px-5 py-3 border-b border-amber-500/20">
+            <p className="text-xs font-semibold text-amber-400 uppercase tracking-wider">Pending review ({pending.length})</p>
+          </div>
+          <table className="w-full text-sm">
+            <tbody>
+              {pending.map((ev) => (
+                <tr key={ev.id} className="border-b border-amber-500/10 last:border-0">
+                  <td className="px-5 py-3 text-white font-medium">{ev.title}</td>
+                  <td className="px-4 py-3 text-gray-400">{ev.type}</td>
+                  <td className="px-4 py-3 text-gray-400 text-xs">{new Date(ev.event_date).toLocaleDateString("en-US", { month: "short", day: "numeric", year: "numeric" })}</td>
+                  <td className="px-4 py-3 text-gray-500 text-xs">by {ev.submitter_name}</td>
+                  <td className="px-4 py-3">
+                    <div className="flex items-center gap-2 justify-end">
+                      <form action={approveEvent.bind(null, ev.id)}>
+                        <button type="submit" className="text-xs text-emerald-500 hover:text-emerald-300 transition-colors font-semibold">Approve</button>
+                      </form>
+                      <form action={rejectEvent.bind(null, ev.id)}>
+                        <button type="submit" className="text-xs text-red-500 hover:text-red-300 transition-colors">Reject</button>
+                      </form>
+                    </div>
+                  </td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        </div>
+      )}
 
       <div className="bg-gray-900 border border-gray-800 rounded-xl overflow-hidden">
         <table className="w-full text-sm">

@@ -15,11 +15,26 @@ export type AdminResource = {
   is_elite: boolean;
   is_active: boolean;
   created_at: string;
+  submitter_name?: string;
 };
 
 export async function getResources(): Promise<AdminResource[]> {
-  const result = await pool.query("SELECT * FROM resources ORDER BY created_at DESC");
+  const result = await pool.query(
+    "SELECT r.*, u.name as submitter_name FROM resources r LEFT JOIN users u ON r.submitted_by = u.id ORDER BY r.is_active DESC, r.created_at DESC"
+  );
   return result.rows;
+}
+
+export async function approveResource(id: string) {
+  await pool.query("UPDATE resources SET is_active = true, submitted_by = NULL WHERE id = $1", [id]);
+  revalidatePath("/admin/resources");
+  revalidatePath("/en/dashboard/resources");
+  revalidatePath("/es/dashboard/resources");
+}
+
+export async function rejectResource(id: string) {
+  await pool.query("DELETE FROM resources WHERE id = $1", [id]);
+  revalidatePath("/admin/resources");
 }
 
 export async function createResource(formData: FormData) {

@@ -1,14 +1,16 @@
-import { getPlaybooks, deletePlaybook, togglePlaybookActive } from "../../playbooks/actions";
+import { getPlaybooks, deletePlaybook, togglePlaybookActive, approvePlaybook, rejectPlaybook } from "../../playbooks/actions";
 
 export default async function AdminPlaybooksPage() {
   const playbooks = await getPlaybooks();
+  const pending = playbooks.filter((p) => !p.is_active && p.submitter_name);
+  const active = playbooks.filter((p) => p.is_active);
 
   return (
     <div>
       <div className="flex items-center justify-between mb-6">
         <div>
           <h1 className="text-xl font-bold text-white">Playbooks</h1>
-          <p className="text-sm text-gray-500 mt-0.5">{playbooks.length} total</p>
+          <p className="text-sm text-gray-500 mt-0.5">{active.length} active{pending.length > 0 && <span className="ml-2 text-amber-400">· {pending.length} pending review</span>}</p>
         </div>
         <a
           href="/admin/playbooks/new"
@@ -17,6 +19,30 @@ export default async function AdminPlaybooksPage() {
           + Add playbook
         </a>
       </div>
+
+      {pending.length > 0 && (
+        <div className="bg-amber-500/5 border border-amber-500/20 rounded-xl overflow-hidden mb-6">
+          <div className="px-5 py-3 border-b border-amber-500/20">
+            <p className="text-xs font-semibold text-amber-400 uppercase tracking-wider">Pending review ({pending.length})</p>
+          </div>
+          <table className="w-full text-sm">
+            <tbody>
+              {pending.map((pb) => (
+                <tr key={pb.id} className="border-b border-amber-500/10 last:border-0">
+                  <td className="px-5 py-3 text-white font-medium">{pb.icon} {pb.title}</td>
+                  <td className="px-4 py-3 text-gray-500 text-xs">by {pb.submitter_name}</td>
+                  <td className="px-4 py-3">
+                    <div className="flex items-center gap-2 justify-end">
+                      <form action={approvePlaybook.bind(null, pb.id)}><button type="submit" className="text-xs text-emerald-500 hover:text-emerald-300 transition-colors font-semibold">Approve</button></form>
+                      <form action={rejectPlaybook.bind(null, pb.id)}><button type="submit" className="text-xs text-red-500 hover:text-red-300 transition-colors">Reject</button></form>
+                    </div>
+                  </td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        </div>
+      )}
 
       <div className="bg-gray-900 border border-gray-800 rounded-xl overflow-hidden">
         <table className="w-full text-sm">
