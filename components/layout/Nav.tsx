@@ -104,13 +104,13 @@ export function Nav({ lang, t }: NavProps) {
             🌐 {t.langToggle}
           </button>
           <Link
-            href={`/${lang}/signin`}
+            href={`/${lang}/auth/signin`}
             className={`transition-colors ${isDark ? "text-white/70 hover:text-white" : "text-opc-dark/70 hover:text-opc-dark"}`}
           >
             {t.signIn}
           </Link>
           <Link
-            href={`/${lang}/join`}
+            href={`/${lang}/auth/signup`}
             className="bg-opc-orange text-white px-5 py-2 rounded-lg font-bold hover:bg-opc-orange/90 transition-colors"
           >
             {t.joinFree}
@@ -188,13 +188,13 @@ export function Nav({ lang, t }: NavProps) {
           ))}
           <div className="flex gap-3 mt-2">
             <Link
-              href={`/${lang}/signin`}
+              href={`/${lang}/auth/signin`}
               className={`font-sans text-sm ${isDark ? "text-white/60" : "text-opc-dark/60"}`}
             >
               {t.signIn}
             </Link>
             <Link
-              href={`/${lang}/join`}
+              href={`/${lang}/auth/signup`}
               className="bg-opc-orange text-white font-sans font-bold text-sm px-5 py-2 rounded-lg"
             >
               {t.joinFree}

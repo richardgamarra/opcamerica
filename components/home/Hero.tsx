@@ -111,7 +111,7 @@ export function Hero({ lang, t }: HeroProps) {
 
         <div className="flex flex-col sm:flex-row gap-3 md:gap-4 items-stretch sm:items-center mb-8 md:mb-10">
           <Link
-            href={`/${lang}/join`}
+            href={`/${lang}/auth/signup`}
             className="bg-opc-orange text-white px-6 md:px-8 py-4 rounded-lg font-sans font-bold text-sm md:text-base text-center shadow-[0_4px_28px_rgba(232,82,42,0.5)] hover:bg-opc-orange/90 transition-colors"
           >
             {t.ctaPrimary}
