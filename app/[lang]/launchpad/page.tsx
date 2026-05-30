@@ -165,31 +165,31 @@ export default async function LaunchPadPage({
           </div>
         </section>
 
-        {/* ── Live perks from DB — light section ── */}
+        {/* ── Live perks from DB ── */}
         {dbPerks.length > 0 && (
-          <section className="bg-opc-light py-20 px-5 md:px-12 border-b border-black/6">
+          <section className="bg-opc-dark py-20 px-5 md:px-12 border-b border-white/5">
             <div className="max-w-6xl mx-auto">
               <div className="mb-10">
                 <p className="font-sans text-[11px] font-bold tracking-[2px] text-opc-orange uppercase mb-1">{lp.perksEyebrow}</p>
-                <h2 className="font-serif text-2xl md:text-3xl font-black text-opc-dark">{lp.perksHeading}</h2>
+                <h2 className="font-serif text-2xl md:text-3xl font-black text-white">{lp.perksHeading}</h2>
               </div>
               <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4">
                 {dbPerks.map((perk) => (
-                  <div key={perk.id} className="bg-white border border-gray-200 rounded-2xl p-5 flex flex-col gap-3 hover:border-opc-orange/40 hover:shadow-md transition-all">
+                  <div key={perk.id} className="bg-white/5 border border-white/10 rounded-2xl p-5 flex flex-col gap-3 hover:border-opc-orange/40 transition-all">
                     <div className="flex items-center gap-3">
                       <span className="text-2xl">{perk.logo}</span>
                       <div className="min-w-0 flex-1">
-                        <p className="font-sans font-bold text-sm text-opc-dark truncate">{perk.brand}</p>
-                        <span className="font-sans text-[10px] font-semibold px-2 py-0.5 rounded-full bg-opc-dark/5 text-opc-dark/50">{perk.category}</span>
+                        <p className="font-sans font-bold text-sm text-white truncate">{perk.brand}</p>
+                        <span className="font-sans text-[10px] font-semibold px-2 py-0.5 rounded-full bg-white/8 text-white/50">{perk.category}</span>
                       </div>
                     </div>
-                    <p className="font-sans text-sm text-opc-dark/60 leading-relaxed flex-1">
+                    <p className="font-sans text-sm text-white/55 leading-relaxed flex-1">
                       {isEs && perk.offer_es ? perk.offer_es : perk.offer}
                     </p>
                     {perk.is_elite && (
-                      <span className="font-sans text-[10px] font-bold px-2.5 py-1 rounded-full bg-amber-500/10 text-amber-700 border border-amber-200 self-start">{lp.eliteOnly}</span>
+                      <span className="font-sans text-[10px] font-bold px-2.5 py-1 rounded-full bg-amber-500/15 text-amber-400 border border-amber-500/30 self-start">{lp.eliteOnly}</span>
                     )}
-                    <Link href={`/${lang}/auth/signup`} className="font-sans font-bold text-xs text-center py-2.5 rounded-xl bg-opc-dark/5 text-opc-dark hover:bg-opc-orange hover:text-white transition-colors">
+                    <Link href={`/${lang}/auth/signup`} className="font-sans font-bold text-xs text-center py-2.5 rounded-xl bg-white/8 text-white hover:bg-opc-orange transition-colors">
                       {lp.joinToClaim}
                     </Link>
                   </div>
@@ -220,17 +220,17 @@ export default async function LaunchPadPage({
           </div>
         </section>
 
-        {/* ── CTA — light section ── */}
-        <section className="bg-opc-light py-24 px-5 md:px-12">
+        {/* ── CTA ── */}
+        <section className="bg-opc-dark py-24 px-5 md:px-12">
           <div className="max-w-2xl mx-auto text-center">
             <p className="font-sans text-[11px] font-bold tracking-[2px] text-opc-orange uppercase mb-4">{lp.ctaEyebrow}</p>
-            <h2 className="font-serif text-3xl md:text-4xl font-black text-opc-dark mb-4 leading-tight">{lp.ctaHeading}</h2>
-            <p className="font-sans text-sm md:text-base text-opc-dark/50 mb-10 leading-relaxed">{lp.ctaSub}</p>
+            <h2 className="font-serif text-3xl md:text-4xl font-black text-white mb-4 leading-tight">{lp.ctaHeading}</h2>
+            <p className="font-sans text-sm md:text-base text-white/50 mb-10 leading-relaxed">{lp.ctaSub}</p>
             <div className="flex flex-col sm:flex-row gap-3 justify-center">
               <Link href={`/${lang}/auth/signup`} className="bg-opc-orange text-white font-sans font-bold text-sm px-8 py-4 rounded-xl hover:bg-opc-orange/90 transition-colors shadow-[0_4px_28px_rgba(232,82,42,0.35)]">
                 {lp.ctaPrimary}
               </Link>
-              <Link href={`/${lang}/auth/signin`} className="bg-opc-dark/6 text-opc-dark font-sans font-semibold text-sm px-8 py-4 rounded-xl border border-black/12 hover:border-opc-orange/40 transition-colors">
+              <Link href={`/${lang}/auth/signin`} className="bg-white/8 text-white font-sans font-semibold text-sm px-8 py-4 rounded-xl border border-white/15 hover:border-opc-orange/60 transition-colors">
                 {lp.ctaSecondary}
               </Link>
             </div>
