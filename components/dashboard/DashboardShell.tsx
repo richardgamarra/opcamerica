@@ -131,14 +131,21 @@ export function DashboardShell({ lang, user, children }: Props) {
             <span>/</span>
             <span className="font-semibold text-white/70">LaunchPad</span>
           </div>
-          <div className="flex items-center gap-4 text-sm">
-            <Link href={`/${lang}/`} className="text-white/40 hover:text-white/70 flex items-center gap-1.5 transition-colors">
-              <HomeIcon />
+          <div className="flex items-center gap-5 text-xs">
+            <Link href={`/${lang}/`} className="text-white/40 hover:text-white/70 transition-colors">
               {isEs ? "Inicio" : "Home"}
             </Link>
-            <Link href={`/${lang}/launchpad`} className="text-opc-orange hover:text-opc-orange/80 flex items-center gap-1.5 font-semibold transition-colors">
-              <RocketSmIcon />
+            <Link href={`/${lang}/launchpad`} className="text-opc-orange hover:text-opc-orange/80 font-semibold transition-colors">
               LaunchPad
+            </Link>
+            <Link href={`/${lang}/tutorials`} className="text-white/40 hover:text-white/70 transition-colors hidden lg:block">
+              {isEs ? "Tutoriales" : "Tutorials"}
+            </Link>
+            <Link href={`/${lang}/ai-tools`} className="text-white/40 hover:text-white/70 transition-colors hidden lg:block">
+              {isEs ? "Herramientas IA" : "AI Tools"}
+            </Link>
+            <Link href={`/${lang}/marketplace`} className="text-white/40 hover:text-white/70 transition-colors hidden xl:block">
+              Marketplace
             </Link>
           </div>
         </header>
