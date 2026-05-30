@@ -1,4 +1,4 @@
-import { getUsers, toggleUserStatus, toggleUserPlan, deleteUser } from "../../users/actions";
+import { getUsers, toggleUserStatus, toggleUserPlan, toggleUserRole, deleteUser } from "../../users/actions";
 
 export default async function AdminUsersPage() {
   const users = await getUsers();
@@ -41,6 +41,7 @@ export default async function AdminUsersPage() {
               <th className="text-left px-5 py-3 text-xs font-semibold text-gray-500">Email</th>
               <th className="text-left px-4 py-3 text-xs font-semibold text-gray-500">Country</th>
               <th className="text-left px-4 py-3 text-xs font-semibold text-gray-500">Plan</th>
+              <th className="text-left px-4 py-3 text-xs font-semibold text-gray-500">Role</th>
               <th className="text-left px-4 py-3 text-xs font-semibold text-gray-500">Status</th>
               <th className="text-left px-4 py-3 text-xs font-semibold text-gray-500">Joined</th>
               <th className="px-4 py-3 text-xs font-semibold text-gray-500 text-right">Actions</th>
@@ -56,6 +57,13 @@ export default async function AdminUsersPage() {
                   <form action={toggleUserPlan.bind(null, user.id)}>
                     <button type="submit" className={`text-[10px] font-bold px-2 py-0.5 rounded cursor-pointer transition-colors ${user.plan === "elite" ? "bg-amber-500/20 text-amber-400 hover:bg-amber-500/30" : "bg-gray-700 text-gray-400 hover:bg-gray-600"}`}>
                       {user.plan === "elite" ? "Elite" : "Free"}
+                    </button>
+                  </form>
+                </td>
+                <td className="px-4 py-3">
+                  <form action={toggleUserRole.bind(null, user.id)}>
+                    <button type="submit" className={`text-[10px] font-bold px-2 py-0.5 rounded cursor-pointer transition-colors ${user.role === "admin" ? "bg-violet-500/20 text-violet-400 hover:bg-violet-500/30" : "bg-gray-700 text-gray-400 hover:bg-gray-600"}`}>
+                      {user.role === "admin" ? "Admin" : "Member"}
                     </button>
                   </form>
                 </td>

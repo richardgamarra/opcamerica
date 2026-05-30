@@ -10,6 +10,7 @@ export type SessionUser = {
   country: string;
   plan: "free" | "elite";
   status: "active" | "disabled";
+  role: "member" | "admin";
 };
 
 const SESSION_COOKIE = "opc_session";
@@ -48,7 +49,7 @@ export async function getSession(): Promise<SessionUser | null> {
   if (!token) return null;
 
   const result = await pool.query(
-    `SELECT u.id, u.name, u.email, u.country, u.plan, u.status
+    `SELECT u.id, u.name, u.email, u.country, u.plan, u.status, u.role
      FROM sessions s
      JOIN users u ON u.id = s.user_id
      WHERE s.token = $1 AND s.expires_at > NOW()`,

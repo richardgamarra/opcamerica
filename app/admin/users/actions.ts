@@ -12,14 +12,23 @@ export type AdminUser = {
   country: string;
   plan: "free" | "elite";
   status: "active" | "disabled";
+  role: "member" | "admin";
   created_at: string;
 };
 
 export async function getUsers(): Promise<AdminUser[]> {
   const result = await pool.query(
-    "SELECT id, name, email, country, plan, status, created_at FROM users ORDER BY created_at DESC"
+    "SELECT id, name, email, country, plan, status, role, created_at FROM users ORDER BY created_at DESC"
   );
   return result.rows;
+}
+
+export async function toggleUserRole(id: string) {
+  await pool.query(
+    "UPDATE users SET role = CASE WHEN role = 'admin' THEN 'member' ELSE 'admin' END WHERE id = $1",
+    [id]
+  );
+  revalidatePath("/admin/users");
 }
 
 export async function toggleUserStatus(id: string) {

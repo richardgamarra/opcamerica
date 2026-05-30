@@ -1,9 +1,12 @@
 import { cookies } from "next/headers";
 import { redirect } from "next/navigation";
 import { adminLogout } from "../login/actions";
+import { getSession } from "@/lib/auth";
 
-export default function AdminProtectedLayout({ children }: { children: React.ReactNode }) {
-  const isAuthed = cookies().get("opc_admin")?.value === "1";
+export default async function AdminProtectedLayout({ children }: { children: React.ReactNode }) {
+  const isAdminCookie = cookies().get("opc_admin")?.value === "1";
+  const session = isAdminCookie ? null : await getSession();
+  const isAuthed = isAdminCookie || session?.role === "admin";
 
   if (!isAuthed) {
     redirect("/admin/login");
@@ -31,6 +34,7 @@ export default function AdminProtectedLayout({ children }: { children: React.Rea
           <nav className="space-y-0.5 px-3">
             {[
               { label: "Users", href: "/admin/users", icon: "👥" },
+              { label: "Daily Pulse", href: "/admin/daily-pulse", icon: "📡" },
               { label: "Events", href: "/admin/events", icon: "📅" },
               { label: "Funding", href: "/admin/funding", icon: "💰" },
               { label: "Launches", href: "/admin/launches", icon: "🚀" },
